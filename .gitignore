@@ -230,6 +230,9 @@ UpgradeLog*.htm
 # Excel files
 *.xlsm
 
+# Exe files
+*.exe
+
 # SQL Server files
 *.mdf
 *.ldf
