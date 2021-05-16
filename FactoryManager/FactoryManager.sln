@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FactoryManager", "FactoryManager.csproj", "{67648C66-7584-467C-9888-D0C8AD2F2A03}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "FactoryManager v.1.0.0", "..\AppSetup\AppSetup.vdproj", "{0B1ADB04-F3B5-4E1B-B391-F04140AA9A6F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
