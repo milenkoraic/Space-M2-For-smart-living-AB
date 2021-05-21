@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace FactoryManager.View.AppDialog
 {
-    public partial class NotificationDialog : Form
+    public partial class NotificationDialog : DevExpress.XtraEditors.XtraForm
     {
         static NotificationDialog newNotificationBox;
         static string Button_id;
@@ -11,8 +11,6 @@ namespace FactoryManager.View.AppDialog
         public NotificationDialog()
         {
             InitializeComponent();
-            this.Bounds = Screen.FromHandle(this.Handle).WorkingArea;
-            this.bunifuElipse1.ApplyElipse(GridPanel, 7);
         }
 
         public static string ShowBox(string txtMessage, string txtTitle)
@@ -21,13 +19,13 @@ namespace FactoryManager.View.AppDialog
             {
                 TopLevel = true,
             };
-            newNotificationBox.lblTitle.Text = txtTitle;
-            newNotificationBox.lblMessage.Text = txtMessage;
+            newNotificationBox.Title.Text = txtTitle;
+            newNotificationBox.Message.Text = txtMessage;
             newNotificationBox.ShowDialog();
             return Button_id;
         }
 
-        private void OKButton_Click(object sender, EventArgs e)
+        private void OK_Click(object sender, EventArgs e)
         {
             Button_id = "1";
             newNotificationBox.Close();

@@ -33,20 +33,19 @@
             this.FormDisplayTimer = new System.Windows.Forms.Timer(this.components);
             this.GridPanel = new System.Windows.Forms.Panel();
             this.CenterPanel = new System.Windows.Forms.Panel();
-            this.LogoSpinner = new System.Windows.Forms.PictureBox();
             this.lmPanel = new System.Windows.Forms.Panel();
             this.rmPanel = new System.Windows.Forms.Panel();
             this.BottomPanel = new System.Windows.Forms.Panel();
-            this.MessageLabel = new System.Windows.Forms.Label();
-            this.TitleLabel = new System.Windows.Forms.Label();
+            this.progressPanel1 = new DevExpress.XtraWaitForm.ProgressPanel();
             this.TopPanel = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.LogoSpinner = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.GridPanel.SuspendLayout();
             this.CenterPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LogoSpinner)).BeginInit();
             this.BottomPanel.SuspendLayout();
             this.TopPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoSpinner)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,16 +79,6 @@
             this.CenterPanel.Size = new System.Drawing.Size(480, 229);
             this.CenterPanel.TabIndex = 106;
             // 
-            // LogoSpinner
-            // 
-            this.LogoSpinner.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.LogoSpinner.Image = global::FactoryManager.Properties.Resources.loading_screen_spinner;
-            this.LogoSpinner.Location = new System.Drawing.Point(140, 14);
-            this.LogoSpinner.Name = "LogoSpinner";
-            this.LogoSpinner.Size = new System.Drawing.Size(200, 200);
-            this.LogoSpinner.TabIndex = 111;
-            this.LogoSpinner.TabStop = false;
-            // 
             // lmPanel
             // 
             this.lmPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(50)))), ((int)(((byte)(49)))));
@@ -110,41 +99,42 @@
             // 
             // BottomPanel
             // 
-            this.BottomPanel.Controls.Add(this.MessageLabel);
-            this.BottomPanel.Controls.Add(this.TitleLabel);
+            this.BottomPanel.Controls.Add(this.progressPanel1);
             this.BottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BottomPanel.Location = new System.Drawing.Point(10, 347);
             this.BottomPanel.Name = "BottomPanel";
             this.BottomPanel.Size = new System.Drawing.Size(480, 93);
             this.BottomPanel.TabIndex = 105;
             // 
-            // MessageLabel
+            // progressPanel1
             // 
-            this.MessageLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(50)))), ((int)(((byte)(49)))));
-            this.MessageLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MessageLabel.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.MessageLabel.ForeColor = System.Drawing.Color.GreenYellow;
-            this.MessageLabel.Location = new System.Drawing.Point(0, 32);
-            this.MessageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.MessageLabel.Name = "MessageLabel";
-            this.MessageLabel.Size = new System.Drawing.Size(480, 61);
-            this.MessageLabel.TabIndex = 111;
-            this.MessageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // TitleLabel
-            // 
-            this.TitleLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(50)))), ((int)(((byte)(49)))));
-            this.TitleLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TitleLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TitleLabel.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.TitleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(170)))), ((int)(((byte)(72)))));
-            this.TitleLabel.Location = new System.Drawing.Point(0, 0);
-            this.TitleLabel.Margin = new System.Windows.Forms.Padding(0);
-            this.TitleLabel.Name = "TitleLabel";
-            this.TitleLabel.Size = new System.Drawing.Size(480, 32);
-            this.TitleLabel.TabIndex = 110;
-            this.TitleLabel.Text = "LOADING";
-            this.TitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.progressPanel1.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.progressPanel1.Appearance.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.progressPanel1.Appearance.ForeColor = System.Drawing.Color.White;
+            this.progressPanel1.Appearance.Options.UseBackColor = true;
+            this.progressPanel1.Appearance.Options.UseFont = true;
+            this.progressPanel1.Appearance.Options.UseForeColor = true;
+            this.progressPanel1.AppearanceCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.progressPanel1.AppearanceCaption.ForeColor = System.Drawing.Color.White;
+            this.progressPanel1.AppearanceCaption.Options.UseBackColor = true;
+            this.progressPanel1.AppearanceCaption.Options.UseFont = true;
+            this.progressPanel1.AppearanceCaption.Options.UseForeColor = true;
+            this.progressPanel1.AppearanceDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.progressPanel1.AppearanceDescription.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
+            this.progressPanel1.AppearanceDescription.Options.UseBackColor = true;
+            this.progressPanel1.AppearanceDescription.Options.UseFont = true;
+            this.progressPanel1.AppearanceDescription.Options.UseForeColor = true;
+            this.progressPanel1.ContentAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.progressPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.progressPanel1.ImageHorzOffset = 20;
+            this.progressPanel1.LineAnimationElementHeight = 8;
+            this.progressPanel1.Location = new System.Drawing.Point(0, 0);
+            this.progressPanel1.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.progressPanel1.Name = "progressPanel1";
+            this.progressPanel1.RingAnimationDiameter = 10;
+            this.progressPanel1.Size = new System.Drawing.Size(480, 93);
+            this.progressPanel1.TabIndex = 112;
+            this.progressPanel1.WaitAnimationType = DevExpress.Utils.Animation.WaitingAnimatorType.Line;
             // 
             // TopPanel
             // 
@@ -154,6 +144,21 @@
             this.TopPanel.Name = "TopPanel";
             this.TopPanel.Size = new System.Drawing.Size(480, 93);
             this.TopPanel.TabIndex = 103;
+            // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 5;
+            this.bunifuElipse1.TargetControl = this;
+            // 
+            // LogoSpinner
+            // 
+            this.LogoSpinner.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LogoSpinner.Image = global::FactoryManager.Properties.Resources.Double_Ring_1_1s_150px;
+            this.LogoSpinner.Location = new System.Drawing.Point(165, 39);
+            this.LogoSpinner.Name = "LogoSpinner";
+            this.LogoSpinner.Size = new System.Drawing.Size(150, 150);
+            this.LogoSpinner.TabIndex = 111;
+            this.LogoSpinner.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -167,37 +172,29 @@
             this.pictureBox1.TabIndex = 109;
             this.pictureBox1.TabStop = false;
             // 
-            // bunifuElipse1
-            // 
-            this.bunifuElipse1.ElipseRadius = 5;
-            this.bunifuElipse1.TargetControl = this;
-            // 
             // LoadingScreen
             // 
+            this.ActiveGlowColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(170)))), ((int)(((byte)(72)))));
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(170)))), ((int)(((byte)(72)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1150, 680);
-            this.ControlBox = false;
             this.Controls.Add(this.GridPanel);
             this.DoubleBuffered = true;
-            this.ForeColor = System.Drawing.Color.Black;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.ForeColor = System.Drawing.Color.White;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.InactiveGlowColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(170)))), ((int)(((byte)(72)))));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "LoadingScreen";
-            this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.TopMost = true;
-            this.Load += new System.EventHandler(this.SplashLoader_Load);
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.GridPanel.ResumeLayout(false);
             this.CenterPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.LogoSpinner)).EndInit();
             this.BottomPanel.ResumeLayout(false);
             this.TopPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.LogoSpinner)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -211,10 +208,9 @@
         private System.Windows.Forms.Panel lmPanel;
         private System.Windows.Forms.Panel rmPanel;
         private System.Windows.Forms.Panel BottomPanel;
-        private System.Windows.Forms.Label MessageLabel;
-        private System.Windows.Forms.Label TitleLabel;
         private System.Windows.Forms.Panel TopPanel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        private DevExpress.XtraWaitForm.ProgressPanel progressPanel1;
     }
 }

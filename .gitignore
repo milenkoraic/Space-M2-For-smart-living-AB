@@ -225,6 +225,7 @@ UpgradeLog*.htm
 
 # Access database files
 *.accdb
+*.laccdb
 *.mdb
 
 # Excel files

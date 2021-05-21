@@ -1,57 +1,34 @@
-﻿using System;
+﻿using DevExpress.XtraWaitForm;
+using System;
 using System.Windows.Forms;
 
 namespace FactoryManager.View.AppDialog
 {
-    public partial class LoadingScreen : Form
+    public partial class LoadingScreen : WaitForm
     {
-        static LoadingScreen splashLoader;
-        public Timer ShutdownTimer;
-
-        int disposeFormTimer;
-
         public LoadingScreen()
         {
             InitializeComponent();
-            this.Bounds = Screen.FromHandle(this.Handle).WorkingArea;
             bunifuElipse1.ApplyElipse(GridPanel, 7);
         }
-
-        private void SplashLoader_Load(object sender, EventArgs e)
+        public override void SetCaption(string caption)
         {
-            disposeFormTimer = 3;
-            ShutdownTimer = new Timer
-            {
-                Interval = 1000,
-                Enabled = true
-            };
-            ShutdownTimer.Start();
-            ShutdownTimer.Tick += new EventHandler(this.Timer_tick);
+            base.SetCaption(caption);
+            this.progressPanel1.Caption = caption;
+        }
+        public override void SetDescription(string description)
+        {
+            base.SetDescription(description);
+            this.progressPanel1.Description = description;
+        }
+        public override void ProcessCommand(Enum cmd, object arg)
+        {
+            base.ProcessCommand(cmd, arg);
         }
 
-
-        public static Form ShowLoadingScreen(string txtTitle, string txtMessage)
+        public enum WaitFormCommand
         {
-            splashLoader = new LoadingScreen
-            {
-                TopLevel = true,
-            };
-            splashLoader.TitleLabel.Text = txtTitle;
-            splashLoader.MessageLabel.Text = txtMessage;
-            splashLoader.ShowDialog();
-            return splashLoader;
-        }
 
-        private void Timer_tick(object sender, EventArgs e)
-        {
-            disposeFormTimer--;
-
-            if (disposeFormTimer == 0)
-            {
-                splashLoader.ShutdownTimer.Stop();
-                splashLoader.ShutdownTimer.Dispose();
-                splashLoader.Close();
-            }
         }
     }
 }

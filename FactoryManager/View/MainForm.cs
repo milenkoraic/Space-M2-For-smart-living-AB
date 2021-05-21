@@ -1,17 +1,18 @@
-﻿using FactoryManager.AppData.Services.Login;
+﻿using DevExpress.XtraSplashScreen;
 using FactoryManager.AppService.ApplicationLogger;
 using FactoryManager.AppService.ConfigurationReader;
 using FactoryManager.AppService.DateTimeCounting;
 using FactoryManager.AppService.FormInitialization;
+using FactoryManager.BLL;
 using FactoryManager.View.AppDialog;
-using FactoryManager.ViewModel.LoginForm;
 using FactoryManager.ViewService.DialogProvider;
 using System;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace FactoryManager.View
 {
-    public partial class MainForm : Form
+    public partial class MainForm : DevExpress.XtraEditors.XtraForm
     {
         private readonly ILogHelper _logHelper;
         private static log4net.ILog _loggerLog;
@@ -23,12 +24,10 @@ namespace FactoryManager.View
 
         public static Form MainFormPublic;
         public static ComboBox FormList;
-        public static Label SectionIndicator;
         public static Panel DockingPanel;
+        public static Label SectionIndicator;
 
-        public static string b = "";
-
-        public MainForm()
+        public MainForm(UserModel user)
         {          
             _logHelper = (ILogHelper)Program.ServiceProvider.GetService(typeof(ILogHelper));
             _loggerLog = _logHelper.GetLogger();
@@ -44,28 +43,40 @@ namespace FactoryManager.View
             FormList = cboAppForms;
             DockingPanel = MainPanel;
             SectionIndicator = LabelIndicator;
-        }
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            Bounds = Screen.FromHandle(this.Handle).WorkingArea;
-            _formInitializeHelper.RegisterAllForms();
-            DisplayHomePage();
-            UserViewModel user = LoginService.GetLogedInUser(b.ToString());
-            LabelUserInfo.Text = user.FirstName + " " + user.LastName;
-            UserRoleLabel.Text = user.RoleName.ToUpper();
-        }
-
-        public static void ab(string a)
-        {
-            b = a.ToString();
+            LabelUserName.Text = user.FirstName + " " + user.LastName;
+            LabelUserRole.Text = user.RoleName;
         }
 
         private void DisplayHomePage()
         {
-            LabelIndicator.Text = "HEMSIDA";
-            cboAppForms.SelectedIndex = cboAppForms.FindStringExact("Home");
-            _formInitializeHelper.OpenDockingForm(this);
+            //LabelIndicator.Text = "HEMSIDA";
+            //if (_formInitializeHelper.CheckIfFormIsAlreadyOpened("Home") == false)
+            //{
+            //    _formInitializeHelper.CloseAllOpenForms("Home");
+            //    cboAppForms.SelectedIndex = cboAppForms.FindStringExact("Home");
+            //    _formInitializeHelper.OpenDockingForm(this);
+            //}
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            _formInitializeHelper.RegisterAllForms();
+            DisplayHomePage();
+        }
+
+        private void Maximize_Click(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Maximized)
+            {
+                WindowState = FormWindowState.Normal;
+                Maximize.IconChar = FontAwesome.Sharp.IconChar.Compress;
+            }
+            else
+            {
+                WindowState = FormWindowState.Maximized;
+                Maximize.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize;
+            }
         }
 
         private void ButtoneExit_Click(object sender, EventArgs e)
@@ -76,17 +87,26 @@ namespace FactoryManager.View
         private void DateTimeTimer_Tick(object sender, EventArgs e)
         {
             var dateTime = _currentDateTimeHelper.GetAllDateTimeValues();
-            string separator = " \u2022 ";
-
-            CurrentDateTimeLabel.Text = dateTime.CurrentDay + separator + dateTime.CurrentDate + separator + dateTime.CurrentTime;
+            CurrentDateTimeLabel.Text = dateTime.CurrentDate ;
             CurrentWeekLabel.Text = "VECKA " + dateTime.WeekNumber.ToString();
         }
-
-        private void Logout_Click(object sender, EventArgs e)
+        private void ShowLogoutWaitForm()
         {
-            LoadingScreen.ShowLoadingScreen("LOGGAR UT", "Vänta en stund innan du loggar ut!");
-            Owner.Show();
+            SplashScreenManager.ShowForm(this, typeof(LoadingScreen), true, true, false);
+            for (int i = 1; i <= 100; i++)
+            {
+                SplashScreenManager.Default.SetWaitFormCaption("LOGGAR UT");
+                SplashScreenManager.Default.SetWaitFormDescription("Vänta en stund innan du loggar ut!!");
+                Thread.Sleep(50);
+            }
+            SplashScreenManager.CloseForm(false);
+        }
+
+        private void LogoutButton_Click(object sender, EventArgs e)
+        {
+            ShowLogoutWaitForm();
             Hide();
+            Owner.Show();
             _loggerLog.Info("User logged OUT!");
         }
 
@@ -130,18 +150,14 @@ namespace FactoryManager.View
             }
         }
 
-        private void BackOffice_Click(object sender, EventArgs e)
-        {       
-            LabelIndicator.Text = "VAL AV TABELL";
+        private void TabelSelection_Click(object sender, EventArgs e)
+        {
+            LabelIndicator.Text = (sender as Button).Text.ToUpper();
             if (_formInitializeHelper.CheckIfFormIsAlreadyOpened((sender as Button).Name) == false)
             {
                 _formInitializeHelper.CloseAllOpenForms((sender as Button).Name);
                 cboAppForms.SelectedIndex = cboAppForms.FindStringExact((sender as Button).Name);
                 _formInitializeHelper.OpenDockingForm(this);
-            }
-            else
-            {
-                _formInitializeHelper.CloseAllOpenForms((sender as Button).Name);
             }
         }
     }

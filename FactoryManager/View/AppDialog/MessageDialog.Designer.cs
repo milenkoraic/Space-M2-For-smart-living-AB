@@ -28,281 +28,201 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MessageDialog));
-            this.FormDisplayPanel = new System.Windows.Forms.Timer(this.components);
-            this.GridPanel = new System.Windows.Forms.Panel();
-            this.CenterPanel = new System.Windows.Forms.Panel();
-            this.lblMessage = new System.Windows.Forms.Label();
-            this.lmPanel = new System.Windows.Forms.Panel();
-            this.YES = new FontAwesome.Sharp.IconButton();
-            this.rmPanel = new System.Windows.Forms.Panel();
+            this.Footer = new System.Windows.Forms.Panel();
             this.NO = new FontAwesome.Sharp.IconButton();
-            this.BottomPanel = new System.Windows.Forms.Panel();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.rbcPanel = new System.Windows.Forms.Panel();
-            this.lbcPanel = new System.Windows.Forms.Panel();
-            this.TopPanel = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.rtcPanel = new System.Windows.Forms.Panel();
-            this.ltcPanel = new System.Windows.Forms.Panel();
-            this.GridPanel.SuspendLayout();
-            this.CenterPanel.SuspendLayout();
-            this.lmPanel.SuspendLayout();
-            this.rmPanel.SuspendLayout();
-            this.BottomPanel.SuspendLayout();
-            this.TopPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.YES = new FontAwesome.Sharp.IconButton();
+            this.Header = new System.Windows.Forms.Panel();
+            this.NotificationIcon = new FontAwesome.Sharp.IconButton();
+            this.Title = new System.Windows.Forms.Label();
+            this.Separator = new Bunifu.Framework.UI.BunifuSeparator();
+            this.Message = new System.Windows.Forms.Label();
+            this.Footer.SuspendLayout();
+            this.Header.SuspendLayout();
             this.SuspendLayout();
             // 
-            // FormDisplayPanel
+            // Footer
             // 
-            this.FormDisplayPanel.Enabled = true;
-            this.FormDisplayPanel.Interval = 20;
-            this.FormDisplayPanel.Tick += new System.EventHandler(this.FormDisplayPanel_Tick);
-            // 
-            // GridPanel
-            // 
-            this.GridPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.GridPanel.Controls.Add(this.CenterPanel);
-            this.GridPanel.Controls.Add(this.BottomPanel);
-            this.GridPanel.Controls.Add(this.TopPanel);
-            this.GridPanel.Location = new System.Drawing.Point(250, 90);
-            this.GridPanel.Name = "GridPanel";
-            this.GridPanel.Size = new System.Drawing.Size(650, 500);
-            this.GridPanel.TabIndex = 102;
-            // 
-            // CenterPanel
-            // 
-            this.CenterPanel.Controls.Add(this.lblMessage);
-            this.CenterPanel.Controls.Add(this.lmPanel);
-            this.CenterPanel.Controls.Add(this.rmPanel);
-            this.CenterPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CenterPanel.Location = new System.Drawing.Point(0, 93);
-            this.CenterPanel.Name = "CenterPanel";
-            this.CenterPanel.Size = new System.Drawing.Size(650, 314);
-            this.CenterPanel.TabIndex = 106;
-            // 
-            // lblMessage
-            // 
-            this.lblMessage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.lblMessage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblMessage.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblMessage.ForeColor = System.Drawing.Color.White;
-            this.lblMessage.Location = new System.Drawing.Point(112, 0);
-            this.lblMessage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Padding = new System.Windows.Forms.Padding(20);
-            this.lblMessage.Size = new System.Drawing.Size(426, 314);
-            this.lblMessage.TabIndex = 112;
-            this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lmPanel
-            // 
-            this.lmPanel.Controls.Add(this.YES);
-            this.lmPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lmPanel.Location = new System.Drawing.Point(0, 0);
-            this.lmPanel.Name = "lmPanel";
-            this.lmPanel.Size = new System.Drawing.Size(112, 314);
-            this.lmPanel.TabIndex = 110;
-            // 
-            // YES
-            // 
-            this.YES.AutoSize = true;
-            this.YES.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.YES.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.YES.Dock = System.Windows.Forms.DockStyle.Left;
-            this.YES.FlatAppearance.BorderSize = 0;
-            this.YES.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.YES.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkOrange;
-            this.YES.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.YES.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.YES.ForeColor = System.Drawing.Color.White;
-            this.YES.IconChar = FontAwesome.Sharp.IconChar.CheckCircle;
-            this.YES.IconColor = System.Drawing.Color.White;
-            this.YES.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.YES.IconSize = 25;
-            this.YES.Location = new System.Drawing.Point(0, 0);
-            this.YES.Name = "YES";
-            this.YES.Padding = new System.Windows.Forms.Padding(10);
-            this.YES.Size = new System.Drawing.Size(112, 314);
-            this.YES.TabIndex = 8;
-            this.YES.TabStop = false;
-            this.YES.Text = "YES";
-            this.YES.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.YES.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.YES.UseVisualStyleBackColor = false;
-            this.YES.Click += new System.EventHandler(this.YES_Click);
-            // 
-            // rmPanel
-            // 
-            this.rmPanel.Controls.Add(this.NO);
-            this.rmPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.rmPanel.Location = new System.Drawing.Point(538, 0);
-            this.rmPanel.Name = "rmPanel";
-            this.rmPanel.Size = new System.Drawing.Size(112, 314);
-            this.rmPanel.TabIndex = 109;
+            this.Footer.Controls.Add(this.NO);
+            this.Footer.Controls.Add(this.YES);
+            this.Footer.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Footer.Location = new System.Drawing.Point(0, 240);
+            this.Footer.Name = "Footer";
+            this.Footer.Padding = new System.Windows.Forms.Padding(10);
+            this.Footer.Size = new System.Drawing.Size(500, 60);
+            this.Footer.TabIndex = 123;
             // 
             // NO
             // 
             this.NO.AutoSize = true;
-            this.NO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.NO.BackColor = System.Drawing.Color.White;
             this.NO.Cursor = System.Windows.Forms.Cursors.Hand;
             this.NO.Dock = System.Windows.Forms.DockStyle.Right;
-            this.NO.FlatAppearance.BorderSize = 0;
-            this.NO.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.NO.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkOrange;
-            this.NO.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.NO.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.NO.ForeColor = System.Drawing.Color.White;
+            this.NO.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.NO.IconChar = FontAwesome.Sharp.IconChar.WindowClose;
-            this.NO.IconColor = System.Drawing.Color.White;
+            this.NO.IconColor = System.Drawing.Color.Green;
             this.NO.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.NO.IconSize = 25;
-            this.NO.Location = new System.Drawing.Point(0, 0);
+            this.NO.IconSize = 20;
+            this.NO.Location = new System.Drawing.Point(419, 10);
+            this.NO.Margin = new System.Windows.Forms.Padding(0);
             this.NO.Name = "NO";
-            this.NO.Padding = new System.Windows.Forms.Padding(10);
-            this.NO.Size = new System.Drawing.Size(112, 314);
-            this.NO.TabIndex = 9;
+            this.NO.Size = new System.Drawing.Size(71, 40);
+            this.NO.TabIndex = 118;
             this.NO.TabStop = false;
-            this.NO.Text = "NO";
+            this.NO.Text = "NEJ";
             this.NO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.NO.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.NO.UseVisualStyleBackColor = false;
             this.NO.Click += new System.EventHandler(this.NO_Click);
             // 
-            // BottomPanel
+            // YES
             // 
-            this.BottomPanel.Controls.Add(this.lblTitle);
-            this.BottomPanel.Controls.Add(this.rbcPanel);
-            this.BottomPanel.Controls.Add(this.lbcPanel);
-            this.BottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.BottomPanel.Location = new System.Drawing.Point(0, 407);
-            this.BottomPanel.Name = "BottomPanel";
-            this.BottomPanel.Size = new System.Drawing.Size(650, 93);
-            this.BottomPanel.TabIndex = 105;
+            this.YES.AutoSize = true;
+            this.YES.BackColor = System.Drawing.Color.White;
+            this.YES.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.YES.Dock = System.Windows.Forms.DockStyle.Left;
+            this.YES.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.YES.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.YES.IconChar = FontAwesome.Sharp.IconChar.CheckCircle;
+            this.YES.IconColor = System.Drawing.Color.Green;
+            this.YES.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.YES.IconSize = 20;
+            this.YES.Location = new System.Drawing.Point(10, 10);
+            this.YES.Margin = new System.Windows.Forms.Padding(0);
+            this.YES.Name = "YES";
+            this.YES.Padding = new System.Windows.Forms.Padding(5);
+            this.YES.Size = new System.Drawing.Size(74, 40);
+            this.YES.TabIndex = 117;
+            this.YES.TabStop = false;
+            this.YES.Text = "JA";
+            this.YES.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.YES.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.YES.UseVisualStyleBackColor = false;
+            this.YES.Click += new System.EventHandler(this.YES_Click);
             // 
-            // lblTitle
+            // Header
             // 
-            this.lblTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.lblTitle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblTitle.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(112, 0);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.lblTitle.Size = new System.Drawing.Size(426, 93);
-            this.lblTitle.TabIndex = 110;
-            this.lblTitle.Text = "USER QUESTION TITLE?";
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Header.BackColor = System.Drawing.Color.White;
+            this.Header.Controls.Add(this.Title);
+            this.Header.Controls.Add(this.NotificationIcon);
+            this.Header.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Header.Location = new System.Drawing.Point(0, 0);
+            this.Header.Name = "Header";
+            this.Header.Size = new System.Drawing.Size(500, 45);
+            this.Header.TabIndex = 125;
             // 
-            // rbcPanel
+            // NotificationIcon
             // 
-            this.rbcPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.rbcPanel.Location = new System.Drawing.Point(538, 0);
-            this.rbcPanel.Name = "rbcPanel";
-            this.rbcPanel.Size = new System.Drawing.Size(112, 93);
-            this.rbcPanel.TabIndex = 109;
+            this.NotificationIcon.AutoSize = true;
+            this.NotificationIcon.BackColor = System.Drawing.Color.Transparent;
+            this.NotificationIcon.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.NotificationIcon.Dock = System.Windows.Forms.DockStyle.Right;
+            this.NotificationIcon.FlatAppearance.BorderSize = 0;
+            this.NotificationIcon.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.NotificationIcon.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkOrange;
+            this.NotificationIcon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NotificationIcon.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.NotificationIcon.ForeColor = System.Drawing.Color.White;
+            this.NotificationIcon.IconChar = FontAwesome.Sharp.IconChar.QuestionCircle;
+            this.NotificationIcon.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.NotificationIcon.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.NotificationIcon.IconSize = 20;
+            this.NotificationIcon.Location = new System.Drawing.Point(455, 0);
+            this.NotificationIcon.Margin = new System.Windows.Forms.Padding(0);
+            this.NotificationIcon.Name = "NotificationIcon";
+            this.NotificationIcon.Size = new System.Drawing.Size(45, 45);
+            this.NotificationIcon.TabIndex = 120;
+            this.NotificationIcon.TabStop = false;
+            this.NotificationIcon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.NotificationIcon.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.NotificationIcon.UseVisualStyleBackColor = false;
             // 
-            // lbcPanel
+            // Title
             // 
-            this.lbcPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lbcPanel.Location = new System.Drawing.Point(0, 0);
-            this.lbcPanel.Name = "lbcPanel";
-            this.lbcPanel.Size = new System.Drawing.Size(112, 93);
-            this.lbcPanel.TabIndex = 106;
+            this.Title.BackColor = System.Drawing.Color.Transparent;
+            this.Title.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Title.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Title.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.Title.Location = new System.Drawing.Point(0, 0);
+            this.Title.Margin = new System.Windows.Forms.Padding(0);
+            this.Title.Name = "Title";
+            this.Title.Padding = new System.Windows.Forms.Padding(5);
+            this.Title.Size = new System.Drawing.Size(455, 45);
+            this.Title.TabIndex = 121;
+            this.Title.Text = "USER QUESTION TITLE?";
+            this.Title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // TopPanel
+            // Separator
             // 
-            this.TopPanel.Controls.Add(this.pictureBox1);
-            this.TopPanel.Controls.Add(this.rtcPanel);
-            this.TopPanel.Controls.Add(this.ltcPanel);
-            this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TopPanel.Location = new System.Drawing.Point(0, 0);
-            this.TopPanel.Name = "TopPanel";
-            this.TopPanel.Size = new System.Drawing.Size(650, 93);
-            this.TopPanel.TabIndex = 103;
+            this.Separator.BackColor = System.Drawing.Color.Transparent;
+            this.Separator.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Separator.LineColor = System.Drawing.Color.DimGray;
+            this.Separator.LineThickness = 1;
+            this.Separator.Location = new System.Drawing.Point(0, 45);
+            this.Separator.Name = "Separator";
+            this.Separator.Size = new System.Drawing.Size(500, 2);
+            this.Separator.TabIndex = 122;
+            this.Separator.Transparency = 255;
+            this.Separator.Vertical = false;
             // 
-            // pictureBox1
+            // Message
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.pictureBox1.BackgroundImage = global::FactoryManager.Properties.Resources.app_cover_transparent;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(112, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(426, 93);
-            this.pictureBox1.TabIndex = 109;
-            this.pictureBox1.TabStop = false;
-            // 
-            // rtcPanel
-            // 
-            this.rtcPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.rtcPanel.Location = new System.Drawing.Point(538, 0);
-            this.rtcPanel.Name = "rtcPanel";
-            this.rtcPanel.Size = new System.Drawing.Size(112, 93);
-            this.rtcPanel.TabIndex = 108;
-            // 
-            // ltcPanel
-            // 
-            this.ltcPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ltcPanel.Location = new System.Drawing.Point(0, 0);
-            this.ltcPanel.Name = "ltcPanel";
-            this.ltcPanel.Size = new System.Drawing.Size(112, 93);
-            this.ltcPanel.TabIndex = 107;
+            this.Message.BackColor = System.Drawing.Color.Transparent;
+            this.Message.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Message.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Message.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Message.Location = new System.Drawing.Point(0, 47);
+            this.Message.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Message.Name = "Message";
+            this.Message.Padding = new System.Windows.Forms.Padding(20);
+            this.Message.Size = new System.Drawing.Size(500, 193);
+            this.Message.TabIndex = 127;
+            this.Message.Text = resources.GetString("Message.Text");
             // 
             // MessageDialog
             // 
+            this.ActiveGlowColor = System.Drawing.Color.White;
+            this.Appearance.BackColor = System.Drawing.Color.White;
+            this.Appearance.ForeColor = System.Drawing.Color.Bisque;
+            this.Appearance.Options.UseBackColor = true;
+            this.Appearance.Options.UseForeColor = true;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(170)))), ((int)(((byte)(72)))));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1150, 680);
+            this.ClientSize = new System.Drawing.Size(500, 300);
             this.ControlBox = false;
-            this.Controls.Add(this.GridPanel);
+            this.Controls.Add(this.Message);
+            this.Controls.Add(this.Separator);
+            this.Controls.Add(this.Header);
+            this.Controls.Add(this.Footer);
             this.DoubleBuffered = true;
-            this.ForeColor = System.Drawing.Color.Black;
+            this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Shadow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("MessageDialog.IconOptions.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MessageDialog";
-            this.Opacity = 0D;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TopMost = true;
-            this.GridPanel.ResumeLayout(false);
-            this.CenterPanel.ResumeLayout(false);
-            this.lmPanel.ResumeLayout(false);
-            this.lmPanel.PerformLayout();
-            this.rmPanel.ResumeLayout(false);
-            this.rmPanel.PerformLayout();
-            this.BottomPanel.ResumeLayout(false);
-            this.TopPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Footer.ResumeLayout(false);
+            this.Footer.PerformLayout();
+            this.Header.ResumeLayout(false);
+            this.Header.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Timer FormDisplayPanel;
-        private System.Windows.Forms.Panel GridPanel;
-        private System.Windows.Forms.Panel CenterPanel;
-        private System.Windows.Forms.Label lblMessage;
-        private System.Windows.Forms.Panel lmPanel;
-        private FontAwesome.Sharp.IconButton YES;
-        private System.Windows.Forms.Panel rmPanel;
+        private System.Windows.Forms.Panel Footer;
         private FontAwesome.Sharp.IconButton NO;
-        private System.Windows.Forms.Panel BottomPanel;
-        private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Panel rbcPanel;
-        private System.Windows.Forms.Panel lbcPanel;
-        private System.Windows.Forms.Panel TopPanel;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel rtcPanel;
-        private System.Windows.Forms.Panel ltcPanel;
+        private FontAwesome.Sharp.IconButton YES;
+        private System.Windows.Forms.Panel Header;
+        private FontAwesome.Sharp.IconButton NotificationIcon;
+        private System.Windows.Forms.Label Title;
+        private Bunifu.Framework.UI.BunifuSeparator Separator;
+        private System.Windows.Forms.Label Message;
     }
 }

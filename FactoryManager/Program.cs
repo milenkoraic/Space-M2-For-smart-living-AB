@@ -7,7 +7,6 @@ using FactoryManager.AppService.DateTimeCounting;
 using FactoryManager.AppService.FormInitialization;
 using FactoryManager.AppService.SystemInspection;
 using FactoryManager.View;
-using FactoryManager.ViewModel.LoginForm;
 using FactoryManager.ViewService.DialogProvider;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -37,7 +36,7 @@ namespace FactoryManager
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             ConfigureServices();
-            Application.Run(new LoginForm());
+            Application.Run(new Login());
         }
     }
 }

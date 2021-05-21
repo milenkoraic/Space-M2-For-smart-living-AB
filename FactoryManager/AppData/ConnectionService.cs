@@ -17,17 +17,10 @@ namespace FactoryManager.AppData
             return oleDbConnection;
         }
 
-        public static OleDbConnection OpenDatabaseConnection()
+        public static OleDbConnection CreateDatabaseConnection()
         {
             var oleDbConnection = GetDatabaseConnection();
             oleDbConnection.Open();
-            return oleDbConnection;
-        }
-
-        public static OleDbConnection CloseDatabaseConnection()
-        {
-            var oleDbConnection = GetDatabaseConnection();
-            oleDbConnection.Close();
             return oleDbConnection;
         }
     }

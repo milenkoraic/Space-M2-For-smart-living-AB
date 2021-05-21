@@ -30,32 +30,33 @@ namespace FactoryManager.View
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, null, true, true);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.DateTimeTimer = new System.Windows.Forms.Timer(this.components);
             this.cboAppForms = new System.Windows.Forms.ComboBox();
             this.LeftSidePanel = new System.Windows.Forms.Panel();
-            this.ButtonLogout = new FontAwesome.Sharp.IconButton();
+            this.LogoutButton = new FontAwesome.Sharp.IconButton();
             this.MenuPanel = new System.Windows.Forms.Panel();
+            this.Selection = new FontAwesome.Sharp.IconButton();
             this.ProductionPanel = new System.Windows.Forms.Panel();
             this.Project = new FontAwesome.Sharp.IconButton();
             this.Production = new FontAwesome.Sharp.IconButton();
             this.Dashboard = new FontAwesome.Sharp.IconButton();
             this.Home = new FontAwesome.Sharp.IconButton();
             this.UserInfoPanel = new System.Windows.Forms.Panel();
-            this.LabelUserInfo = new System.Windows.Forms.Label();
-            this.UserRoleLabel = new System.Windows.Forms.Label();
+            this.LabelUserName = new System.Windows.Forms.Label();
+            this.LabelUserRole = new System.Windows.Forms.Label();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.bunifuPictureBox1 = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.TopLeftHeaderPanel = new System.Windows.Forms.Panel();
             this.LogoImage = new System.Windows.Forms.PictureBox();
             this.TopHeaderPanel = new System.Windows.Forms.Panel();
+            this.Maximize = new FontAwesome.Sharp.IconButton();
             this.ButtoneExit = new FontAwesome.Sharp.IconButton();
             this.TopHeaderSubpanel = new System.Windows.Forms.Panel();
-            this.GridSelection = new FontAwesome.Sharp.IconButton();
+            this.LabelIndicator = new System.Windows.Forms.Label();
             this.CurrentWeekLabel = new System.Windows.Forms.Label();
             this.CurrentDateTimeLabel = new System.Windows.Forms.Label();
-            this.LabelIndicator = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.LeftSidePanel.SuspendLayout();
             this.MenuPanel.SuspendLayout();
@@ -66,8 +67,11 @@ namespace FactoryManager.View
             ((System.ComponentModel.ISupportInitialize)(this.LogoImage)).BeginInit();
             this.TopHeaderPanel.SuspendLayout();
             this.TopHeaderSubpanel.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // splashScreenManager1
+            // 
+            splashScreenManager1.ClosingDelay = 500;
             // 
             // DateTimeTimer
             // 
@@ -80,13 +84,13 @@ namespace FactoryManager.View
             this.cboAppForms.FormattingEnabled = true;
             this.cboAppForms.Location = new System.Drawing.Point(118, 31);
             this.cboAppForms.Name = "cboAppForms";
-            this.cboAppForms.Size = new System.Drawing.Size(121, 24);
+            this.cboAppForms.Size = new System.Drawing.Size(121, 21);
             this.cboAppForms.TabIndex = 102;
             // 
             // LeftSidePanel
             // 
             this.LeftSidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.LeftSidePanel.Controls.Add(this.ButtonLogout);
+            this.LeftSidePanel.Controls.Add(this.LogoutButton);
             this.LeftSidePanel.Controls.Add(this.MenuPanel);
             this.LeftSidePanel.Controls.Add(this.UserInfoPanel);
             this.LeftSidePanel.Controls.Add(this.TopLeftHeaderPanel);
@@ -96,37 +100,38 @@ namespace FactoryManager.View
             this.LeftSidePanel.Size = new System.Drawing.Size(270, 680);
             this.LeftSidePanel.TabIndex = 51;
             // 
-            // ButtonLogout
+            // LogoutButton
             // 
-            this.ButtonLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.ButtonLogout.Cursor = System.Windows.Forms.Cursors.Default;
-            this.ButtonLogout.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ButtonLogout.FlatAppearance.BorderSize = 0;
-            this.ButtonLogout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkOrange;
-            this.ButtonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonLogout.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ButtonLogout.ForeColor = System.Drawing.Color.White;
-            this.ButtonLogout.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
-            this.ButtonLogout.IconColor = System.Drawing.Color.White;
-            this.ButtonLogout.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ButtonLogout.IconSize = 25;
-            this.ButtonLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ButtonLogout.Location = new System.Drawing.Point(0, 630);
-            this.ButtonLogout.Name = "ButtonLogout";
-            this.ButtonLogout.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.ButtonLogout.Rotation = 180D;
-            this.ButtonLogout.Size = new System.Drawing.Size(270, 50);
-            this.ButtonLogout.TabIndex = 112;
-            this.ButtonLogout.TabStop = false;
-            this.ButtonLogout.Text = "  LOGGA UT";
-            this.ButtonLogout.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ButtonLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.ButtonLogout.UseVisualStyleBackColor = false;
-            this.ButtonLogout.Click += new System.EventHandler(this.Logout_Click);
+            this.LogoutButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.LogoutButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.LogoutButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.LogoutButton.FlatAppearance.BorderSize = 0;
+            this.LogoutButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkOrange;
+            this.LogoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LogoutButton.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LogoutButton.ForeColor = System.Drawing.Color.White;
+            this.LogoutButton.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
+            this.LogoutButton.IconColor = System.Drawing.Color.White;
+            this.LogoutButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.LogoutButton.IconSize = 25;
+            this.LogoutButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LogoutButton.Location = new System.Drawing.Point(0, 630);
+            this.LogoutButton.Name = "LogoutButton";
+            this.LogoutButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.LogoutButton.Rotation = 180D;
+            this.LogoutButton.Size = new System.Drawing.Size(270, 50);
+            this.LogoutButton.TabIndex = 112;
+            this.LogoutButton.TabStop = false;
+            this.LogoutButton.Text = "  LOGGA UT";
+            this.LogoutButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.LogoutButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.LogoutButton.UseVisualStyleBackColor = false;
+            this.LogoutButton.Click += new System.EventHandler(this.LogoutButton_Click);
             // 
             // MenuPanel
             // 
             this.MenuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.MenuPanel.Controls.Add(this.Selection);
             this.MenuPanel.Controls.Add(this.ProductionPanel);
             this.MenuPanel.Controls.Add(this.Production);
             this.MenuPanel.Controls.Add(this.Dashboard);
@@ -135,8 +140,32 @@ namespace FactoryManager.View
             this.MenuPanel.Location = new System.Drawing.Point(0, 294);
             this.MenuPanel.Name = "MenuPanel";
             this.MenuPanel.Padding = new System.Windows.Forms.Padding(5, 5, 5, 0);
-            this.MenuPanel.Size = new System.Drawing.Size(270, 228);
+            this.MenuPanel.Size = new System.Drawing.Size(270, 278);
             this.MenuPanel.TabIndex = 111;
+            // 
+            // Selection
+            // 
+            this.Selection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.Selection.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Selection.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Selection.FlatAppearance.BorderSize = 0;
+            this.Selection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Selection.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Selection.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(170)))), ((int)(((byte)(72)))));
+            this.Selection.IconChar = FontAwesome.Sharp.IconChar.Database;
+            this.Selection.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(170)))), ((int)(((byte)(72)))));
+            this.Selection.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Selection.IconSize = 23;
+            this.Selection.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Selection.Location = new System.Drawing.Point(5, 195);
+            this.Selection.Name = "Selection";
+            this.Selection.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.Selection.Size = new System.Drawing.Size(260, 40);
+            this.Selection.TabIndex = 125;
+            this.Selection.Text = "  DATABAS";
+            this.Selection.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Selection.UseVisualStyleBackColor = false;
+            this.Selection.Click += new System.EventHandler(this.TabelSelection_Click);
             // 
             // ProductionPanel
             // 
@@ -144,7 +173,7 @@ namespace FactoryManager.View
             this.ProductionPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.ProductionPanel.Location = new System.Drawing.Point(5, 125);
             this.ProductionPanel.Name = "ProductionPanel";
-            this.ProductionPanel.Size = new System.Drawing.Size(260, 175);
+            this.ProductionPanel.Size = new System.Drawing.Size(260, 70);
             this.ProductionPanel.TabIndex = 2;
             this.ProductionPanel.Visible = false;
             // 
@@ -249,8 +278,8 @@ namespace FactoryManager.View
             // 
             // UserInfoPanel
             // 
-            this.UserInfoPanel.Controls.Add(this.LabelUserInfo);
-            this.UserInfoPanel.Controls.Add(this.UserRoleLabel);
+            this.UserInfoPanel.Controls.Add(this.LabelUserName);
+            this.UserInfoPanel.Controls.Add(this.LabelUserRole);
             this.UserInfoPanel.Controls.Add(this.bunifuSeparator1);
             this.UserInfoPanel.Controls.Add(this.bunifuPictureBox1);
             this.UserInfoPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -260,31 +289,31 @@ namespace FactoryManager.View
             this.UserInfoPanel.Size = new System.Drawing.Size(270, 190);
             this.UserInfoPanel.TabIndex = 110;
             // 
-            // LabelUserInfo
+            // LabelUserName
             // 
-            this.LabelUserInfo.BackColor = System.Drawing.Color.Transparent;
-            this.LabelUserInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.LabelUserInfo.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.LabelUserInfo.ForeColor = System.Drawing.Color.White;
-            this.LabelUserInfo.Location = new System.Drawing.Point(5, 105);
-            this.LabelUserInfo.Name = "LabelUserInfo";
-            this.LabelUserInfo.Size = new System.Drawing.Size(260, 39);
-            this.LabelUserInfo.TabIndex = 123;
-            this.LabelUserInfo.Text = "Peter Lindberg";
-            this.LabelUserInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LabelUserName.BackColor = System.Drawing.Color.Transparent;
+            this.LabelUserName.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.LabelUserName.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LabelUserName.ForeColor = System.Drawing.Color.White;
+            this.LabelUserName.Location = new System.Drawing.Point(5, 105);
+            this.LabelUserName.Name = "LabelUserName";
+            this.LabelUserName.Size = new System.Drawing.Size(260, 39);
+            this.LabelUserName.TabIndex = 123;
+            this.LabelUserName.Text = "Allmän användare";
+            this.LabelUserName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // UserRoleLabel
+            // LabelUserRole
             // 
-            this.UserRoleLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(170)))), ((int)(((byte)(72)))));
-            this.UserRoleLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.UserRoleLabel.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.UserRoleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.UserRoleLabel.Location = new System.Drawing.Point(5, 144);
-            this.UserRoleLabel.Name = "UserRoleLabel";
-            this.UserRoleLabel.Size = new System.Drawing.Size(260, 41);
-            this.UserRoleLabel.TabIndex = 122;
-            this.UserRoleLabel.Text = "Administrator";
-            this.UserRoleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LabelUserRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(170)))), ((int)(((byte)(72)))));
+            this.LabelUserRole.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.LabelUserRole.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LabelUserRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.LabelUserRole.Location = new System.Drawing.Point(5, 144);
+            this.LabelUserRole.Name = "LabelUserRole";
+            this.LabelUserRole.Size = new System.Drawing.Size(260, 41);
+            this.LabelUserRole.TabIndex = 122;
+            this.LabelUserRole.Text = "GRUNDLÄGGANDE";
+            this.LabelUserRole.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // bunifuSeparator1
             // 
@@ -293,7 +322,7 @@ namespace FactoryManager.View
             this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(150)))), ((int)(((byte)(72)))));
             this.bunifuSeparator1.LineThickness = 1;
             this.bunifuSeparator1.Location = new System.Drawing.Point(5, 5);
-            this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(4);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
             this.bunifuSeparator1.Size = new System.Drawing.Size(260, 20);
             this.bunifuSeparator1.TabIndex = 108;
@@ -343,7 +372,8 @@ namespace FactoryManager.View
             // 
             // TopHeaderPanel
             // 
-            this.TopHeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.TopHeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.TopHeaderPanel.Controls.Add(this.Maximize);
             this.TopHeaderPanel.Controls.Add(this.ButtoneExit);
             this.TopHeaderPanel.Cursor = System.Windows.Forms.Cursors.Default;
             this.TopHeaderPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -354,18 +384,45 @@ namespace FactoryManager.View
             this.TopHeaderPanel.Size = new System.Drawing.Size(880, 40);
             this.TopHeaderPanel.TabIndex = 125;
             // 
+            // Maximize
+            // 
+            this.Maximize.AutoSize = true;
+            this.Maximize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.Maximize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Maximize.Dock = System.Windows.Forms.DockStyle.Right;
+            this.Maximize.FlatAppearance.BorderSize = 0;
+            this.Maximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Maximize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.Maximize.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize;
+            this.Maximize.IconColor = System.Drawing.Color.White;
+            this.Maximize.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Maximize.IconSize = 18;
+            this.Maximize.Location = new System.Drawing.Point(800, 0);
+            this.Maximize.Margin = new System.Windows.Forms.Padding(0);
+            this.Maximize.Name = "Maximize";
+            this.Maximize.Padding = new System.Windows.Forms.Padding(2);
+            this.Maximize.Size = new System.Drawing.Size(40, 40);
+            this.Maximize.TabIndex = 98;
+            this.Maximize.TabStop = false;
+            this.Maximize.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.Maximize.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Maximize.UseVisualStyleBackColor = false;
+            this.Maximize.Click += new System.EventHandler(this.Maximize_Click);
+            // 
             // ButtoneExit
             // 
             this.ButtoneExit.AutoSize = true;
-            this.ButtoneExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.ButtoneExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.ButtoneExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ButtoneExit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ButtoneExit.FlatAppearance.BorderSize = 0;
+            this.ButtoneExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
             this.ButtoneExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtoneExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.ButtoneExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.ButtoneExit.IconChar = FontAwesome.Sharp.IconChar.PowerOff;
             this.ButtoneExit.IconColor = System.Drawing.Color.White;
             this.ButtoneExit.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ButtoneExit.IconSize = 20;
+            this.ButtoneExit.IconSize = 18;
             this.ButtoneExit.Location = new System.Drawing.Point(840, 0);
             this.ButtoneExit.Margin = new System.Windows.Forms.Padding(0);
             this.ButtoneExit.Name = "ButtoneExit";
@@ -380,8 +437,8 @@ namespace FactoryManager.View
             // 
             // TopHeaderSubpanel
             // 
-            this.TopHeaderSubpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.TopHeaderSubpanel.Controls.Add(this.GridSelection);
+            this.TopHeaderSubpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(140)))), ((int)(((byte)(72)))));
+            this.TopHeaderSubpanel.Controls.Add(this.LabelIndicator);
             this.TopHeaderSubpanel.Controls.Add(this.CurrentWeekLabel);
             this.TopHeaderSubpanel.Controls.Add(this.CurrentDateTimeLabel);
             this.TopHeaderSubpanel.Cursor = System.Windows.Forms.Cursors.Default;
@@ -393,22 +450,20 @@ namespace FactoryManager.View
             this.TopHeaderSubpanel.Size = new System.Drawing.Size(880, 40);
             this.TopHeaderSubpanel.TabIndex = 126;
             // 
-            // GridSelection
+            // LabelIndicator
             // 
-            this.GridSelection.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.GridSelection.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.GridSelection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.GridSelection.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.GridSelection.IconChar = FontAwesome.Sharp.IconChar.Server;
-            this.GridSelection.IconColor = System.Drawing.Color.DarkOrange;
-            this.GridSelection.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.GridSelection.IconSize = 25;
-            this.GridSelection.Location = new System.Drawing.Point(423, 3);
-            this.GridSelection.Name = "GridSelection";
-            this.GridSelection.Size = new System.Drawing.Size(35, 35);
-            this.GridSelection.TabIndex = 124;
-            this.GridSelection.UseVisualStyleBackColor = true;
-            this.GridSelection.Click += new System.EventHandler(this.BackOffice_Click);
+            this.LabelIndicator.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.LabelIndicator.BackColor = System.Drawing.Color.Transparent;
+            this.LabelIndicator.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LabelIndicator.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelIndicator.ForeColor = System.Drawing.Color.White;
+            this.LabelIndicator.Location = new System.Drawing.Point(308, 0);
+            this.LabelIndicator.Name = "LabelIndicator";
+            this.LabelIndicator.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.LabelIndicator.Size = new System.Drawing.Size(265, 40);
+            this.LabelIndicator.TabIndex = 117;
+            this.LabelIndicator.Text = "INSTRUMENTBRÄDA";
+            this.LabelIndicator.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // CurrentWeekLabel
             // 
@@ -419,8 +474,8 @@ namespace FactoryManager.View
             this.CurrentWeekLabel.ForeColor = System.Drawing.Color.White;
             this.CurrentWeekLabel.Location = new System.Drawing.Point(0, 0);
             this.CurrentWeekLabel.Name = "CurrentWeekLabel";
-            this.CurrentWeekLabel.Padding = new System.Windows.Forms.Padding(8);
-            this.CurrentWeekLabel.Size = new System.Drawing.Size(94, 37);
+            this.CurrentWeekLabel.Padding = new System.Windows.Forms.Padding(10);
+            this.CurrentWeekLabel.Size = new System.Drawing.Size(82, 37);
             this.CurrentWeekLabel.TabIndex = 119;
             this.CurrentWeekLabel.Text = "VECKA 18";
             this.CurrentWeekLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -433,76 +488,43 @@ namespace FactoryManager.View
             this.CurrentDateTimeLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CurrentDateTimeLabel.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.CurrentDateTimeLabel.ForeColor = System.Drawing.Color.White;
-            this.CurrentDateTimeLabel.Location = new System.Drawing.Point(719, 0);
+            this.CurrentDateTimeLabel.Location = new System.Drawing.Point(742, 0);
             this.CurrentDateTimeLabel.Margin = new System.Windows.Forms.Padding(4, 15, 4, 0);
             this.CurrentDateTimeLabel.Name = "CurrentDateTimeLabel";
-            this.CurrentDateTimeLabel.Padding = new System.Windows.Forms.Padding(8);
-            this.CurrentDateTimeLabel.Size = new System.Drawing.Size(161, 37);
+            this.CurrentDateTimeLabel.Padding = new System.Windows.Forms.Padding(10);
+            this.CurrentDateTimeLabel.Size = new System.Drawing.Size(138, 37);
             this.CurrentDateTimeLabel.TabIndex = 118;
             this.CurrentDateTimeLabel.Text = "TISDAG 2021.05.11";
             this.CurrentDateTimeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // LabelIndicator
-            // 
-            this.LabelIndicator.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.LabelIndicator.BackColor = System.Drawing.Color.Transparent;
-            this.LabelIndicator.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LabelIndicator.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.LabelIndicator.ForeColor = System.Drawing.Color.Gold;
-            this.LabelIndicator.Location = new System.Drawing.Point(308, 0);
-            this.LabelIndicator.Name = "LabelIndicator";
-            this.LabelIndicator.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.LabelIndicator.Size = new System.Drawing.Size(265, 40);
-            this.LabelIndicator.TabIndex = 117;
-            this.LabelIndicator.Text = "INSTRUMENTBRÄDA";
-            this.LabelIndicator.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.panel1.Controls.Add(this.LabelIndicator);
-            this.panel1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(150)))), ((int)(((byte)(72)))));
-            this.panel1.Location = new System.Drawing.Point(270, 80);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(880, 40);
-            this.panel1.TabIndex = 129;
             // 
             // MainPanel
             // 
             this.MainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(170)))), ((int)(((byte)(72)))));
             this.MainPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainPanel.Location = new System.Drawing.Point(270, 120);
+            this.MainPanel.Location = new System.Drawing.Point(270, 80);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
-            this.MainPanel.Size = new System.Drawing.Size(880, 560);
+            this.MainPanel.Padding = new System.Windows.Forms.Padding(5);
+            this.MainPanel.Size = new System.Drawing.Size(880, 600);
             this.MainPanel.TabIndex = 130;
             // 
             // MainForm
             // 
+            this.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Appearance.Options.UseForeColor = true;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1150, 680);
-            this.ControlBox = false;
             this.Controls.Add(this.MainPanel);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.TopHeaderSubpanel);
             this.Controls.Add(this.TopHeaderPanel);
             this.Controls.Add(this.LeftSidePanel);
             this.DoubleBuffered = true;
-            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Shadow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("MainForm.IconOptions.Icon")));
             this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "MainForm";
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.LeftSidePanel.ResumeLayout(false);
@@ -516,7 +538,6 @@ namespace FactoryManager.View
             this.TopHeaderPanel.PerformLayout();
             this.TopHeaderSubpanel.ResumeLayout(false);
             this.TopHeaderSubpanel.PerformLayout();
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -540,14 +561,14 @@ namespace FactoryManager.View
         private System.Windows.Forms.Panel UserInfoPanel;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
         private Bunifu.UI.WinForms.BunifuPictureBox bunifuPictureBox1;
-        private System.Windows.Forms.Label LabelUserInfo;
-        private System.Windows.Forms.Label UserRoleLabel;
-        private FontAwesome.Sharp.IconButton ButtonLogout;
+        private System.Windows.Forms.Label LabelUserName;
+        private System.Windows.Forms.Label LabelUserRole;
+        private FontAwesome.Sharp.IconButton LogoutButton;
         private System.Windows.Forms.Label CurrentWeekLabel;
         private System.Windows.Forms.Label CurrentDateTimeLabel;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel MainPanel;
-        private FontAwesome.Sharp.IconButton GridSelection;
+        private FontAwesome.Sharp.IconButton Selection;
+        private FontAwesome.Sharp.IconButton Maximize;
     }
 }
 
