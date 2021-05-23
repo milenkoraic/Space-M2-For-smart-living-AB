@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NotificationDialog));
             this.Header = new System.Windows.Forms.Panel();
+            this.Title = new System.Windows.Forms.Label();
             this.MessageBoxIcon = new FontAwesome.Sharp.IconButton();
             this.Footer = new System.Windows.Forms.Panel();
             this.OK = new FontAwesome.Sharp.IconButton();
-            this.Title = new System.Windows.Forms.Label();
             this.Separator = new Bunifu.Framework.UI.BunifuSeparator();
             this.Message = new System.Windows.Forms.Label();
             this.Header.SuspendLayout();
@@ -51,20 +51,36 @@
             this.Header.Size = new System.Drawing.Size(500, 45);
             this.Header.TabIndex = 126;
             // 
+            // Title
+            // 
+            this.Title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.Title.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Title.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Title.ForeColor = System.Drawing.Color.White;
+            this.Title.Location = new System.Drawing.Point(0, 0);
+            this.Title.Margin = new System.Windows.Forms.Padding(0);
+            this.Title.Name = "Title";
+            this.Title.Padding = new System.Windows.Forms.Padding(5);
+            this.Title.Size = new System.Drawing.Size(455, 45);
+            this.Title.TabIndex = 121;
+            this.Title.Text = "USER QUESTION TITLE?";
+            this.Title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // MessageBoxIcon
             // 
             this.MessageBoxIcon.AutoSize = true;
-            this.MessageBoxIcon.BackColor = System.Drawing.Color.Transparent;
+            this.MessageBoxIcon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.MessageBoxIcon.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MessageBoxIcon.Dock = System.Windows.Forms.DockStyle.Right;
             this.MessageBoxIcon.FlatAppearance.BorderSize = 0;
-            this.MessageBoxIcon.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.MessageBoxIcon.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkOrange;
+            this.MessageBoxIcon.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.MessageBoxIcon.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.MessageBoxIcon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MessageBoxIcon.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.MessageBoxIcon.ForeColor = System.Drawing.Color.White;
+            this.MessageBoxIcon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.MessageBoxIcon.IconChar = FontAwesome.Sharp.IconChar.Bell;
-            this.MessageBoxIcon.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(5)))));
+            this.MessageBoxIcon.IconColor = System.Drawing.Color.Orange;
             this.MessageBoxIcon.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.MessageBoxIcon.IconSize = 20;
             this.MessageBoxIcon.Location = new System.Drawing.Point(455, 0);
@@ -79,7 +95,7 @@
             // 
             // Footer
             // 
-            this.Footer.BackColor = System.Drawing.Color.White;
+            this.Footer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.Footer.Controls.Add(this.OK);
             this.Footer.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Footer.Location = new System.Drawing.Point(0, 240);
@@ -91,13 +107,15 @@
             // OK
             // 
             this.OK.AutoSize = true;
-            this.OK.BackColor = System.Drawing.Color.White;
+            this.OK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.OK.Cursor = System.Windows.Forms.Cursors.Hand;
             this.OK.Dock = System.Windows.Forms.DockStyle.Right;
+            this.OK.FlatAppearance.BorderSize = 0;
+            this.OK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.OK.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.OK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.OK.IconChar = FontAwesome.Sharp.IconChar.WindowClose;
-            this.OK.IconColor = System.Drawing.Color.Green;
+            this.OK.ForeColor = System.Drawing.Color.Gray;
+            this.OK.IconChar = FontAwesome.Sharp.IconChar.CheckDouble;
+            this.OK.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(190)))), ((int)(((byte)(72)))));
             this.OK.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.OK.IconSize = 20;
             this.OK.Location = new System.Drawing.Point(419, 10);
@@ -112,28 +130,12 @@
             this.OK.UseVisualStyleBackColor = false;
             this.OK.Click += new System.EventHandler(this.OK_Click);
             // 
-            // Title
-            // 
-            this.Title.BackColor = System.Drawing.Color.Transparent;
-            this.Title.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Title.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Title.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.Title.Location = new System.Drawing.Point(0, 0);
-            this.Title.Margin = new System.Windows.Forms.Padding(0);
-            this.Title.Name = "Title";
-            this.Title.Padding = new System.Windows.Forms.Padding(5);
-            this.Title.Size = new System.Drawing.Size(455, 45);
-            this.Title.TabIndex = 121;
-            this.Title.Text = "USER QUESTION TITLE?";
-            this.Title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // Separator
             // 
             this.Separator.BackColor = System.Drawing.Color.Transparent;
             this.Separator.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Separator.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.Separator.LineThickness = 1;
+            this.Separator.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(170)))), ((int)(((byte)(72)))));
+            this.Separator.LineThickness = 5;
             this.Separator.Location = new System.Drawing.Point(0, 45);
             this.Separator.Name = "Separator";
             this.Separator.Size = new System.Drawing.Size(500, 2);
@@ -143,10 +145,10 @@
             // 
             // Message
             // 
-            this.Message.BackColor = System.Drawing.Color.White;
+            this.Message.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.Message.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Message.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Message.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Message.ForeColor = System.Drawing.Color.White;
             this.Message.Location = new System.Drawing.Point(0, 47);
             this.Message.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Message.Name = "Message";

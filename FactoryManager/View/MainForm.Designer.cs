@@ -38,9 +38,6 @@ namespace FactoryManager.View
             this.LogoutButton = new FontAwesome.Sharp.IconButton();
             this.MenuPanel = new System.Windows.Forms.Panel();
             this.Selection = new FontAwesome.Sharp.IconButton();
-            this.ProductionPanel = new System.Windows.Forms.Panel();
-            this.Project = new FontAwesome.Sharp.IconButton();
-            this.Production = new FontAwesome.Sharp.IconButton();
             this.Dashboard = new FontAwesome.Sharp.IconButton();
             this.Home = new FontAwesome.Sharp.IconButton();
             this.UserInfoPanel = new System.Windows.Forms.Panel();
@@ -60,7 +57,6 @@ namespace FactoryManager.View
             this.MainPanel = new System.Windows.Forms.Panel();
             this.LeftSidePanel.SuspendLayout();
             this.MenuPanel.SuspendLayout();
-            this.ProductionPanel.SuspendLayout();
             this.UserInfoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).BeginInit();
             this.TopLeftHeaderPanel.SuspendLayout();
@@ -132,8 +128,6 @@ namespace FactoryManager.View
             // 
             this.MenuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.MenuPanel.Controls.Add(this.Selection);
-            this.MenuPanel.Controls.Add(this.ProductionPanel);
-            this.MenuPanel.Controls.Add(this.Production);
             this.MenuPanel.Controls.Add(this.Dashboard);
             this.MenuPanel.Controls.Add(this.Home);
             this.MenuPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -157,7 +151,7 @@ namespace FactoryManager.View
             this.Selection.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.Selection.IconSize = 23;
             this.Selection.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Selection.Location = new System.Drawing.Point(5, 195);
+            this.Selection.Location = new System.Drawing.Point(5, 85);
             this.Selection.Name = "Selection";
             this.Selection.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.Selection.Size = new System.Drawing.Size(260, 40);
@@ -166,65 +160,6 @@ namespace FactoryManager.View
             this.Selection.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Selection.UseVisualStyleBackColor = false;
             this.Selection.Click += new System.EventHandler(this.TabelSelection_Click);
-            // 
-            // ProductionPanel
-            // 
-            this.ProductionPanel.Controls.Add(this.Project);
-            this.ProductionPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ProductionPanel.Location = new System.Drawing.Point(5, 125);
-            this.ProductionPanel.Name = "ProductionPanel";
-            this.ProductionPanel.Size = new System.Drawing.Size(260, 70);
-            this.ProductionPanel.TabIndex = 2;
-            this.ProductionPanel.Visible = false;
-            // 
-            // Project
-            // 
-            this.Project.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(170)))), ((int)(((byte)(72)))));
-            this.Project.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Project.FlatAppearance.BorderSize = 0;
-            this.Project.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Project.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Project.ForeColor = System.Drawing.Color.White;
-            this.Project.IconChar = FontAwesome.Sharp.IconChar.Building;
-            this.Project.IconColor = System.Drawing.Color.White;
-            this.Project.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.Project.IconSize = 25;
-            this.Project.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Project.Location = new System.Drawing.Point(0, 0);
-            this.Project.Name = "Project";
-            this.Project.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.Project.Size = new System.Drawing.Size(260, 35);
-            this.Project.TabIndex = 2;
-            this.Project.Text = "  Projekt";
-            this.Project.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Project.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.Project.UseVisualStyleBackColor = false;
-            this.Project.Click += new System.EventHandler(this.Project_Click);
-            // 
-            // Production
-            // 
-            this.Production.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.Production.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Production.FlatAppearance.BorderSize = 0;
-            this.Production.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
-            this.Production.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Production.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Production.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(170)))), ((int)(((byte)(72)))));
-            this.Production.IconChar = FontAwesome.Sharp.IconChar.Industry;
-            this.Production.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(170)))), ((int)(((byte)(72)))));
-            this.Production.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.Production.IconSize = 25;
-            this.Production.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Production.Location = new System.Drawing.Point(5, 85);
-            this.Production.Name = "Production";
-            this.Production.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.Production.Size = new System.Drawing.Size(260, 40);
-            this.Production.TabIndex = 1;
-            this.Production.Text = "  PRODUKTION";
-            this.Production.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Production.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.Production.UseVisualStyleBackColor = false;
-            this.Production.Click += new System.EventHandler(this.Production_Click);
             // 
             // Dashboard
             // 
@@ -387,12 +322,13 @@ namespace FactoryManager.View
             // Maximize
             // 
             this.Maximize.AutoSize = true;
-            this.Maximize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.Maximize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.Maximize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Maximize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Maximize.Dock = System.Windows.Forms.DockStyle.Right;
             this.Maximize.FlatAppearance.BorderSize = 0;
             this.Maximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Maximize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.Maximize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.Maximize.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize;
             this.Maximize.IconColor = System.Drawing.Color.White;
             this.Maximize.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -412,13 +348,14 @@ namespace FactoryManager.View
             // ButtoneExit
             // 
             this.ButtoneExit.AutoSize = true;
-            this.ButtoneExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.ButtoneExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.ButtoneExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ButtoneExit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtoneExit.Dock = System.Windows.Forms.DockStyle.Right;
             this.ButtoneExit.FlatAppearance.BorderSize = 0;
             this.ButtoneExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
             this.ButtoneExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtoneExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.ButtoneExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.ButtoneExit.IconChar = FontAwesome.Sharp.IconChar.PowerOff;
             this.ButtoneExit.IconColor = System.Drawing.Color.White;
             this.ButtoneExit.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -437,7 +374,7 @@ namespace FactoryManager.View
             // 
             // TopHeaderSubpanel
             // 
-            this.TopHeaderSubpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(140)))), ((int)(((byte)(72)))));
+            this.TopHeaderSubpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.TopHeaderSubpanel.Controls.Add(this.LabelIndicator);
             this.TopHeaderSubpanel.Controls.Add(this.CurrentWeekLabel);
             this.TopHeaderSubpanel.Controls.Add(this.CurrentDateTimeLabel);
@@ -456,7 +393,7 @@ namespace FactoryManager.View
             this.LabelIndicator.BackColor = System.Drawing.Color.Transparent;
             this.LabelIndicator.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LabelIndicator.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelIndicator.ForeColor = System.Drawing.Color.White;
+            this.LabelIndicator.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(190)))), ((int)(((byte)(72)))));
             this.LabelIndicator.Location = new System.Drawing.Point(308, 0);
             this.LabelIndicator.Name = "LabelIndicator";
             this.LabelIndicator.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -529,7 +466,6 @@ namespace FactoryManager.View
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.LeftSidePanel.ResumeLayout(false);
             this.MenuPanel.ResumeLayout(false);
-            this.ProductionPanel.ResumeLayout(false);
             this.UserInfoPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).EndInit();
             this.TopLeftHeaderPanel.ResumeLayout(false);
@@ -553,9 +489,6 @@ namespace FactoryManager.View
         private System.Windows.Forms.Panel TopHeaderSubpanel;
         private System.Windows.Forms.Label LabelIndicator;
         private System.Windows.Forms.Panel MenuPanel;
-        private System.Windows.Forms.Panel ProductionPanel;
-        private FontAwesome.Sharp.IconButton Project;
-        private FontAwesome.Sharp.IconButton Production;
         private FontAwesome.Sharp.IconButton Dashboard;
         private FontAwesome.Sharp.IconButton Home;
         private System.Windows.Forms.Panel UserInfoPanel;

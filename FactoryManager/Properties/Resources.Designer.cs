@@ -133,6 +133,16 @@ namespace FactoryManager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap hero2 {
+            get {
+                object obj = ResourceManager.GetObject("hero2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Hide {
             get {
                 object obj = ResourceManager.GetObject("Hide", resourceCulture);
@@ -166,6 +176,16 @@ namespace FactoryManager.Properties {
         internal static System.Drawing.Bitmap Paragliding {
             get {
                 object obj = ResourceManager.GetObject("Paragliding", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap productionline {
+            get {
+                object obj = ResourceManager.GetObject("productionline", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

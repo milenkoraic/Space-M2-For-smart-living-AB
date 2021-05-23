@@ -4,9 +4,9 @@ using FactoryManager.AppService.ApplicationLogger;
 using FactoryManager.AppService.CommandPrompt;
 using FactoryManager.AppService.ConfigurationReader;
 using FactoryManager.AppService.DateTimeCounting;
-using FactoryManager.AppService.FormInitialization;
 using FactoryManager.AppService.SystemInspection;
 using FactoryManager.View;
+using FactoryManager.ViewService;
 using FactoryManager.ViewService.DialogProvider;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -24,8 +24,7 @@ namespace FactoryManager
             services.AddSingleton<ILogHelper, LogHelper>();
             services.AddSingleton<ICommandPromptHelper, CommandPromptHelper>();
             services.AddSingleton<ICurrentDateTimeHelper, CurrentDateTimeHelper>();
-            services.AddSingleton<IMenuServiceHelper, MenuServiceHelper>();
-            services.AddSingleton<IFormInitializationHelper, FormInitializationHelper>();
+            services.AddSingleton<IDockingFormHelper, DockingFormHelper>();
             services.AddSingleton<IDialogMessageHelper, DialogMessageHelper>();
             ServiceProvider = services.BuildServiceProvider();
         }

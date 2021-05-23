@@ -30,7 +30,6 @@ namespace FactoryManager.View
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.TopPanel = new System.Windows.Forms.Panel();
             this.BottomPanel = new System.Windows.Forms.Panel();
             this.BasicInfoPanel = new System.Windows.Forms.Panel();
             this.TimeLabel = new System.Windows.Forms.Label();
@@ -55,48 +54,41 @@ namespace FactoryManager.View
             this.LeftInfoGridPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // TopPanel
-            // 
-            this.TopPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TopPanel.Location = new System.Drawing.Point(0, 0);
-            this.TopPanel.Name = "TopPanel";
-            this.TopPanel.Size = new System.Drawing.Size(1150, 317);
-            this.TopPanel.TabIndex = 4;
-            // 
             // BottomPanel
             // 
             this.BottomPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.BottomPanel.Controls.Add(this.BasicInfoPanel);
             this.BottomPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BottomPanel.Location = new System.Drawing.Point(0, 317);
+            this.BottomPanel.Location = new System.Drawing.Point(0, 0);
             this.BottomPanel.Name = "BottomPanel";
-            this.BottomPanel.Size = new System.Drawing.Size(1150, 363);
+            this.BottomPanel.Size = new System.Drawing.Size(1150, 680);
             this.BottomPanel.TabIndex = 5;
             // 
             // BasicInfoPanel
             // 
             this.BasicInfoPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.BasicInfoPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BasicInfoPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.BasicInfoPanel.Controls.Add(this.TimeLabel);
             this.BasicInfoPanel.Controls.Add(this.FooterPanel);
             this.BasicInfoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BasicInfoPanel.Location = new System.Drawing.Point(0, 0);
             this.BasicInfoPanel.Name = "BasicInfoPanel";
-            this.BasicInfoPanel.Size = new System.Drawing.Size(1150, 363);
+            this.BasicInfoPanel.Size = new System.Drawing.Size(1150, 680);
             this.BasicInfoPanel.TabIndex = 7;
             // 
             // TimeLabel
             // 
-            this.TimeLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TimeLabel.Font = new System.Drawing.Font("Verdana", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TimeLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(170)))), ((int)(((byte)(72)))));
+            this.TimeLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.TimeLabel.Font = new System.Drawing.Font("Verdana", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TimeLabel.ForeColor = System.Drawing.Color.White;
-            this.TimeLabel.Location = new System.Drawing.Point(0, 0);
+            this.TimeLabel.Location = new System.Drawing.Point(0, 451);
             this.TimeLabel.Name = "TimeLabel";
-            this.TimeLabel.Size = new System.Drawing.Size(1150, 234);
+            this.TimeLabel.Padding = new System.Windows.Forms.Padding(20);
+            this.TimeLabel.Size = new System.Drawing.Size(1150, 100);
             this.TimeLabel.TabIndex = 13;
             this.TimeLabel.Text = "FREDAG, 10:39:55";
-            this.TimeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.TimeLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // FooterPanel
             // 
@@ -105,7 +97,7 @@ namespace FactoryManager.View
             this.FooterPanel.Controls.Add(this.RigtInfoGridPanel);
             this.FooterPanel.Controls.Add(this.LeftInfoGridPanel);
             this.FooterPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.FooterPanel.Location = new System.Drawing.Point(0, 234);
+            this.FooterPanel.Location = new System.Drawing.Point(0, 551);
             this.FooterPanel.Name = "FooterPanel";
             this.FooterPanel.Size = new System.Drawing.Size(1150, 129);
             this.FooterPanel.TabIndex = 11;
@@ -261,7 +253,6 @@ namespace FactoryManager.View
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(1150, 680);
             this.Controls.Add(this.BottomPanel);
-            this.Controls.Add(this.TopPanel);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -278,7 +269,6 @@ namespace FactoryManager.View
         }
 
         #endregion
-        private System.Windows.Forms.Panel TopPanel;
         private System.Windows.Forms.Panel BottomPanel;
         private System.Windows.Forms.Panel BasicInfoPanel;
         private System.Windows.Forms.Panel FooterPanel;

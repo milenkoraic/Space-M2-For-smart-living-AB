@@ -39,10 +39,10 @@ namespace FactoryManager.BLL
             return isPasswordValid;
         }    
 
-        public static UserModel GetLogedInUser(string password)
+        public static UserViewModel GetLogedInUser(string password)
         {
             var connection = ConnectionService.CreateDatabaseConnection();
-            var user = new UserModel();
+            var user = new UserViewModel();
 
             OleDbCommand cmd = new OleDbCommand(
                 @"SELECT 
@@ -53,13 +53,13 @@ namespace FactoryManager.BLL
                         Användare.Efternamn,
                         Användare.Lösenord,
                         Användare.BildLänk, 
-                        AnvändareRoller.ID,
-                        AnvändareRoller.Rollsnummer,
-                        AnvändareRoller.RollNamn
+                        AnvändareRoll.ID,
+                        AnvändareRoll.Rollsnummer,
+                        AnvändareRoll.RollNamn
                         FROM 
-                        AnvändareRoller 
+                        AnvändareRoll 
                         INNER JOIN Användare 
-                        ON AnvändareRoller.Rollsnummer = Användare.Rollsnummer
+                        ON AnvändareRoll.Rollsnummer = Användare.Rollsnummer
                         WHERE Användare.Lösenord =" + "'" + password + "';", connection);
 
             OleDbDataReader reader = cmd.ExecuteReader();
@@ -80,7 +80,7 @@ namespace FactoryManager.BLL
             connection.Close();
             return user;
         }
-        public static void InsertNewUser(UserModel userModel)
+        public static void InsertNewUser(UserModel user)
         {
             var connection = ConnectionService.CreateDatabaseConnection();
 
@@ -89,12 +89,12 @@ namespace FactoryManager.BLL
                 CommandType = CommandType.Text,
                 CommandText = "INSERT INTO Projekt ([Projektnummer],[Projektnamn],[Projektstatus],[Beskrivning],[Kundnamn],[Kommun]) values (?,?,?,?,?,?)"
             };
-            //cmd.Parameters.AddWithValue("@Projektnummer", userModel.ProjectNumber);
-            //cmd.Parameters.AddWithValue("@Projektnamn", userModel.ProjectName);
-            //cmd.Parameters.AddWithValue("@Projektstatus", userModel.ProjectStatus);
-            //cmd.Parameters.AddWithValue("@Beskrivning", userModel.ProjectDescription);
-            //cmd.Parameters.AddWithValue("@Kundnamn", userModel.Customer);
-            //cmd.Parameters.AddWithValue("@Kommun", userModel.Municipality);
+            //cmd.Parameters.AddWithValue("@Projektnummer", user.Number);
+            //cmd.Parameters.AddWithValue("@Projektnamn", user.Name);
+            //cmd.Parameters.AddWithValue("@Projektstatus", user.ProjectStatus);
+            //cmd.Parameters.AddWithValue("@Beskrivning", user.ProjectDescription);
+            //cmd.Parameters.AddWithValue("@Kundnamn", user.Customer);
+            //cmd.Parameters.AddWithValue("@Kommun", user.Municipality);
             cmd.Connection = connection;
 
             cmd.ExecuteNonQuery();

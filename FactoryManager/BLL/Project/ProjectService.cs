@@ -1,4 +1,5 @@
 ﻿using FactoryManager.AppData;
+using FactoryManager.View.AppDialog;
 using FactoryManager.ViewModel.GridForm;
 using System.Data;
 using System.Data.OleDb;
@@ -8,7 +9,22 @@ namespace FactoryManager.BLL
 {
     public static class ProjectService
     {
-        public static void InsertProject(ProjectModel projectModel)
+        public static DataTable Fill(DevExpress.XtraGrid.GridControl gridControl)
+        {
+            string query = "SELECT * FROM Projekt";
+            var connection = ConnectionService.CreateDatabaseConnection();
+            OleDbCommand command = new OleDbCommand(query, connection);
+
+            OleDbDataAdapter adapter = new OleDbDataAdapter(command);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            gridControl.BindingContext = new BindingContext();
+            gridControl.DataSource = dataTable;
+            connection.Close();
+            return dataTable;
+        }
+
+        public static void InsertProject(ProjectModel project)
         {
             var connection = ConnectionService.CreateDatabaseConnection();
             OleDbCommand cmd = new OleDbCommand
@@ -16,20 +32,20 @@ namespace FactoryManager.BLL
                 CommandType = CommandType.Text,
                 CommandText = "INSERT INTO Projekt ([Projektnummer],[Projektnamn],[Projektstatus],[Beskrivning],[Kundnamn],[Kommun]) values (?,?,?,?,?,?)"
             };
-            cmd.Parameters.AddWithValue("@Projektnummer", projectModel.ProjectNumber);
-            cmd.Parameters.AddWithValue("@Projektnamn", projectModel.ProjectName);
-            cmd.Parameters.AddWithValue("@Projektstatus", projectModel.ProjectStatus);
-            cmd.Parameters.AddWithValue("@Beskrivning", projectModel.ProjectDescription);
-            cmd.Parameters.AddWithValue("@Kundnamn", projectModel.Customer);
-            cmd.Parameters.AddWithValue("@Kommun", projectModel.Municipality);
+            cmd.Parameters.AddWithValue("@Projektnummer", project.Number);
+            cmd.Parameters.AddWithValue("@Projektnamn", project.Name);
+            cmd.Parameters.AddWithValue("@Projektstatus", project.Status);
+            cmd.Parameters.AddWithValue("@Beskrivning", project.Description);
+            cmd.Parameters.AddWithValue("@Kundnamn", project.Customer);
+            cmd.Parameters.AddWithValue("@Kommun", project.Municipality);
             cmd.Connection = connection;
 
             cmd.ExecuteNonQuery();
-            MessageBox.Show("Nytt projekt har lagts. Klicka på OK för att uppdatera datakällan!", "DATABASINFO");
+            NotificationDialog.ShowBox("Nytt projekt har lagts. Klicka på OK för att uppdatera datakällan!", "DATABASINFO");
             connection.Close();
         }
 
-        public static void UpdateProject(ProjectModel projectModel, int projectNumber)
+        public static void UpdateProject(ProjectModel project, int projectNumber)
         {
             var connection = ConnectionService.CreateDatabaseConnection();
             OleDbCommand cmd = new OleDbCommand
@@ -37,17 +53,17 @@ namespace FactoryManager.BLL
                 CommandType = CommandType.Text,
                 CommandText = "UPDATE Projekt SET [Projektnummer]=@Projektnummer,[Projektnamn]=@Projektnamn,[Projektstatus]=@Projektstatus,[Beskrivning]=@Beskrivning,[Kundnamn]=@Kundnamn,[Kommun]=@Kommun WHERE Projektnummer = @ID;"
             };
-            cmd.Parameters.AddWithValue("@Projektnummer", projectModel.ProjectNumber);
-            cmd.Parameters.AddWithValue("@Projektnamn", projectModel.ProjectName);
-            cmd.Parameters.AddWithValue("@Projektstatus", projectModel.ProjectStatus);
-            cmd.Parameters.AddWithValue("@Beskrivning", projectModel.ProjectDescription);
-            cmd.Parameters.AddWithValue("@Kundnamn", projectModel.Customer);
-            cmd.Parameters.AddWithValue("@Kommun", projectModel.Municipality);
+            cmd.Parameters.AddWithValue("@Projektnummer", project.Number);
+            cmd.Parameters.AddWithValue("@Projektnamn", project.Name);
+            cmd.Parameters.AddWithValue("@Projektstatus", project.Status);
+            cmd.Parameters.AddWithValue("@Beskrivning", project.Description);
+            cmd.Parameters.AddWithValue("@Kundnamn", project.Customer);
+            cmd.Parameters.AddWithValue("@Kommun", project.Municipality);
             cmd.Parameters.AddWithValue("@ID", projectNumber);
             cmd.Connection = connection;
 
             cmd.ExecuteNonQuery();
-            MessageBox.Show("Projektdata har uppdaterats framgångsrikt!", "DATABASINFO");
+            NotificationDialog.ShowBox("Projektdata har uppdaterats framgångsrikt!", "DATABASINFO");
             connection.Close();
         }
 
@@ -63,7 +79,7 @@ namespace FactoryManager.BLL
             cmd.Connection = connection;
 
             cmd.ExecuteNonQuery();
-            MessageBox.Show("Projektet har tagits bort från databasen.", "DATABASINFO");
+            NotificationDialog.ShowBox("Projektet har tagits bort från databasen.", "DATABASINFO");
             connection.Close();
         }
     }

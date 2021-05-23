@@ -15,7 +15,6 @@
             this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::FactoryManager.View.AppDialog.LoadingScreen), false, false, true);
             this.FooterPanel = new System.Windows.Forms.Panel();
             this.PoweredByLabel = new System.Windows.Forms.Label();
-            this.CopyrightLabel = new System.Windows.Forms.Label();
             this.AppVersionLabel = new System.Windows.Forms.Label();
             this.MainLoginPanel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -25,6 +24,7 @@
             this.TopHeaderPanel = new System.Windows.Forms.Panel();
             this.Maximize = new FontAwesome.Sharp.IconButton();
             this.ButtoneExit = new FontAwesome.Sharp.IconButton();
+            this.CopyrightLabel = new System.Windows.Forms.Label();
             this.FooterPanel.SuspendLayout();
             this.MainLoginPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -38,13 +38,13 @@
             // FooterPanel
             // 
             this.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(150)))), ((int)(((byte)(72)))));
-            this.FooterPanel.Controls.Add(this.PoweredByLabel);
             this.FooterPanel.Controls.Add(this.CopyrightLabel);
+            this.FooterPanel.Controls.Add(this.PoweredByLabel);
             this.FooterPanel.Controls.Add(this.AppVersionLabel);
             this.FooterPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.FooterPanel.Location = new System.Drawing.Point(5, 626);
             this.FooterPanel.Name = "FooterPanel";
-            this.FooterPanel.Size = new System.Drawing.Size(842, 49);
+            this.FooterPanel.Size = new System.Drawing.Size(1140, 49);
             this.FooterPanel.TabIndex = 106;
             // 
             // PoweredByLabel
@@ -54,30 +54,14 @@
             this.PoweredByLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PoweredByLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PoweredByLabel.ForeColor = System.Drawing.Color.White;
-            this.PoweredByLabel.Location = new System.Drawing.Point(497, 0);
+            this.PoweredByLabel.Location = new System.Drawing.Point(880, 0);
             this.PoweredByLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PoweredByLabel.Name = "PoweredByLabel";
-            this.PoweredByLabel.Padding = new System.Windows.Forms.Padding(0, 10, 10, 10);
-            this.PoweredByLabel.Size = new System.Drawing.Size(345, 49);
+            this.PoweredByLabel.Padding = new System.Windows.Forms.Padding(15);
+            this.PoweredByLabel.Size = new System.Drawing.Size(260, 49);
             this.PoweredByLabel.TabIndex = 102;
-            this.PoweredByLabel.Text = "Powered by Microsoft Access Database Engine";
+            this.PoweredByLabel.Text = "Powered by Microsoft Access DB Engine";
             this.PoweredByLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // CopyrightLabel
-            // 
-            this.CopyrightLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.CopyrightLabel.BackColor = System.Drawing.Color.Transparent;
-            this.CopyrightLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CopyrightLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.CopyrightLabel.ForeColor = System.Drawing.Color.White;
-            this.CopyrightLabel.Location = new System.Drawing.Point(199, 0);
-            this.CopyrightLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.CopyrightLabel.Name = "CopyrightLabel";
-            this.CopyrightLabel.Padding = new System.Windows.Forms.Padding(10, 12, 0, 10);
-            this.CopyrightLabel.Size = new System.Drawing.Size(445, 49);
-            this.CopyrightLabel.TabIndex = 101;
-            this.CopyrightLabel.Text = "Copyright ©  Milenko Raic | Software Development";
-            this.CopyrightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AppVersionLabel
             // 
@@ -89,8 +73,8 @@
             this.AppVersionLabel.Location = new System.Drawing.Point(0, 0);
             this.AppVersionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.AppVersionLabel.Name = "AppVersionLabel";
-            this.AppVersionLabel.Padding = new System.Windows.Forms.Padding(10, 10, 0, 10);
-            this.AppVersionLabel.Size = new System.Drawing.Size(345, 49);
+            this.AppVersionLabel.Padding = new System.Windows.Forms.Padding(10);
+            this.AppVersionLabel.Size = new System.Drawing.Size(260, 49);
             this.AppVersionLabel.TabIndex = 100;
             this.AppVersionLabel.Text = "Factory Manager";
             this.AppVersionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -102,7 +86,7 @@
             this.MainLoginPanel.Controls.Add(this.pictureBox1);
             this.MainLoginPanel.Controls.Add(this.ButtonLogIn);
             this.MainLoginPanel.Controls.Add(this.LoginTextBox);
-            this.MainLoginPanel.Location = new System.Drawing.Point(204, 64);
+            this.MainLoginPanel.Location = new System.Drawing.Point(353, 64);
             this.MainLoginPanel.Name = "MainLoginPanel";
             this.MainLoginPanel.Size = new System.Drawing.Size(445, 442);
             this.MainLoginPanel.TabIndex = 105;
@@ -171,6 +155,7 @@
             this.LoginTextBox.Text = "Ange ditt lösenord här...";
             this.LoginTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.LoginTextBox.Enter += new System.EventHandler(this.LoginTextBox_Enter);
+            this.LoginTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LoginTextBox_KeyPress);
             // 
             // FormFadeTimer
             // 
@@ -179,7 +164,7 @@
             // 
             // TopHeaderPanel
             // 
-            this.TopHeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(170)))), ((int)(((byte)(72)))));
+            this.TopHeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(150)))), ((int)(((byte)(72)))));
             this.TopHeaderPanel.Controls.Add(this.Maximize);
             this.TopHeaderPanel.Controls.Add(this.ButtoneExit);
             this.TopHeaderPanel.Cursor = System.Windows.Forms.Cursors.Default;
@@ -188,7 +173,7 @@
             this.TopHeaderPanel.Location = new System.Drawing.Point(5, 5);
             this.TopHeaderPanel.Margin = new System.Windows.Forms.Padding(4);
             this.TopHeaderPanel.Name = "TopHeaderPanel";
-            this.TopHeaderPanel.Size = new System.Drawing.Size(842, 40);
+            this.TopHeaderPanel.Size = new System.Drawing.Size(1140, 40);
             this.TopHeaderPanel.TabIndex = 126;
             // 
             // Maximize
@@ -196,6 +181,7 @@
             this.Maximize.AutoSize = true;
             this.Maximize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(170)))), ((int)(((byte)(72)))));
             this.Maximize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Maximize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Maximize.Dock = System.Windows.Forms.DockStyle.Right;
             this.Maximize.FlatAppearance.BorderSize = 0;
             this.Maximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -204,7 +190,7 @@
             this.Maximize.IconColor = System.Drawing.Color.White;
             this.Maximize.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.Maximize.IconSize = 18;
-            this.Maximize.Location = new System.Drawing.Point(762, 0);
+            this.Maximize.Location = new System.Drawing.Point(1060, 0);
             this.Maximize.Margin = new System.Windows.Forms.Padding(0);
             this.Maximize.Name = "Maximize";
             this.Maximize.Padding = new System.Windows.Forms.Padding(2);
@@ -221,16 +207,16 @@
             this.ButtoneExit.AutoSize = true;
             this.ButtoneExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(170)))), ((int)(((byte)(72)))));
             this.ButtoneExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ButtoneExit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtoneExit.Dock = System.Windows.Forms.DockStyle.Right;
             this.ButtoneExit.FlatAppearance.BorderSize = 0;
-            this.ButtoneExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Firebrick;
             this.ButtoneExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtoneExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(170)))), ((int)(((byte)(72)))));
             this.ButtoneExit.IconChar = FontAwesome.Sharp.IconChar.PowerOff;
             this.ButtoneExit.IconColor = System.Drawing.Color.White;
             this.ButtoneExit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ButtoneExit.IconSize = 18;
-            this.ButtoneExit.Location = new System.Drawing.Point(802, 0);
+            this.ButtoneExit.Location = new System.Drawing.Point(1100, 0);
             this.ButtoneExit.Margin = new System.Windows.Forms.Padding(0);
             this.ButtoneExit.Name = "ButtoneExit";
             this.ButtoneExit.Padding = new System.Windows.Forms.Padding(2);
@@ -242,6 +228,22 @@
             this.ButtoneExit.UseVisualStyleBackColor = false;
             this.ButtoneExit.Click += new System.EventHandler(this.ButtoneExit_Click);
             // 
+            // CopyrightLabel
+            // 
+            this.CopyrightLabel.BackColor = System.Drawing.Color.Transparent;
+            this.CopyrightLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CopyrightLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CopyrightLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.CopyrightLabel.ForeColor = System.Drawing.Color.White;
+            this.CopyrightLabel.Location = new System.Drawing.Point(260, 0);
+            this.CopyrightLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.CopyrightLabel.Name = "CopyrightLabel";
+            this.CopyrightLabel.Padding = new System.Windows.Forms.Padding(10);
+            this.CopyrightLabel.Size = new System.Drawing.Size(620, 49);
+            this.CopyrightLabel.TabIndex = 103;
+            this.CopyrightLabel.Text = "Copyright ©  Milenko Raic | Software Development";
+            this.CopyrightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Login
             // 
             this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(170)))), ((int)(((byte)(72)))));
@@ -252,7 +254,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.ClientSize = new System.Drawing.Size(852, 680);
+            this.ClientSize = new System.Drawing.Size(1150, 680);
             this.ControlBox = false;
             this.Controls.Add(this.TopHeaderPanel);
             this.Controls.Add(this.FooterPanel);
@@ -282,7 +284,6 @@
         private System.ComponentModel.IContainer components;
         private System.Windows.Forms.Panel FooterPanel;
         private System.Windows.Forms.Label PoweredByLabel;
-        private System.Windows.Forms.Label CopyrightLabel;
         private System.Windows.Forms.Label AppVersionLabel;
         private System.Windows.Forms.Panel MainLoginPanel;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -293,6 +294,7 @@
         private System.Windows.Forms.Panel TopHeaderPanel;
         private FontAwesome.Sharp.IconButton Maximize;
         private FontAwesome.Sharp.IconButton ButtoneExit;
+        private System.Windows.Forms.Label CopyrightLabel;
     }
 }
 

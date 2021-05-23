@@ -1,7 +1,9 @@
-﻿using System;
+﻿using FactoryManager.AppData;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,7 +21,6 @@ namespace FactoryManager.View.GridView.ActivityView
 
         private void UserRole_Load(object sender, EventArgs e)
         {
-            användareRollerTableAdapter.Fill(spaceM2Dataset.AnvändareRoller);
             gridControl1.Height = MainForm.DockingPanel.Height / 2;
             gridView1.OptionsView.ColumnAutoWidth = false;
             gridView1.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
@@ -49,23 +50,6 @@ namespace FactoryManager.View.GridView.ActivityView
         private void DeleteRow_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void CloseForm_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CloseForm_MouseEnter(object sender, EventArgs e)
-        {
-            CloseForm.BackColor = Color.FromArgb(50, 170, 72);
-            CloseForm.IconColor = Color.White;
-        }
-
-        private void CloseForm_MouseLeave(object sender, EventArgs e)
-        {
-            CloseForm.BackColor = Color.FromArgb(35, 35, 35);
-            CloseForm.IconColor = Color.FromArgb(50, 170, 72);
         }
     }
 }

@@ -35,7 +35,7 @@ namespace FactoryManager.View
             CopyrightLabel.Text = _configurationReader.GetAppCopyright() + _currentDateTimeHelper.GetCopyrightYear();
         }
 
-        private void LoginButton_Click(object sender, EventArgs e)
+        private void PerformLoginAction()
         {
             try
             {
@@ -44,7 +44,7 @@ namespace FactoryManager.View
                 for (int i = 1; i <= 100; i++)
                 {
                     SplashScreenManager.Default.SetWaitFormCaption("AUTENTISERING");
-                    SplashScreenManager.Default.SetWaitFormDescription("Vänta en stund innan du loggar in!");
+                    SplashScreenManager.Default.SetWaitFormDescription("Vänta medan dina data valideras!");
                     Thread.Sleep(50);
                 }
                 SplashScreenManager.CloseForm(false);
@@ -52,7 +52,7 @@ namespace FactoryManager.View
                 var isUserValid = UserService.ValidateUser(LoginTextBox.Text);
                 if (isUserValid == true)
                 {
-                    UserModel user = UserService.GetLogedInUser(LoginTextBox.Text);
+                    UserViewModel user = UserService.GetLogedInUser(LoginTextBox.Text);
                     MainForm mainForm = new MainForm(user)
                     {
                         TopLevel = true,
@@ -83,6 +83,11 @@ namespace FactoryManager.View
             }
         }
 
+        private void LoginButton_Click(object sender, EventArgs e)
+        {
+            PerformLoginAction();
+        }
+
         private void LoginTextBox_Enter(object sender, EventArgs e)
         {
             LoginTextBox.Text = "";
@@ -97,6 +102,15 @@ namespace FactoryManager.View
         private void ButtoneExit_Click(object sender, EventArgs e)
         {
             _dialogMessageHelper.AskToCloseApplication();
+        }
+
+        private void LoginTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+                PerformLoginAction();
+            }
         }
     }
 }

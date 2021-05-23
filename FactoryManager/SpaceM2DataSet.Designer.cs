@@ -20,17 +20,15 @@ namespace FactoryManager {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("SpaceM2Dataset")]
+    [global::System.Xml.Serialization.XmlRootAttribute("SpaceM2DataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class SpaceM2Dataset : global::System.Data.DataSet {
-        
-        private AktivitetDataTable tableAktivitet;
+    public partial class SpaceM2DataSet : global::System.Data.DataSet {
         
         private AnställdDataTable tableAnställd;
         
         private AnvändareDataTable tableAnvändare;
         
-        private AnvändareRollerDataTable tableAnvändareRoller;
+        private AnvändareRollDataTable tableAnvändareRoll;
         
         private BeställningsradDataTable tableBeställningsrad;
         
@@ -60,9 +58,11 @@ namespace FactoryManager {
         
         private ProjektDataTable tableProjekt;
         
+        private StationAktivitetDataTable tableStationAktivitet;
+        
         private StationerDataTable tableStationer;
         
-        private _Stationer___Akt_och_E_kontrollDataTable _tableStationer___Akt_och_E_kontroll;
+        private StationerEgenkontrollDataTable tableStationerEgenkontroll;
         
         private Väggar_per_modultypDataTable tableVäggar_per_modultyp;
         
@@ -90,7 +90,7 @@ namespace FactoryManager {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public SpaceM2Dataset() {
+        public SpaceM2DataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -101,7 +101,7 @@ namespace FactoryManager {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected SpaceM2Dataset(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected SpaceM2DataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -114,17 +114,14 @@ namespace FactoryManager {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Aktivitet"] != null)) {
-                    base.Tables.Add(new AktivitetDataTable(ds.Tables["Aktivitet"]));
-                }
                 if ((ds.Tables["Anställd"] != null)) {
                     base.Tables.Add(new AnställdDataTable(ds.Tables["Anställd"]));
                 }
                 if ((ds.Tables["Användare"] != null)) {
                     base.Tables.Add(new AnvändareDataTable(ds.Tables["Användare"]));
                 }
-                if ((ds.Tables["AnvändareRoller"] != null)) {
-                    base.Tables.Add(new AnvändareRollerDataTable(ds.Tables["AnvändareRoller"]));
+                if ((ds.Tables["AnvändareRoll"] != null)) {
+                    base.Tables.Add(new AnvändareRollDataTable(ds.Tables["AnvändareRoll"]));
                 }
                 if ((ds.Tables["Beställningsrad"] != null)) {
                     base.Tables.Add(new BeställningsradDataTable(ds.Tables["Beställningsrad"]));
@@ -168,11 +165,14 @@ namespace FactoryManager {
                 if ((ds.Tables["Projekt"] != null)) {
                     base.Tables.Add(new ProjektDataTable(ds.Tables["Projekt"]));
                 }
+                if ((ds.Tables["StationAktivitet"] != null)) {
+                    base.Tables.Add(new StationAktivitetDataTable(ds.Tables["StationAktivitet"]));
+                }
                 if ((ds.Tables["Stationer"] != null)) {
                     base.Tables.Add(new StationerDataTable(ds.Tables["Stationer"]));
                 }
-                if ((ds.Tables["Stationer - Akt och E-kontroll"] != null)) {
-                    base.Tables.Add(new _Stationer___Akt_och_E_kontrollDataTable(ds.Tables["Stationer - Akt och E-kontroll"]));
+                if ((ds.Tables["StationerEgenkontroll"] != null)) {
+                    base.Tables.Add(new StationerEgenkontrollDataTable(ds.Tables["StationerEgenkontroll"]));
                 }
                 if ((ds.Tables["Väggar per modultyp"] != null)) {
                     base.Tables.Add(new Väggar_per_modultypDataTable(ds.Tables["Väggar per modultyp"]));
@@ -202,16 +202,6 @@ namespace FactoryManager {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public AktivitetDataTable Aktivitet {
-            get {
-                return this.tableAktivitet;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public AnställdDataTable Anställd {
             get {
                 return this.tableAnställd;
@@ -232,9 +222,9 @@ namespace FactoryManager {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public AnvändareRollerDataTable AnvändareRoller {
+        public AnvändareRollDataTable AnvändareRoll {
             get {
-                return this.tableAnvändareRoller;
+                return this.tableAnvändareRoll;
             }
         }
         
@@ -382,6 +372,16 @@ namespace FactoryManager {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public StationAktivitetDataTable StationAktivitet {
+            get {
+                return this.tableStationAktivitet;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public StationerDataTable Stationer {
             get {
                 return this.tableStationer;
@@ -392,9 +392,9 @@ namespace FactoryManager {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public _Stationer___Akt_och_E_kontrollDataTable _Stationer___Akt_och_E_kontroll {
+        public StationerEgenkontrollDataTable StationerEgenkontroll {
             get {
-                return this._tableStationer___Akt_och_E_kontroll;
+                return this.tableStationerEgenkontroll;
             }
         }
         
@@ -460,7 +460,7 @@ namespace FactoryManager {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            SpaceM2Dataset cln = ((SpaceM2Dataset)(base.Clone()));
+            SpaceM2DataSet cln = ((SpaceM2DataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -485,17 +485,14 @@ namespace FactoryManager {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Aktivitet"] != null)) {
-                    base.Tables.Add(new AktivitetDataTable(ds.Tables["Aktivitet"]));
-                }
                 if ((ds.Tables["Anställd"] != null)) {
                     base.Tables.Add(new AnställdDataTable(ds.Tables["Anställd"]));
                 }
                 if ((ds.Tables["Användare"] != null)) {
                     base.Tables.Add(new AnvändareDataTable(ds.Tables["Användare"]));
                 }
-                if ((ds.Tables["AnvändareRoller"] != null)) {
-                    base.Tables.Add(new AnvändareRollerDataTable(ds.Tables["AnvändareRoller"]));
+                if ((ds.Tables["AnvändareRoll"] != null)) {
+                    base.Tables.Add(new AnvändareRollDataTable(ds.Tables["AnvändareRoll"]));
                 }
                 if ((ds.Tables["Beställningsrad"] != null)) {
                     base.Tables.Add(new BeställningsradDataTable(ds.Tables["Beställningsrad"]));
@@ -539,11 +536,14 @@ namespace FactoryManager {
                 if ((ds.Tables["Projekt"] != null)) {
                     base.Tables.Add(new ProjektDataTable(ds.Tables["Projekt"]));
                 }
+                if ((ds.Tables["StationAktivitet"] != null)) {
+                    base.Tables.Add(new StationAktivitetDataTable(ds.Tables["StationAktivitet"]));
+                }
                 if ((ds.Tables["Stationer"] != null)) {
                     base.Tables.Add(new StationerDataTable(ds.Tables["Stationer"]));
                 }
-                if ((ds.Tables["Stationer - Akt och E-kontroll"] != null)) {
-                    base.Tables.Add(new _Stationer___Akt_och_E_kontrollDataTable(ds.Tables["Stationer - Akt och E-kontroll"]));
+                if ((ds.Tables["StationerEgenkontroll"] != null)) {
+                    base.Tables.Add(new StationerEgenkontrollDataTable(ds.Tables["StationerEgenkontroll"]));
                 }
                 if ((ds.Tables["Väggar per modultyp"] != null)) {
                     base.Tables.Add(new Väggar_per_modultypDataTable(ds.Tables["Väggar per modultyp"]));
@@ -584,12 +584,6 @@ namespace FactoryManager {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableAktivitet = ((AktivitetDataTable)(base.Tables["Aktivitet"]));
-            if ((initTable == true)) {
-                if ((this.tableAktivitet != null)) {
-                    this.tableAktivitet.InitVars();
-                }
-            }
             this.tableAnställd = ((AnställdDataTable)(base.Tables["Anställd"]));
             if ((initTable == true)) {
                 if ((this.tableAnställd != null)) {
@@ -602,10 +596,10 @@ namespace FactoryManager {
                     this.tableAnvändare.InitVars();
                 }
             }
-            this.tableAnvändareRoller = ((AnvändareRollerDataTable)(base.Tables["AnvändareRoller"]));
+            this.tableAnvändareRoll = ((AnvändareRollDataTable)(base.Tables["AnvändareRoll"]));
             if ((initTable == true)) {
-                if ((this.tableAnvändareRoller != null)) {
-                    this.tableAnvändareRoller.InitVars();
+                if ((this.tableAnvändareRoll != null)) {
+                    this.tableAnvändareRoll.InitVars();
                 }
             }
             this.tableBeställningsrad = ((BeställningsradDataTable)(base.Tables["Beställningsrad"]));
@@ -692,16 +686,22 @@ namespace FactoryManager {
                     this.tableProjekt.InitVars();
                 }
             }
+            this.tableStationAktivitet = ((StationAktivitetDataTable)(base.Tables["StationAktivitet"]));
+            if ((initTable == true)) {
+                if ((this.tableStationAktivitet != null)) {
+                    this.tableStationAktivitet.InitVars();
+                }
+            }
             this.tableStationer = ((StationerDataTable)(base.Tables["Stationer"]));
             if ((initTable == true)) {
                 if ((this.tableStationer != null)) {
                     this.tableStationer.InitVars();
                 }
             }
-            this._tableStationer___Akt_och_E_kontroll = ((_Stationer___Akt_och_E_kontrollDataTable)(base.Tables["Stationer - Akt och E-kontroll"]));
+            this.tableStationerEgenkontroll = ((StationerEgenkontrollDataTable)(base.Tables["StationerEgenkontroll"]));
             if ((initTable == true)) {
-                if ((this._tableStationer___Akt_och_E_kontroll != null)) {
-                    this._tableStationer___Akt_och_E_kontroll.InitVars();
+                if ((this.tableStationerEgenkontroll != null)) {
+                    this.tableStationerEgenkontroll.InitVars();
                 }
             }
             this.tableVäggar_per_modultyp = ((Väggar_per_modultypDataTable)(base.Tables["Väggar per modultyp"]));
@@ -730,19 +730,17 @@ namespace FactoryManager {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "SpaceM2Dataset";
+            this.DataSetName = "SpaceM2DataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/SpaceM2Dataset.xsd";
+            this.Namespace = "http://tempuri.org/SpaceM2DataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableAktivitet = new AktivitetDataTable();
-            base.Tables.Add(this.tableAktivitet);
             this.tableAnställd = new AnställdDataTable();
             base.Tables.Add(this.tableAnställd);
             this.tableAnvändare = new AnvändareDataTable();
             base.Tables.Add(this.tableAnvändare);
-            this.tableAnvändareRoller = new AnvändareRollerDataTable();
-            base.Tables.Add(this.tableAnvändareRoller);
+            this.tableAnvändareRoll = new AnvändareRollDataTable();
+            base.Tables.Add(this.tableAnvändareRoll);
             this.tableBeställningsrad = new BeställningsradDataTable();
             base.Tables.Add(this.tableBeställningsrad);
             this.tableByggdel = new ByggdelDataTable();
@@ -771,16 +769,18 @@ namespace FactoryManager {
             base.Tables.Add(this.tablePrislista);
             this.tableProjekt = new ProjektDataTable();
             base.Tables.Add(this.tableProjekt);
+            this.tableStationAktivitet = new StationAktivitetDataTable();
+            base.Tables.Add(this.tableStationAktivitet);
             this.tableStationer = new StationerDataTable();
             base.Tables.Add(this.tableStationer);
-            this._tableStationer___Akt_och_E_kontroll = new _Stationer___Akt_och_E_kontrollDataTable();
-            base.Tables.Add(this._tableStationer___Akt_och_E_kontroll);
+            this.tableStationerEgenkontroll = new StationerEgenkontrollDataTable();
+            base.Tables.Add(this.tableStationerEgenkontroll);
             this.tableVäggar_per_modultyp = new Väggar_per_modultypDataTable();
             base.Tables.Add(this.tableVäggar_per_modultyp);
             this.tableVäggtyper = new VäggtyperDataTable();
             base.Tables.Add(this.tableVäggtyper);
             this.relationAnvändare_RollerAnvändare = new global::System.Data.DataRelation("Användare_RollerAnvändare", new global::System.Data.DataColumn[] {
-                        this.tableAnvändareRoller.IDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableAnvändareRoll.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableAnvändare.RollsnummerColumn}, false);
             this.Relations.Add(this.relationAnvändare_RollerAnvändare);
             this.relationModulmonteringBeställningsrad = new global::System.Data.DataRelation("ModulmonteringBeställningsrad", new global::System.Data.DataColumn[] {
@@ -819,12 +819,6 @@ namespace FactoryManager {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeAktivitet() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializeAnställd() {
             return false;
         }
@@ -837,7 +831,7 @@ namespace FactoryManager {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeAnvändareRoller() {
+        private bool ShouldSerializeAnvändareRoll() {
             return false;
         }
         
@@ -927,13 +921,19 @@ namespace FactoryManager {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializeStationAktivitet() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializeStationer() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerialize_Stationer___Akt_och_E_kontroll() {
+        private bool ShouldSerializeStationerEgenkontroll() {
             return false;
         }
         
@@ -960,7 +960,7 @@ namespace FactoryManager {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            SpaceM2Dataset ds = new SpaceM2Dataset();
+            SpaceM2DataSet ds = new SpaceM2DataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -1005,16 +1005,13 @@ namespace FactoryManager {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void AktivitetRowChangeEventHandler(object sender, AktivitetRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void AnställdRowChangeEventHandler(object sender, AnställdRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void AnvändareRowChangeEventHandler(object sender, AnvändareRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void AnvändareRollerRowChangeEventHandler(object sender, AnvändareRollerRowChangeEvent e);
+        public delegate void AnvändareRollRowChangeEventHandler(object sender, AnvändareRollRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void BeställningsradRowChangeEventHandler(object sender, BeställningsradRowChangeEvent e);
@@ -1059,336 +1056,19 @@ namespace FactoryManager {
         public delegate void ProjektRowChangeEventHandler(object sender, ProjektRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void StationAktivitetRowChangeEventHandler(object sender, StationAktivitetRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void StationerRowChangeEventHandler(object sender, StationerRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void _Stationer___Akt_och_E_kontrollRowChangeEventHandler(object sender, _Stationer___Akt_och_E_kontrollRowChangeEvent e);
+        public delegate void StationerEgenkontrollRowChangeEventHandler(object sender, StationerEgenkontrollRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void Väggar_per_modultypRowChangeEventHandler(object sender, Väggar_per_modultypRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void VäggtyperRowChangeEventHandler(object sender, VäggtyperRowChangeEvent e);
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class AktivitetDataTable : global::System.Data.TypedTableBase<AktivitetRow> {
-            
-            private global::System.Data.DataColumn columnID;
-            
-            private global::System.Data.DataColumn columnAktivitetsnummer;
-            
-            private global::System.Data.DataColumn columnAktivitetsbeskrivning;
-            
-            private global::System.Data.DataColumn columnEgenkontroll;
-            
-            private global::System.Data.DataColumn columnInstruktion;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AktivitetDataTable() {
-                this.TableName = "Aktivitet";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal AktivitetDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected AktivitetDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn IDColumn {
-                get {
-                    return this.columnID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn AktivitetsnummerColumn {
-                get {
-                    return this.columnAktivitetsnummer;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn AktivitetsbeskrivningColumn {
-                get {
-                    return this.columnAktivitetsbeskrivning;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn EgenkontrollColumn {
-                get {
-                    return this.columnEgenkontroll;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn InstruktionColumn {
-                get {
-                    return this.columnInstruktion;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AktivitetRow this[int index] {
-                get {
-                    return ((AktivitetRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event AktivitetRowChangeEventHandler AktivitetRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event AktivitetRowChangeEventHandler AktivitetRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event AktivitetRowChangeEventHandler AktivitetRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event AktivitetRowChangeEventHandler AktivitetRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddAktivitetRow(AktivitetRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AktivitetRow AddAktivitetRow(double Aktivitetsnummer, string Aktivitetsbeskrivning, string Egenkontroll, string Instruktion) {
-                AktivitetRow rowAktivitetRow = ((AktivitetRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        Aktivitetsnummer,
-                        Aktivitetsbeskrivning,
-                        Egenkontroll,
-                        Instruktion};
-                rowAktivitetRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowAktivitetRow);
-                return rowAktivitetRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AktivitetRow FindByAktivitetsnummer(double Aktivitetsnummer) {
-                return ((AktivitetRow)(this.Rows.Find(new object[] {
-                            Aktivitetsnummer})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                AktivitetDataTable cln = ((AktivitetDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new AktivitetDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal void InitVars() {
-                this.columnID = base.Columns["ID"];
-                this.columnAktivitetsnummer = base.Columns["Aktivitetsnummer"];
-                this.columnAktivitetsbeskrivning = base.Columns["Aktivitetsbeskrivning"];
-                this.columnEgenkontroll = base.Columns["Egenkontroll"];
-                this.columnInstruktion = base.Columns["Instruktion"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            private void InitClass() {
-                this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnID);
-                this.columnAktivitetsnummer = new global::System.Data.DataColumn("Aktivitetsnummer", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAktivitetsnummer);
-                this.columnAktivitetsbeskrivning = new global::System.Data.DataColumn("Aktivitetsbeskrivning", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAktivitetsbeskrivning);
-                this.columnEgenkontroll = new global::System.Data.DataColumn("Egenkontroll", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnEgenkontroll);
-                this.columnInstruktion = new global::System.Data.DataColumn("Instruktion", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnInstruktion);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnAktivitetsnummer}, true));
-                this.columnID.AutoIncrement = true;
-                this.columnID.AutoIncrementSeed = -1;
-                this.columnID.AutoIncrementStep = -1;
-                this.columnAktivitetsnummer.AllowDBNull = false;
-                this.columnAktivitetsnummer.Unique = true;
-                this.columnAktivitetsbeskrivning.MaxLength = 255;
-                this.columnEgenkontroll.MaxLength = 255;
-                this.columnInstruktion.MaxLength = 255;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AktivitetRow NewAktivitetRow() {
-                return ((AktivitetRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new AktivitetRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(AktivitetRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.AktivitetRowChanged != null)) {
-                    this.AktivitetRowChanged(this, new AktivitetRowChangeEvent(((AktivitetRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.AktivitetRowChanging != null)) {
-                    this.AktivitetRowChanging(this, new AktivitetRowChangeEvent(((AktivitetRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.AktivitetRowDeleted != null)) {
-                    this.AktivitetRowDeleted(this, new AktivitetRowChangeEvent(((AktivitetRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.AktivitetRowDeleting != null)) {
-                    this.AktivitetRowDeleting(this, new AktivitetRowChangeEvent(((AktivitetRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveAktivitetRow(AktivitetRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                SpaceM2Dataset ds = new SpaceM2Dataset();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "AktivitetDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1414,6 +1094,8 @@ namespace FactoryManager {
             private global::System.Data.DataColumn columnFunktion;
             
             private global::System.Data.DataColumn columnArbetar;
+            
+            private global::System.Data.DataColumn columnBildLänk;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -1522,6 +1204,14 @@ namespace FactoryManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn BildLänkColumn {
+                get {
+                    return this.columnBildLänk;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1557,7 +1247,7 @@ namespace FactoryManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AnställdRow AddAnställdRow(string Anställdnummer, string Förnamn, string Efternamn, string Telefon, string Mail, string Address, string Funktion, bool Arbetar) {
+            public AnställdRow AddAnställdRow(string Anställdnummer, string Förnamn, string Efternamn, string Telefon, string Mail, string Address, string Funktion, bool Arbetar, string BildLänk) {
                 AnställdRow rowAnställdRow = ((AnställdRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1568,7 +1258,8 @@ namespace FactoryManager {
                         Mail,
                         Address,
                         Funktion,
-                        Arbetar};
+                        Arbetar,
+                        BildLänk};
                 rowAnställdRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAnställdRow);
                 return rowAnställdRow;
@@ -1607,6 +1298,7 @@ namespace FactoryManager {
                 this.columnAddress = base.Columns["Address"];
                 this.columnFunktion = base.Columns["Funktion"];
                 this.columnArbetar = base.Columns["Arbetar"];
+                this.columnBildLänk = base.Columns["BildLänk"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1630,6 +1322,8 @@ namespace FactoryManager {
                 base.Columns.Add(this.columnFunktion);
                 this.columnArbetar = new global::System.Data.DataColumn("Arbetar", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnArbetar);
+                this.columnBildLänk = new global::System.Data.DataColumn("BildLänk", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBildLänk);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnAnställdnummer}, true));
                 this.columnID.AutoIncrement = true;
@@ -1644,6 +1338,7 @@ namespace FactoryManager {
                 this.columnMail.MaxLength = 255;
                 this.columnAddress.MaxLength = 255;
                 this.columnFunktion.MaxLength = 255;
+                this.columnBildLänk.MaxLength = 536870910;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1711,7 +1406,7 @@ namespace FactoryManager {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                SpaceM2Dataset ds = new SpaceM2Dataset();
+                SpaceM2DataSet ds = new SpaceM2DataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1917,7 +1612,7 @@ namespace FactoryManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AnvändareRow AddAnvändareRow(int Usernummer, AnvändareRollerRow parentAnvändareRollerRowByAnvändare_RollerAnvändare, string Förnamn, string Efternamn, string Lösenord, string BildLänk) {
+            public AnvändareRow AddAnvändareRow(int Usernummer, AnvändareRollRow parentAnvändareRollRowByAnvändare_RollerAnvändare, string Förnamn, string Efternamn, string Lösenord, string BildLänk) {
                 AnvändareRow rowAnvändareRow = ((AnvändareRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1927,8 +1622,8 @@ namespace FactoryManager {
                         Efternamn,
                         Lösenord,
                         BildLänk};
-                if ((parentAnvändareRollerRowByAnvändare_RollerAnvändare != null)) {
-                    columnValuesArray[2] = parentAnvändareRollerRowByAnvändare_RollerAnvändare[0];
+                if ((parentAnvändareRollRowByAnvändare_RollerAnvändare != null)) {
+                    columnValuesArray[2] = parentAnvändareRollRowByAnvändare_RollerAnvändare[0];
                 }
                 rowAnvändareRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAnvändareRow);
@@ -2063,7 +1758,7 @@ namespace FactoryManager {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                SpaceM2Dataset ds = new SpaceM2Dataset();
+                SpaceM2DataSet ds = new SpaceM2DataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -2127,7 +1822,7 @@ namespace FactoryManager {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class AnvändareRollerDataTable : global::System.Data.TypedTableBase<AnvändareRollerRow> {
+        public partial class AnvändareRollDataTable : global::System.Data.TypedTableBase<AnvändareRollRow> {
             
             private global::System.Data.DataColumn columnID;
             
@@ -2137,8 +1832,8 @@ namespace FactoryManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AnvändareRollerDataTable() {
-                this.TableName = "AnvändareRoller";
+            public AnvändareRollDataTable() {
+                this.TableName = "AnvändareRoll";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -2146,7 +1841,7 @@ namespace FactoryManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal AnvändareRollerDataTable(global::System.Data.DataTable table) {
+            internal AnvändareRollDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -2163,7 +1858,7 @@ namespace FactoryManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected AnvändareRollerDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected AnvändareRollDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -2203,54 +1898,54 @@ namespace FactoryManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AnvändareRollerRow this[int index] {
+            public AnvändareRollRow this[int index] {
                 get {
-                    return ((AnvändareRollerRow)(this.Rows[index]));
+                    return ((AnvändareRollRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event AnvändareRollerRowChangeEventHandler AnvändareRollerRowChanging;
+            public event AnvändareRollRowChangeEventHandler AnvändareRollRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event AnvändareRollerRowChangeEventHandler AnvändareRollerRowChanged;
+            public event AnvändareRollRowChangeEventHandler AnvändareRollRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event AnvändareRollerRowChangeEventHandler AnvändareRollerRowDeleting;
+            public event AnvändareRollRowChangeEventHandler AnvändareRollRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event AnvändareRollerRowChangeEventHandler AnvändareRollerRowDeleted;
+            public event AnvändareRollRowChangeEventHandler AnvändareRollRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddAnvändareRollerRow(AnvändareRollerRow row) {
+            public void AddAnvändareRollRow(AnvändareRollRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AnvändareRollerRow AddAnvändareRollerRow(int Rollsnummer, string RollNamn) {
-                AnvändareRollerRow rowAnvändareRollerRow = ((AnvändareRollerRow)(this.NewRow()));
+            public AnvändareRollRow AddAnvändareRollRow(int Rollsnummer, string RollNamn) {
+                AnvändareRollRow rowAnvändareRollRow = ((AnvändareRollRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Rollsnummer,
                         RollNamn};
-                rowAnvändareRollerRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowAnvändareRollerRow);
-                return rowAnvändareRollerRow;
+                rowAnvändareRollRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowAnvändareRollRow);
+                return rowAnvändareRollRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AnvändareRollerRow FindByID(int ID) {
-                return ((AnvändareRollerRow)(this.Rows.Find(new object[] {
+            public AnvändareRollRow FindByID(int ID) {
+                return ((AnvändareRollRow)(this.Rows.Find(new object[] {
                             ID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                AnvändareRollerDataTable cln = ((AnvändareRollerDataTable)(base.Clone()));
+                AnvändareRollDataTable cln = ((AnvändareRollDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -2258,7 +1953,7 @@ namespace FactoryManager {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new AnvändareRollerDataTable();
+                return new AnvändareRollDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2290,28 +1985,28 @@ namespace FactoryManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AnvändareRollerRow NewAnvändareRollerRow() {
-                return ((AnvändareRollerRow)(this.NewRow()));
+            public AnvändareRollRow NewAnvändareRollRow() {
+                return ((AnvändareRollRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new AnvändareRollerRow(builder);
+                return new AnvändareRollRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(AnvändareRollerRow);
+                return typeof(AnvändareRollRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.AnvändareRollerRowChanged != null)) {
-                    this.AnvändareRollerRowChanged(this, new AnvändareRollerRowChangeEvent(((AnvändareRollerRow)(e.Row)), e.Action));
+                if ((this.AnvändareRollRowChanged != null)) {
+                    this.AnvändareRollRowChanged(this, new AnvändareRollRowChangeEvent(((AnvändareRollRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2319,8 +2014,8 @@ namespace FactoryManager {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.AnvändareRollerRowChanging != null)) {
-                    this.AnvändareRollerRowChanging(this, new AnvändareRollerRowChangeEvent(((AnvändareRollerRow)(e.Row)), e.Action));
+                if ((this.AnvändareRollRowChanging != null)) {
+                    this.AnvändareRollRowChanging(this, new AnvändareRollRowChangeEvent(((AnvändareRollRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2328,8 +2023,8 @@ namespace FactoryManager {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.AnvändareRollerRowDeleted != null)) {
-                    this.AnvändareRollerRowDeleted(this, new AnvändareRollerRowChangeEvent(((AnvändareRollerRow)(e.Row)), e.Action));
+                if ((this.AnvändareRollRowDeleted != null)) {
+                    this.AnvändareRollRowDeleted(this, new AnvändareRollRowChangeEvent(((AnvändareRollRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2337,14 +2032,14 @@ namespace FactoryManager {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.AnvändareRollerRowDeleting != null)) {
-                    this.AnvändareRollerRowDeleting(this, new AnvändareRollerRowChangeEvent(((AnvändareRollerRow)(e.Row)), e.Action));
+                if ((this.AnvändareRollRowDeleting != null)) {
+                    this.AnvändareRollRowDeleting(this, new AnvändareRollRowChangeEvent(((AnvändareRollRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveAnvändareRollerRow(AnvändareRollerRow row) {
+            public void RemoveAnvändareRollRow(AnvändareRollRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -2353,7 +2048,7 @@ namespace FactoryManager {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                SpaceM2Dataset ds = new SpaceM2Dataset();
+                SpaceM2DataSet ds = new SpaceM2DataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -2371,7 +2066,7 @@ namespace FactoryManager {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "AnvändareRollerDataTable";
+                attribute2.FixedValue = "AnvändareRollDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -3680,7 +3375,7 @@ namespace FactoryManager {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                SpaceM2Dataset ds = new SpaceM2Dataset();
+                SpaceM2DataSet ds = new SpaceM2DataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -3986,7 +3681,7 @@ namespace FactoryManager {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                SpaceM2Dataset ds = new SpaceM2Dataset();
+                SpaceM2DataSet ds = new SpaceM2DataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -4468,7 +4163,7 @@ namespace FactoryManager {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                SpaceM2Dataset ds = new SpaceM2Dataset();
+                SpaceM2DataSet ds = new SpaceM2DataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -5044,7 +4739,7 @@ namespace FactoryManager {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                SpaceM2Dataset ds = new SpaceM2Dataset();
+                SpaceM2DataSet ds = new SpaceM2DataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -5406,7 +5101,7 @@ namespace FactoryManager {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                SpaceM2Dataset ds = new SpaceM2Dataset();
+                SpaceM2DataSet ds = new SpaceM2DataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -5712,7 +5407,7 @@ namespace FactoryManager {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                SpaceM2Dataset ds = new SpaceM2Dataset();
+                SpaceM2DataSet ds = new SpaceM2DataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -6035,7 +5730,7 @@ namespace FactoryManager {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                SpaceM2Dataset ds = new SpaceM2Dataset();
+                SpaceM2DataSet ds = new SpaceM2DataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -6510,7 +6205,7 @@ namespace FactoryManager {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                SpaceM2Dataset ds = new SpaceM2Dataset();
+                SpaceM2DataSet ds = new SpaceM2DataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -6858,7 +6553,7 @@ namespace FactoryManager {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                SpaceM2Dataset ds = new SpaceM2Dataset();
+                SpaceM2DataSet ds = new SpaceM2DataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -7008,17 +6703,17 @@ namespace FactoryManager {
             
             private global::System.Data.DataColumn columnLevererad;
             
-            private global::System.Data.DataColumn columnF44;
+            private global::System.Data.DataColumn columnOrdning;
             
-            private global::System.Data.DataColumn columnF45;
+            private global::System.Data.DataColumn columnLägenhetstyp;
             
             private global::System.Data.DataColumn columnMängdat;
             
             private global::System.Data.DataColumn columnKr;
             
-            private global::System.Data.DataColumn columnF48;
+            private global::System.Data.DataColumn columnTim;
             
-            private global::System.Data.DataColumn columnF49;
+            private global::System.Data.DataColumn columnMin;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -7391,17 +7086,17 @@ namespace FactoryManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn F44Column {
+            public global::System.Data.DataColumn OrdningColumn {
                 get {
-                    return this.columnF44;
+                    return this.columnOrdning;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn F45Column {
+            public global::System.Data.DataColumn LägenhetstypColumn {
                 get {
-                    return this.columnF45;
+                    return this.columnLägenhetstyp;
                 }
             }
             
@@ -7423,17 +7118,17 @@ namespace FactoryManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn F48Column {
+            public global::System.Data.DataColumn TimColumn {
                 get {
-                    return this.columnF48;
+                    return this.columnTim;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn F49Column {
+            public global::System.Data.DataColumn MinColumn {
                 get {
-                    return this.columnF49;
+                    return this.columnMin;
                 }
             }
             
@@ -7516,12 +7211,12 @@ namespace FactoryManager {
                         string Emballering_Märkning, 
                         string UTGÅR, 
                         string Levererad, 
-                        string F44, 
-                        string F45, 
+                        string Ordning, 
+                        string Lägenhetstyp, 
                         string Mängdat, 
                         string Kr, 
-                        string F48, 
-                        string F49) {
+                        string Tim, 
+                        string Min) {
                 ModulmonteringRow rowModulmonteringRow = ((ModulmonteringRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -7566,12 +7261,12 @@ namespace FactoryManager {
                         Emballering_Märkning,
                         UTGÅR,
                         Levererad,
-                        F44,
-                        F45,
+                        Ordning,
+                        Lägenhetstyp,
                         Mängdat,
                         Kr,
-                        F48,
-                        F49};
+                        Tim,
+                        Min};
                 if ((parentBeställningsradRowByBeställningsradModulmontering != null)) {
                     columnValuesArray[1] = parentBeställningsradRowByBeställningsradModulmontering[1];
                 }
@@ -7639,12 +7334,12 @@ namespace FactoryManager {
                 this.columnEmballering_Märkning = base.Columns["Emballering Märkning"];
                 this.columnUTGÅR = base.Columns["UTGÅR"];
                 this.columnLevererad = base.Columns["Levererad"];
-                this.columnF44 = base.Columns["F44"];
-                this.columnF45 = base.Columns["F45"];
+                this.columnOrdning = base.Columns["Ordning"];
+                this.columnLägenhetstyp = base.Columns["Lägenhetstyp"];
                 this.columnMängdat = base.Columns["Mängdat"];
                 this.columnKr = base.Columns["Kr"];
-                this.columnF48 = base.Columns["F48"];
-                this.columnF49 = base.Columns["F49"];
+                this.columnTim = base.Columns["Tim"];
+                this.columnMin = base.Columns["Min"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7738,18 +7433,18 @@ namespace FactoryManager {
                 base.Columns.Add(this.columnUTGÅR);
                 this.columnLevererad = new global::System.Data.DataColumn("Levererad", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLevererad);
-                this.columnF44 = new global::System.Data.DataColumn("F44", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnF44);
-                this.columnF45 = new global::System.Data.DataColumn("F45", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnF45);
+                this.columnOrdning = new global::System.Data.DataColumn("Ordning", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOrdning);
+                this.columnLägenhetstyp = new global::System.Data.DataColumn("Lägenhetstyp", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLägenhetstyp);
                 this.columnMängdat = new global::System.Data.DataColumn("Mängdat", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMängdat);
                 this.columnKr = new global::System.Data.DataColumn("Kr", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnKr);
-                this.columnF48 = new global::System.Data.DataColumn("F48", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnF48);
-                this.columnF49 = new global::System.Data.DataColumn("F49", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnF49);
+                this.columnTim = new global::System.Data.DataColumn("Tim", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTim);
+                this.columnMin = new global::System.Data.DataColumn("Min", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMin);
                 this.columnID.AutoIncrement = true;
                 this.columnID.AutoIncrementSeed = -1;
                 this.columnID.AutoIncrementStep = -1;
@@ -7793,12 +7488,12 @@ namespace FactoryManager {
                 this.columnEmballering_Märkning.MaxLength = 255;
                 this.columnUTGÅR.MaxLength = 255;
                 this.columnLevererad.MaxLength = 255;
-                this.columnF44.MaxLength = 255;
-                this.columnF45.MaxLength = 255;
+                this.columnOrdning.MaxLength = 255;
+                this.columnLägenhetstyp.MaxLength = 255;
                 this.columnMängdat.MaxLength = 255;
                 this.columnKr.MaxLength = 255;
-                this.columnF48.MaxLength = 255;
-                this.columnF49.MaxLength = 255;
+                this.columnTim.MaxLength = 255;
+                this.columnMin.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7866,7 +7561,7 @@ namespace FactoryManager {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                SpaceM2Dataset ds = new SpaceM2Dataset();
+                SpaceM2DataSet ds = new SpaceM2DataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -8175,7 +7870,7 @@ namespace FactoryManager {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                SpaceM2Dataset ds = new SpaceM2Dataset();
+                SpaceM2DataSet ds = new SpaceM2DataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -9008,7 +8703,7 @@ namespace FactoryManager {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                SpaceM2Dataset ds = new SpaceM2Dataset();
+                SpaceM2DataSet ds = new SpaceM2DataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -10081,7 +9776,7 @@ namespace FactoryManager {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                SpaceM2Dataset ds = new SpaceM2Dataset();
+                SpaceM2DataSet ds = new SpaceM2DataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -10432,7 +10127,7 @@ namespace FactoryManager {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                SpaceM2Dataset ds = new SpaceM2Dataset();
+                SpaceM2DataSet ds = new SpaceM2DataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -10451,6 +10146,326 @@ namespace FactoryManager {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "ProjektDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class StationAktivitetDataTable : global::System.Data.TypedTableBase<StationAktivitetRow> {
+            
+            private global::System.Data.DataColumn columnID;
+            
+            private global::System.Data.DataColumn columnAktivitetsnummer;
+            
+            private global::System.Data.DataColumn columnAktivitetsbeskrivning;
+            
+            private global::System.Data.DataColumn columnEgenkontroll;
+            
+            private global::System.Data.DataColumn columnInstruktion;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public StationAktivitetDataTable() {
+                this.TableName = "StationAktivitet";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal StationAktivitetDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected StationAktivitetDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn IDColumn {
+                get {
+                    return this.columnID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AktivitetsnummerColumn {
+                get {
+                    return this.columnAktivitetsnummer;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AktivitetsbeskrivningColumn {
+                get {
+                    return this.columnAktivitetsbeskrivning;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn EgenkontrollColumn {
+                get {
+                    return this.columnEgenkontroll;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn InstruktionColumn {
+                get {
+                    return this.columnInstruktion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public StationAktivitetRow this[int index] {
+                get {
+                    return ((StationAktivitetRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event StationAktivitetRowChangeEventHandler StationAktivitetRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event StationAktivitetRowChangeEventHandler StationAktivitetRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event StationAktivitetRowChangeEventHandler StationAktivitetRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event StationAktivitetRowChangeEventHandler StationAktivitetRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddStationAktivitetRow(StationAktivitetRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public StationAktivitetRow AddStationAktivitetRow(double Aktivitetsnummer, string Aktivitetsbeskrivning, string Egenkontroll, string Instruktion) {
+                StationAktivitetRow rowStationAktivitetRow = ((StationAktivitetRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        Aktivitetsnummer,
+                        Aktivitetsbeskrivning,
+                        Egenkontroll,
+                        Instruktion};
+                rowStationAktivitetRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowStationAktivitetRow);
+                return rowStationAktivitetRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public StationAktivitetRow FindByAktivitetsnummer(double Aktivitetsnummer) {
+                return ((StationAktivitetRow)(this.Rows.Find(new object[] {
+                            Aktivitetsnummer})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                StationAktivitetDataTable cln = ((StationAktivitetDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new StationAktivitetDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnID = base.Columns["ID"];
+                this.columnAktivitetsnummer = base.Columns["Aktivitetsnummer"];
+                this.columnAktivitetsbeskrivning = base.Columns["Aktivitetsbeskrivning"];
+                this.columnEgenkontroll = base.Columns["Egenkontroll"];
+                this.columnInstruktion = base.Columns["Instruktion"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID);
+                this.columnAktivitetsnummer = new global::System.Data.DataColumn("Aktivitetsnummer", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAktivitetsnummer);
+                this.columnAktivitetsbeskrivning = new global::System.Data.DataColumn("Aktivitetsbeskrivning", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAktivitetsbeskrivning);
+                this.columnEgenkontroll = new global::System.Data.DataColumn("Egenkontroll", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEgenkontroll);
+                this.columnInstruktion = new global::System.Data.DataColumn("Instruktion", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInstruktion);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnAktivitetsnummer}, true));
+                this.columnID.AutoIncrement = true;
+                this.columnID.AutoIncrementSeed = -1;
+                this.columnID.AutoIncrementStep = -1;
+                this.columnAktivitetsnummer.AllowDBNull = false;
+                this.columnAktivitetsnummer.Unique = true;
+                this.columnAktivitetsbeskrivning.MaxLength = 255;
+                this.columnEgenkontroll.MaxLength = 255;
+                this.columnInstruktion.MaxLength = 255;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public StationAktivitetRow NewStationAktivitetRow() {
+                return ((StationAktivitetRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new StationAktivitetRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(StationAktivitetRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.StationAktivitetRowChanged != null)) {
+                    this.StationAktivitetRowChanged(this, new StationAktivitetRowChangeEvent(((StationAktivitetRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.StationAktivitetRowChanging != null)) {
+                    this.StationAktivitetRowChanging(this, new StationAktivitetRowChangeEvent(((StationAktivitetRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.StationAktivitetRowDeleted != null)) {
+                    this.StationAktivitetRowDeleted(this, new StationAktivitetRowChangeEvent(((StationAktivitetRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.StationAktivitetRowDeleting != null)) {
+                    this.StationAktivitetRowDeleting(this, new StationAktivitetRowChangeEvent(((StationAktivitetRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemoveStationAktivitetRow(StationAktivitetRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                SpaceM2DataSet ds = new SpaceM2DataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "StationAktivitetDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -10799,7 +10814,7 @@ namespace FactoryManager {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                SpaceM2Dataset ds = new SpaceM2Dataset();
+                SpaceM2DataSet ds = new SpaceM2DataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -10863,7 +10878,7 @@ namespace FactoryManager {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class _Stationer___Akt_och_E_kontrollDataTable : global::System.Data.TypedTableBase<_Stationer___Akt_och_E_kontrollRow> {
+        public partial class StationerEgenkontrollDataTable : global::System.Data.TypedTableBase<StationerEgenkontrollRow> {
             
             private global::System.Data.DataColumn columnID;
             
@@ -10901,8 +10916,8 @@ namespace FactoryManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public _Stationer___Akt_och_E_kontrollDataTable() {
-                this.TableName = "Stationer - Akt och E-kontroll";
+            public StationerEgenkontrollDataTable() {
+                this.TableName = "StationerEgenkontroll";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -10910,7 +10925,7 @@ namespace FactoryManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal _Stationer___Akt_och_E_kontrollDataTable(global::System.Data.DataTable table) {
+            internal StationerEgenkontrollDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -10927,7 +10942,7 @@ namespace FactoryManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected _Stationer___Akt_och_E_kontrollDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected StationerEgenkontrollDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -11079,33 +11094,33 @@ namespace FactoryManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public _Stationer___Akt_och_E_kontrollRow this[int index] {
+            public StationerEgenkontrollRow this[int index] {
                 get {
-                    return ((_Stationer___Akt_och_E_kontrollRow)(this.Rows[index]));
+                    return ((StationerEgenkontrollRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event _Stationer___Akt_och_E_kontrollRowChangeEventHandler _Stationer___Akt_och_E_kontrollRowChanging;
+            public event StationerEgenkontrollRowChangeEventHandler StationerEgenkontrollRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event _Stationer___Akt_och_E_kontrollRowChangeEventHandler _Stationer___Akt_och_E_kontrollRowChanged;
+            public event StationerEgenkontrollRowChangeEventHandler StationerEgenkontrollRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event _Stationer___Akt_och_E_kontrollRowChangeEventHandler _Stationer___Akt_och_E_kontrollRowDeleting;
+            public event StationerEgenkontrollRowChangeEventHandler StationerEgenkontrollRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event _Stationer___Akt_och_E_kontrollRowChangeEventHandler _Stationer___Akt_och_E_kontrollRowDeleted;
+            public event StationerEgenkontrollRowChangeEventHandler StationerEgenkontrollRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Add_Stationer___Akt_och_E_kontrollRow(_Stationer___Akt_och_E_kontrollRow row) {
+            public void AddStationerEgenkontrollRow(StationerEgenkontrollRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public _Stationer___Akt_och_E_kontrollRow Add_Stationer___Akt_och_E_kontrollRow(
+            public StationerEgenkontrollRow AddStationerEgenkontrollRow(
                         string Kod, 
                         double Stationsnummer, 
                         double Rad, 
@@ -11122,7 +11137,7 @@ namespace FactoryManager {
                         double Kortnamn, 
                         string Aktiviteter_per_station, 
                         double Instruktion) {
-                _Stationer___Akt_och_E_kontrollRow row_Stationer___Akt_och_E_kontrollRow = ((_Stationer___Akt_och_E_kontrollRow)(this.NewRow()));
+                StationerEgenkontrollRow rowStationerEgenkontrollRow = ((StationerEgenkontrollRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Kod,
@@ -11141,15 +11156,15 @@ namespace FactoryManager {
                         Kortnamn,
                         Aktiviteter_per_station,
                         Instruktion};
-                row_Stationer___Akt_och_E_kontrollRow.ItemArray = columnValuesArray;
-                this.Rows.Add(row_Stationer___Akt_och_E_kontrollRow);
-                return row_Stationer___Akt_och_E_kontrollRow;
+                rowStationerEgenkontrollRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowStationerEgenkontrollRow);
+                return rowStationerEgenkontrollRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                _Stationer___Akt_och_E_kontrollDataTable cln = ((_Stationer___Akt_och_E_kontrollDataTable)(base.Clone()));
+                StationerEgenkontrollDataTable cln = ((StationerEgenkontrollDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -11157,7 +11172,7 @@ namespace FactoryManager {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new _Stationer___Akt_och_E_kontrollDataTable();
+                return new StationerEgenkontrollDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11231,34 +11246,32 @@ namespace FactoryManager {
                 this.columnKoll.MaxLength = 255;
                 this.columnKoll_2.MaxLength = 255;
                 this.columnAktiviteter_per_station.MaxLength = 255;
-                this.ExtendedProperties.Add("Generator_TableVarName", "_tableStationer___Akt_och_E_kontroll");
-                this.ExtendedProperties.Add("Generator_UserTableName", "Stationer - Akt och E-kontroll");
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public _Stationer___Akt_och_E_kontrollRow New_Stationer___Akt_och_E_kontrollRow() {
-                return ((_Stationer___Akt_och_E_kontrollRow)(this.NewRow()));
+            public StationerEgenkontrollRow NewStationerEgenkontrollRow() {
+                return ((StationerEgenkontrollRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new _Stationer___Akt_och_E_kontrollRow(builder);
+                return new StationerEgenkontrollRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(_Stationer___Akt_och_E_kontrollRow);
+                return typeof(StationerEgenkontrollRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this._Stationer___Akt_och_E_kontrollRowChanged != null)) {
-                    this._Stationer___Akt_och_E_kontrollRowChanged(this, new _Stationer___Akt_och_E_kontrollRowChangeEvent(((_Stationer___Akt_och_E_kontrollRow)(e.Row)), e.Action));
+                if ((this.StationerEgenkontrollRowChanged != null)) {
+                    this.StationerEgenkontrollRowChanged(this, new StationerEgenkontrollRowChangeEvent(((StationerEgenkontrollRow)(e.Row)), e.Action));
                 }
             }
             
@@ -11266,8 +11279,8 @@ namespace FactoryManager {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this._Stationer___Akt_och_E_kontrollRowChanging != null)) {
-                    this._Stationer___Akt_och_E_kontrollRowChanging(this, new _Stationer___Akt_och_E_kontrollRowChangeEvent(((_Stationer___Akt_och_E_kontrollRow)(e.Row)), e.Action));
+                if ((this.StationerEgenkontrollRowChanging != null)) {
+                    this.StationerEgenkontrollRowChanging(this, new StationerEgenkontrollRowChangeEvent(((StationerEgenkontrollRow)(e.Row)), e.Action));
                 }
             }
             
@@ -11275,8 +11288,8 @@ namespace FactoryManager {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this._Stationer___Akt_och_E_kontrollRowDeleted != null)) {
-                    this._Stationer___Akt_och_E_kontrollRowDeleted(this, new _Stationer___Akt_och_E_kontrollRowChangeEvent(((_Stationer___Akt_och_E_kontrollRow)(e.Row)), e.Action));
+                if ((this.StationerEgenkontrollRowDeleted != null)) {
+                    this.StationerEgenkontrollRowDeleted(this, new StationerEgenkontrollRowChangeEvent(((StationerEgenkontrollRow)(e.Row)), e.Action));
                 }
             }
             
@@ -11284,14 +11297,14 @@ namespace FactoryManager {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this._Stationer___Akt_och_E_kontrollRowDeleting != null)) {
-                    this._Stationer___Akt_och_E_kontrollRowDeleting(this, new _Stationer___Akt_och_E_kontrollRowChangeEvent(((_Stationer___Akt_och_E_kontrollRow)(e.Row)), e.Action));
+                if ((this.StationerEgenkontrollRowDeleting != null)) {
+                    this.StationerEgenkontrollRowDeleting(this, new StationerEgenkontrollRowChangeEvent(((StationerEgenkontrollRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Remove_Stationer___Akt_och_E_kontrollRow(_Stationer___Akt_och_E_kontrollRow row) {
+            public void RemoveStationerEgenkontrollRow(StationerEgenkontrollRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -11300,7 +11313,7 @@ namespace FactoryManager {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                SpaceM2Dataset ds = new SpaceM2Dataset();
+                SpaceM2DataSet ds = new SpaceM2DataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -11318,7 +11331,7 @@ namespace FactoryManager {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "_Stationer___Akt_och_E_kontrollDataTable";
+                attribute2.FixedValue = "StationerEgenkontrollDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -11668,7 +11681,7 @@ namespace FactoryManager {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                SpaceM2Dataset ds = new SpaceM2Dataset();
+                SpaceM2DataSet ds = new SpaceM2DataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -11962,7 +11975,7 @@ namespace FactoryManager {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                SpaceM2Dataset ds = new SpaceM2Dataset();
+                SpaceM2DataSet ds = new SpaceM2DataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -12018,144 +12031,6 @@ namespace FactoryManager {
                 }
                 xs.Add(dsSchema);
                 return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class AktivitetRow : global::System.Data.DataRow {
-            
-            private AktivitetDataTable tableAktivitet;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal AktivitetRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableAktivitet = ((AktivitetDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int ID {
-                get {
-                    try {
-                        return ((int)(this[this.tableAktivitet.IDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ID\' in table \'Aktivitet\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableAktivitet.IDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double Aktivitetsnummer {
-                get {
-                    return ((double)(this[this.tableAktivitet.AktivitetsnummerColumn]));
-                }
-                set {
-                    this[this.tableAktivitet.AktivitetsnummerColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Aktivitetsbeskrivning {
-                get {
-                    try {
-                        return ((string)(this[this.tableAktivitet.AktivitetsbeskrivningColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Aktivitetsbeskrivning\' in table \'Aktivitet\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableAktivitet.AktivitetsbeskrivningColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Egenkontroll {
-                get {
-                    try {
-                        return ((string)(this[this.tableAktivitet.EgenkontrollColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Egenkontroll\' in table \'Aktivitet\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableAktivitet.EgenkontrollColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Instruktion {
-                get {
-                    try {
-                        return ((string)(this[this.tableAktivitet.InstruktionColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Instruktion\' in table \'Aktivitet\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableAktivitet.InstruktionColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsIDNull() {
-                return this.IsNull(this.tableAktivitet.IDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetIDNull() {
-                this[this.tableAktivitet.IDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsAktivitetsbeskrivningNull() {
-                return this.IsNull(this.tableAktivitet.AktivitetsbeskrivningColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetAktivitetsbeskrivningNull() {
-                this[this.tableAktivitet.AktivitetsbeskrivningColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsEgenkontrollNull() {
-                return this.IsNull(this.tableAktivitet.EgenkontrollColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetEgenkontrollNull() {
-                this[this.tableAktivitet.EgenkontrollColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsInstruktionNull() {
-                return this.IsNull(this.tableAktivitet.InstruktionColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetInstruktionNull() {
-                this[this.tableAktivitet.InstruktionColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -12314,6 +12189,22 @@ namespace FactoryManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string BildLänk {
+                get {
+                    try {
+                        return ((string)(this[this.tableAnställd.BildLänkColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BildLänk\' in table \'Anställd\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAnställd.BildLänkColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsIDNull() {
                 return this.IsNull(this.tableAnställd.IDColumn);
             }
@@ -12406,6 +12297,18 @@ namespace FactoryManager {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetArbetarNull() {
                 this[this.tableAnställd.ArbetarColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsBildLänkNull() {
+                return this.IsNull(this.tableAnställd.BildLänkColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetBildLänkNull() {
+                this[this.tableAnställd.BildLänkColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12543,9 +12446,9 @@ namespace FactoryManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AnvändareRollerRow AnvändareRollerRow {
+            public AnvändareRollRow AnvändareRollRow {
                 get {
-                    return ((AnvändareRollerRow)(this.GetParentRow(this.Table.ParentRelations["Användare_RollerAnvändare"])));
+                    return ((AnvändareRollRow)(this.GetParentRow(this.Table.ParentRelations["Användare_RollerAnvändare"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["Användare_RollerAnvändare"]);
@@ -12628,25 +12531,25 @@ namespace FactoryManager {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class AnvändareRollerRow : global::System.Data.DataRow {
+        public partial class AnvändareRollRow : global::System.Data.DataRow {
             
-            private AnvändareRollerDataTable tableAnvändareRoller;
+            private AnvändareRollDataTable tableAnvändareRoll;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal AnvändareRollerRow(global::System.Data.DataRowBuilder rb) : 
+            internal AnvändareRollRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableAnvändareRoller = ((AnvändareRollerDataTable)(this.Table));
+                this.tableAnvändareRoll = ((AnvändareRollDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int ID {
                 get {
-                    return ((int)(this[this.tableAnvändareRoller.IDColumn]));
+                    return ((int)(this[this.tableAnvändareRoll.IDColumn]));
                 }
                 set {
-                    this[this.tableAnvändareRoller.IDColumn] = value;
+                    this[this.tableAnvändareRoll.IDColumn] = value;
                 }
             }
             
@@ -12655,14 +12558,14 @@ namespace FactoryManager {
             public int Rollsnummer {
                 get {
                     try {
-                        return ((int)(this[this.tableAnvändareRoller.RollsnummerColumn]));
+                        return ((int)(this[this.tableAnvändareRoll.RollsnummerColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Rollsnummer\' in table \'AnvändareRoller\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Rollsnummer\' in table \'AnvändareRoll\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableAnvändareRoller.RollsnummerColumn] = value;
+                    this[this.tableAnvändareRoll.RollsnummerColumn] = value;
                 }
             }
             
@@ -12671,39 +12574,39 @@ namespace FactoryManager {
             public string RollNamn {
                 get {
                     try {
-                        return ((string)(this[this.tableAnvändareRoller.RollNamnColumn]));
+                        return ((string)(this[this.tableAnvändareRoll.RollNamnColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'RollNamn\' in table \'AnvändareRoller\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'RollNamn\' in table \'AnvändareRoll\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableAnvändareRoller.RollNamnColumn] = value;
+                    this[this.tableAnvändareRoll.RollNamnColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsRollsnummerNull() {
-                return this.IsNull(this.tableAnvändareRoller.RollsnummerColumn);
+                return this.IsNull(this.tableAnvändareRoll.RollsnummerColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetRollsnummerNull() {
-                this[this.tableAnvändareRoller.RollsnummerColumn] = global::System.Convert.DBNull;
+                this[this.tableAnvändareRoll.RollsnummerColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsRollNamnNull() {
-                return this.IsNull(this.tableAnvändareRoller.RollNamnColumn);
+                return this.IsNull(this.tableAnvändareRoll.RollNamnColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetRollNamnNull() {
-                this[this.tableAnvändareRoller.RollNamnColumn] = global::System.Convert.DBNull;
+                this[this.tableAnvändareRoll.RollNamnColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17725,33 +17628,33 @@ namespace FactoryManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string F44 {
+            public string Ordning {
                 get {
                     try {
-                        return ((string)(this[this.tableModulmontering.F44Column]));
+                        return ((string)(this[this.tableModulmontering.OrdningColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'F44\' in table \'Modulmontering\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Ordning\' in table \'Modulmontering\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableModulmontering.F44Column] = value;
+                    this[this.tableModulmontering.OrdningColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string F45 {
+            public string Lägenhetstyp {
                 get {
                     try {
-                        return ((string)(this[this.tableModulmontering.F45Column]));
+                        return ((string)(this[this.tableModulmontering.LägenhetstypColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'F45\' in table \'Modulmontering\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Lägenhetstyp\' in table \'Modulmontering\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableModulmontering.F45Column] = value;
+                    this[this.tableModulmontering.LägenhetstypColumn] = value;
                 }
             }
             
@@ -17789,33 +17692,33 @@ namespace FactoryManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string F48 {
+            public string Tim {
                 get {
                     try {
-                        return ((string)(this[this.tableModulmontering.F48Column]));
+                        return ((string)(this[this.tableModulmontering.TimColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'F48\' in table \'Modulmontering\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Tim\' in table \'Modulmontering\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableModulmontering.F48Column] = value;
+                    this[this.tableModulmontering.TimColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string F49 {
+            public string Min {
                 get {
                     try {
-                        return ((string)(this[this.tableModulmontering.F49Column]));
+                        return ((string)(this[this.tableModulmontering.MinColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'F49\' in table \'Modulmontering\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Min\' in table \'Modulmontering\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableModulmontering.F49Column] = value;
+                    this[this.tableModulmontering.MinColumn] = value;
                 }
             }
             
@@ -18347,26 +18250,26 @@ namespace FactoryManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsF44Null() {
-                return this.IsNull(this.tableModulmontering.F44Column);
+            public bool IsOrdningNull() {
+                return this.IsNull(this.tableModulmontering.OrdningColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetF44Null() {
-                this[this.tableModulmontering.F44Column] = global::System.Convert.DBNull;
+            public void SetOrdningNull() {
+                this[this.tableModulmontering.OrdningColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsF45Null() {
-                return this.IsNull(this.tableModulmontering.F45Column);
+            public bool IsLägenhetstypNull() {
+                return this.IsNull(this.tableModulmontering.LägenhetstypColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetF45Null() {
-                this[this.tableModulmontering.F45Column] = global::System.Convert.DBNull;
+            public void SetLägenhetstypNull() {
+                this[this.tableModulmontering.LägenhetstypColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -18395,26 +18298,26 @@ namespace FactoryManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsF48Null() {
-                return this.IsNull(this.tableModulmontering.F48Column);
+            public bool IsTimNull() {
+                return this.IsNull(this.tableModulmontering.TimColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetF48Null() {
-                this[this.tableModulmontering.F48Column] = global::System.Convert.DBNull;
+            public void SetTimNull() {
+                this[this.tableModulmontering.TimColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsF49Null() {
-                return this.IsNull(this.tableModulmontering.F49Column);
+            public bool IsMinNull() {
+                return this.IsNull(this.tableModulmontering.MinColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetF49Null() {
-                this[this.tableModulmontering.F49Column] = global::System.Convert.DBNull;
+            public void SetMinNull() {
+                this[this.tableModulmontering.MinColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -21262,6 +21165,145 @@ namespace FactoryManager {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
+        public partial class StationAktivitetRow : global::System.Data.DataRow {
+            
+            private StationAktivitetDataTable tableStationAktivitet;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal StationAktivitetRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableStationAktivitet = ((StationAktivitetDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int ID {
+                get {
+                    try {
+                        return ((int)(this[this.tableStationAktivitet.IDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ID\' in table \'StationAktivitet\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableStationAktivitet.IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public double Aktivitetsnummer {
+                get {
+                    return ((double)(this[this.tableStationAktivitet.AktivitetsnummerColumn]));
+                }
+                set {
+                    this[this.tableStationAktivitet.AktivitetsnummerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Aktivitetsbeskrivning {
+                get {
+                    try {
+                        return ((string)(this[this.tableStationAktivitet.AktivitetsbeskrivningColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Aktivitetsbeskrivning\' in table \'StationAktivitet\' is DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableStationAktivitet.AktivitetsbeskrivningColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Egenkontroll {
+                get {
+                    try {
+                        return ((string)(this[this.tableStationAktivitet.EgenkontrollColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Egenkontroll\' in table \'StationAktivitet\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableStationAktivitet.EgenkontrollColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Instruktion {
+                get {
+                    try {
+                        return ((string)(this[this.tableStationAktivitet.InstruktionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Instruktion\' in table \'StationAktivitet\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableStationAktivitet.InstruktionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsIDNull() {
+                return this.IsNull(this.tableStationAktivitet.IDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetIDNull() {
+                this[this.tableStationAktivitet.IDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAktivitetsbeskrivningNull() {
+                return this.IsNull(this.tableStationAktivitet.AktivitetsbeskrivningColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAktivitetsbeskrivningNull() {
+                this[this.tableStationAktivitet.AktivitetsbeskrivningColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsEgenkontrollNull() {
+                return this.IsNull(this.tableStationAktivitet.EgenkontrollColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetEgenkontrollNull() {
+                this[this.tableStationAktivitet.EgenkontrollColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsInstruktionNull() {
+                return this.IsNull(this.tableStationAktivitet.InstruktionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetInstruktionNull() {
+                this[this.tableStationAktivitet.InstruktionColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
         public partial class StationerRow : global::System.Data.DataRow {
             
             private StationerDataTable tableStationer;
@@ -21529,15 +21571,15 @@ namespace FactoryManager {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class _Stationer___Akt_och_E_kontrollRow : global::System.Data.DataRow {
+        public partial class StationerEgenkontrollRow : global::System.Data.DataRow {
             
-            private _Stationer___Akt_och_E_kontrollDataTable _tableStationer___Akt_och_E_kontroll;
+            private StationerEgenkontrollDataTable tableStationerEgenkontroll;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal _Stationer___Akt_och_E_kontrollRow(global::System.Data.DataRowBuilder rb) : 
+            internal StationerEgenkontrollRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this._tableStationer___Akt_och_E_kontroll = ((_Stationer___Akt_och_E_kontrollDataTable)(this.Table));
+                this.tableStationerEgenkontroll = ((StationerEgenkontrollDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -21545,14 +21587,14 @@ namespace FactoryManager {
             public int ID {
                 get {
                     try {
-                        return ((int)(this[this._tableStationer___Akt_och_E_kontroll.IDColumn]));
+                        return ((int)(this[this.tableStationerEgenkontroll.IDColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ID\' in table \'Stationer - Akt och E-kontroll\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ID\' in table \'StationerEgenkontroll\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this._tableStationer___Akt_och_E_kontroll.IDColumn] = value;
+                    this[this.tableStationerEgenkontroll.IDColumn] = value;
                 }
             }
             
@@ -21561,14 +21603,14 @@ namespace FactoryManager {
             public string Kod {
                 get {
                     try {
-                        return ((string)(this[this._tableStationer___Akt_och_E_kontroll.KodColumn]));
+                        return ((string)(this[this.tableStationerEgenkontroll.KodColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Kod\' in table \'Stationer - Akt och E-kontroll\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kod\' in table \'StationerEgenkontroll\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this._tableStationer___Akt_och_E_kontroll.KodColumn] = value;
+                    this[this.tableStationerEgenkontroll.KodColumn] = value;
                 }
             }
             
@@ -21577,15 +21619,15 @@ namespace FactoryManager {
             public double Stationsnummer {
                 get {
                     try {
-                        return ((double)(this[this._tableStationer___Akt_och_E_kontroll.StationsnummerColumn]));
+                        return ((double)(this[this.tableStationerEgenkontroll.StationsnummerColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Stationsnummer\' in table \'Stationer - Akt och E-kontroll\' i" +
-                                "s DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Stationsnummer\' in table \'StationerEgenkontroll\' is DBNull." +
+                                "", e);
                     }
                 }
                 set {
-                    this[this._tableStationer___Akt_och_E_kontroll.StationsnummerColumn] = value;
+                    this[this.tableStationerEgenkontroll.StationsnummerColumn] = value;
                 }
             }
             
@@ -21594,14 +21636,14 @@ namespace FactoryManager {
             public double Rad {
                 get {
                     try {
-                        return ((double)(this[this._tableStationer___Akt_och_E_kontroll.RadColumn]));
+                        return ((double)(this[this.tableStationerEgenkontroll.RadColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Rad\' in table \'Stationer - Akt och E-kontroll\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Rad\' in table \'StationerEgenkontroll\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this._tableStationer___Akt_och_E_kontroll.RadColumn] = value;
+                    this[this.tableStationerEgenkontroll.RadColumn] = value;
                 }
             }
             
@@ -21610,15 +21652,15 @@ namespace FactoryManager {
             public double Aktivitetsnummer {
                 get {
                     try {
-                        return ((double)(this[this._tableStationer___Akt_och_E_kontroll.AktivitetsnummerColumn]));
+                        return ((double)(this[this.tableStationerEgenkontroll.AktivitetsnummerColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Aktivitetsnummer\' in table \'Stationer - Akt och E-kontroll\'" +
-                                " is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Aktivitetsnummer\' in table \'StationerEgenkontroll\' is DBNul" +
+                                "l.", e);
                     }
                 }
                 set {
-                    this[this._tableStationer___Akt_och_E_kontroll.AktivitetsnummerColumn] = value;
+                    this[this.tableStationerEgenkontroll.AktivitetsnummerColumn] = value;
                 }
             }
             
@@ -21627,15 +21669,15 @@ namespace FactoryManager {
             public string Aktivitetsbeskrivning {
                 get {
                     try {
-                        return ((string)(this[this._tableStationer___Akt_och_E_kontroll.AktivitetsbeskrivningColumn]));
+                        return ((string)(this[this.tableStationerEgenkontroll.AktivitetsbeskrivningColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Aktivitetsbeskrivning\' in table \'Stationer - Akt och E-kont" +
-                                "roll\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Aktivitetsbeskrivning\' in table \'StationerEgenkontroll\' is " +
+                                "DBNull.", e);
                     }
                 }
                 set {
-                    this[this._tableStationer___Akt_och_E_kontroll.AktivitetsbeskrivningColumn] = value;
+                    this[this.tableStationerEgenkontroll.AktivitetsbeskrivningColumn] = value;
                 }
             }
             
@@ -21644,15 +21686,14 @@ namespace FactoryManager {
             public string Egenkontroll {
                 get {
                     try {
-                        return ((string)(this[this._tableStationer___Akt_och_E_kontroll.EgenkontrollColumn]));
+                        return ((string)(this[this.tableStationerEgenkontroll.EgenkontrollColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Egenkontroll\' in table \'Stationer - Akt och E-kontroll\' is " +
-                                "DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Egenkontroll\' in table \'StationerEgenkontroll\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this._tableStationer___Akt_och_E_kontroll.EgenkontrollColumn] = value;
+                    this[this.tableStationerEgenkontroll.EgenkontrollColumn] = value;
                 }
             }
             
@@ -21661,15 +21702,14 @@ namespace FactoryManager {
             public string Tid_per_akt {
                 get {
                     try {
-                        return ((string)(this[this._tableStationer___Akt_och_E_kontroll.Tid_per_aktColumn]));
+                        return ((string)(this[this.tableStationerEgenkontroll.Tid_per_aktColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Tid per akt\' in table \'Stationer - Akt och E-kontroll\' is D" +
-                                "BNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Tid per akt\' in table \'StationerEgenkontroll\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this._tableStationer___Akt_och_E_kontroll.Tid_per_aktColumn] = value;
+                    this[this.tableStationerEgenkontroll.Tid_per_aktColumn] = value;
                 }
             }
             
@@ -21678,15 +21718,15 @@ namespace FactoryManager {
             public string Bana_1_Ansvarig {
                 get {
                     try {
-                        return ((string)(this[this._tableStationer___Akt_och_E_kontroll.Bana_1_AnsvarigColumn]));
+                        return ((string)(this[this.tableStationerEgenkontroll.Bana_1_AnsvarigColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Bana 1_Ansvarig\' in table \'Stationer - Akt och E-kontroll\' " +
-                                "is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Bana 1_Ansvarig\' in table \'StationerEgenkontroll\' is DBNull" +
+                                ".", e);
                     }
                 }
                 set {
-                    this[this._tableStationer___Akt_och_E_kontroll.Bana_1_AnsvarigColumn] = value;
+                    this[this.tableStationerEgenkontroll.Bana_1_AnsvarigColumn] = value;
                 }
             }
             
@@ -21695,15 +21735,15 @@ namespace FactoryManager {
             public string Bana_3_Ansvarig {
                 get {
                     try {
-                        return ((string)(this[this._tableStationer___Akt_och_E_kontroll.Bana_3_AnsvarigColumn]));
+                        return ((string)(this[this.tableStationerEgenkontroll.Bana_3_AnsvarigColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Bana 3_Ansvarig\' in table \'Stationer - Akt och E-kontroll\' " +
-                                "is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Bana 3_Ansvarig\' in table \'StationerEgenkontroll\' is DBNull" +
+                                ".", e);
                     }
                 }
                 set {
-                    this[this._tableStationer___Akt_och_E_kontroll.Bana_3_AnsvarigColumn] = value;
+                    this[this.tableStationerEgenkontroll.Bana_3_AnsvarigColumn] = value;
                 }
             }
             
@@ -21712,15 +21752,14 @@ namespace FactoryManager {
             public double Station_länk {
                 get {
                     try {
-                        return ((double)(this[this._tableStationer___Akt_och_E_kontroll.Station_länkColumn]));
+                        return ((double)(this[this.tableStationerEgenkontroll.Station_länkColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Station länk\' in table \'Stationer - Akt och E-kontroll\' is " +
-                                "DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Station länk\' in table \'StationerEgenkontroll\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this._tableStationer___Akt_och_E_kontroll.Station_länkColumn] = value;
+                    this[this.tableStationerEgenkontroll.Station_länkColumn] = value;
                 }
             }
             
@@ -21729,15 +21768,14 @@ namespace FactoryManager {
             public double Sortering {
                 get {
                     try {
-                        return ((double)(this[this._tableStationer___Akt_och_E_kontroll.SorteringColumn]));
+                        return ((double)(this[this.tableStationerEgenkontroll.SorteringColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Sortering\' in table \'Stationer - Akt och E-kontroll\' is DBN" +
-                                "ull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Sortering\' in table \'StationerEgenkontroll\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this._tableStationer___Akt_och_E_kontroll.SorteringColumn] = value;
+                    this[this.tableStationerEgenkontroll.SorteringColumn] = value;
                 }
             }
             
@@ -21746,14 +21784,14 @@ namespace FactoryManager {
             public string Koll {
                 get {
                     try {
-                        return ((string)(this[this._tableStationer___Akt_och_E_kontroll.KollColumn]));
+                        return ((string)(this[this.tableStationerEgenkontroll.KollColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Koll\' in table \'Stationer - Akt och E-kontroll\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Koll\' in table \'StationerEgenkontroll\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this._tableStationer___Akt_och_E_kontroll.KollColumn] = value;
+                    this[this.tableStationerEgenkontroll.KollColumn] = value;
                 }
             }
             
@@ -21762,15 +21800,14 @@ namespace FactoryManager {
             public string Koll_2 {
                 get {
                     try {
-                        return ((string)(this[this._tableStationer___Akt_och_E_kontroll.Koll_2Column]));
+                        return ((string)(this[this.tableStationerEgenkontroll.Koll_2Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Koll 2\' in table \'Stationer - Akt och E-kontroll\' is DBNull" +
-                                ".", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Koll 2\' in table \'StationerEgenkontroll\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this._tableStationer___Akt_och_E_kontroll.Koll_2Column] = value;
+                    this[this.tableStationerEgenkontroll.Koll_2Column] = value;
                 }
             }
             
@@ -21779,15 +21816,14 @@ namespace FactoryManager {
             public double Kortnamn {
                 get {
                     try {
-                        return ((double)(this[this._tableStationer___Akt_och_E_kontroll.KortnamnColumn]));
+                        return ((double)(this[this.tableStationerEgenkontroll.KortnamnColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Kortnamn\' in table \'Stationer - Akt och E-kontroll\' is DBNu" +
-                                "ll.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kortnamn\' in table \'StationerEgenkontroll\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this._tableStationer___Akt_och_E_kontroll.KortnamnColumn] = value;
+                    this[this.tableStationerEgenkontroll.KortnamnColumn] = value;
                 }
             }
             
@@ -21796,15 +21832,15 @@ namespace FactoryManager {
             public string Aktiviteter_per_station {
                 get {
                     try {
-                        return ((string)(this[this._tableStationer___Akt_och_E_kontroll.Aktiviteter_per_stationColumn]));
+                        return ((string)(this[this.tableStationerEgenkontroll.Aktiviteter_per_stationColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Aktiviteter per station\' in table \'Stationer - Akt och E-ko" +
-                                "ntroll\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Aktiviteter per station\' in table \'StationerEgenkontroll\' i" +
+                                "s DBNull.", e);
                     }
                 }
                 set {
-                    this[this._tableStationer___Akt_och_E_kontroll.Aktiviteter_per_stationColumn] = value;
+                    this[this.tableStationerEgenkontroll.Aktiviteter_per_stationColumn] = value;
                 }
             }
             
@@ -21813,220 +21849,219 @@ namespace FactoryManager {
             public double Instruktion {
                 get {
                     try {
-                        return ((double)(this[this._tableStationer___Akt_och_E_kontroll.InstruktionColumn]));
+                        return ((double)(this[this.tableStationerEgenkontroll.InstruktionColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Instruktion\' in table \'Stationer - Akt och E-kontroll\' is D" +
-                                "BNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Instruktion\' in table \'StationerEgenkontroll\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this._tableStationer___Akt_och_E_kontroll.InstruktionColumn] = value;
+                    this[this.tableStationerEgenkontroll.InstruktionColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsIDNull() {
-                return this.IsNull(this._tableStationer___Akt_och_E_kontroll.IDColumn);
+                return this.IsNull(this.tableStationerEgenkontroll.IDColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetIDNull() {
-                this[this._tableStationer___Akt_och_E_kontroll.IDColumn] = global::System.Convert.DBNull;
+                this[this.tableStationerEgenkontroll.IDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsKodNull() {
-                return this.IsNull(this._tableStationer___Akt_och_E_kontroll.KodColumn);
+                return this.IsNull(this.tableStationerEgenkontroll.KodColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetKodNull() {
-                this[this._tableStationer___Akt_och_E_kontroll.KodColumn] = global::System.Convert.DBNull;
+                this[this.tableStationerEgenkontroll.KodColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsStationsnummerNull() {
-                return this.IsNull(this._tableStationer___Akt_och_E_kontroll.StationsnummerColumn);
+                return this.IsNull(this.tableStationerEgenkontroll.StationsnummerColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetStationsnummerNull() {
-                this[this._tableStationer___Akt_och_E_kontroll.StationsnummerColumn] = global::System.Convert.DBNull;
+                this[this.tableStationerEgenkontroll.StationsnummerColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsRadNull() {
-                return this.IsNull(this._tableStationer___Akt_och_E_kontroll.RadColumn);
+                return this.IsNull(this.tableStationerEgenkontroll.RadColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetRadNull() {
-                this[this._tableStationer___Akt_och_E_kontroll.RadColumn] = global::System.Convert.DBNull;
+                this[this.tableStationerEgenkontroll.RadColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsAktivitetsnummerNull() {
-                return this.IsNull(this._tableStationer___Akt_och_E_kontroll.AktivitetsnummerColumn);
+                return this.IsNull(this.tableStationerEgenkontroll.AktivitetsnummerColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetAktivitetsnummerNull() {
-                this[this._tableStationer___Akt_och_E_kontroll.AktivitetsnummerColumn] = global::System.Convert.DBNull;
+                this[this.tableStationerEgenkontroll.AktivitetsnummerColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsAktivitetsbeskrivningNull() {
-                return this.IsNull(this._tableStationer___Akt_och_E_kontroll.AktivitetsbeskrivningColumn);
+                return this.IsNull(this.tableStationerEgenkontroll.AktivitetsbeskrivningColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetAktivitetsbeskrivningNull() {
-                this[this._tableStationer___Akt_och_E_kontroll.AktivitetsbeskrivningColumn] = global::System.Convert.DBNull;
+                this[this.tableStationerEgenkontroll.AktivitetsbeskrivningColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsEgenkontrollNull() {
-                return this.IsNull(this._tableStationer___Akt_och_E_kontroll.EgenkontrollColumn);
+                return this.IsNull(this.tableStationerEgenkontroll.EgenkontrollColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetEgenkontrollNull() {
-                this[this._tableStationer___Akt_och_E_kontroll.EgenkontrollColumn] = global::System.Convert.DBNull;
+                this[this.tableStationerEgenkontroll.EgenkontrollColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsTid_per_aktNull() {
-                return this.IsNull(this._tableStationer___Akt_och_E_kontroll.Tid_per_aktColumn);
+                return this.IsNull(this.tableStationerEgenkontroll.Tid_per_aktColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetTid_per_aktNull() {
-                this[this._tableStationer___Akt_och_E_kontroll.Tid_per_aktColumn] = global::System.Convert.DBNull;
+                this[this.tableStationerEgenkontroll.Tid_per_aktColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsBana_1_AnsvarigNull() {
-                return this.IsNull(this._tableStationer___Akt_och_E_kontroll.Bana_1_AnsvarigColumn);
+                return this.IsNull(this.tableStationerEgenkontroll.Bana_1_AnsvarigColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetBana_1_AnsvarigNull() {
-                this[this._tableStationer___Akt_och_E_kontroll.Bana_1_AnsvarigColumn] = global::System.Convert.DBNull;
+                this[this.tableStationerEgenkontroll.Bana_1_AnsvarigColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsBana_3_AnsvarigNull() {
-                return this.IsNull(this._tableStationer___Akt_och_E_kontroll.Bana_3_AnsvarigColumn);
+                return this.IsNull(this.tableStationerEgenkontroll.Bana_3_AnsvarigColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetBana_3_AnsvarigNull() {
-                this[this._tableStationer___Akt_och_E_kontroll.Bana_3_AnsvarigColumn] = global::System.Convert.DBNull;
+                this[this.tableStationerEgenkontroll.Bana_3_AnsvarigColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsStation_länkNull() {
-                return this.IsNull(this._tableStationer___Akt_och_E_kontroll.Station_länkColumn);
+                return this.IsNull(this.tableStationerEgenkontroll.Station_länkColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetStation_länkNull() {
-                this[this._tableStationer___Akt_och_E_kontroll.Station_länkColumn] = global::System.Convert.DBNull;
+                this[this.tableStationerEgenkontroll.Station_länkColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsSorteringNull() {
-                return this.IsNull(this._tableStationer___Akt_och_E_kontroll.SorteringColumn);
+                return this.IsNull(this.tableStationerEgenkontroll.SorteringColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetSorteringNull() {
-                this[this._tableStationer___Akt_och_E_kontroll.SorteringColumn] = global::System.Convert.DBNull;
+                this[this.tableStationerEgenkontroll.SorteringColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsKollNull() {
-                return this.IsNull(this._tableStationer___Akt_och_E_kontroll.KollColumn);
+                return this.IsNull(this.tableStationerEgenkontroll.KollColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetKollNull() {
-                this[this._tableStationer___Akt_och_E_kontroll.KollColumn] = global::System.Convert.DBNull;
+                this[this.tableStationerEgenkontroll.KollColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsKoll_2Null() {
-                return this.IsNull(this._tableStationer___Akt_och_E_kontroll.Koll_2Column);
+                return this.IsNull(this.tableStationerEgenkontroll.Koll_2Column);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetKoll_2Null() {
-                this[this._tableStationer___Akt_och_E_kontroll.Koll_2Column] = global::System.Convert.DBNull;
+                this[this.tableStationerEgenkontroll.Koll_2Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsKortnamnNull() {
-                return this.IsNull(this._tableStationer___Akt_och_E_kontroll.KortnamnColumn);
+                return this.IsNull(this.tableStationerEgenkontroll.KortnamnColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetKortnamnNull() {
-                this[this._tableStationer___Akt_och_E_kontroll.KortnamnColumn] = global::System.Convert.DBNull;
+                this[this.tableStationerEgenkontroll.KortnamnColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsAktiviteter_per_stationNull() {
-                return this.IsNull(this._tableStationer___Akt_och_E_kontroll.Aktiviteter_per_stationColumn);
+                return this.IsNull(this.tableStationerEgenkontroll.Aktiviteter_per_stationColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetAktiviteter_per_stationNull() {
-                this[this._tableStationer___Akt_och_E_kontroll.Aktiviteter_per_stationColumn] = global::System.Convert.DBNull;
+                this[this.tableStationerEgenkontroll.Aktiviteter_per_stationColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsInstruktionNull() {
-                return this.IsNull(this._tableStationer___Akt_och_E_kontroll.InstruktionColumn);
+                return this.IsNull(this.tableStationerEgenkontroll.InstruktionColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetInstruktionNull() {
-                this[this._tableStationer___Akt_och_E_kontroll.InstruktionColumn] = global::System.Convert.DBNull;
+                this[this.tableStationerEgenkontroll.InstruktionColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -22430,40 +22465,6 @@ namespace FactoryManager {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class AktivitetRowChangeEvent : global::System.EventArgs {
-            
-            private AktivitetRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AktivitetRowChangeEvent(AktivitetRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AktivitetRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public class AnställdRowChangeEvent : global::System.EventArgs {
             
             private AnställdRow eventRow;
@@ -22532,22 +22533,22 @@ namespace FactoryManager {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class AnvändareRollerRowChangeEvent : global::System.EventArgs {
+        public class AnvändareRollRowChangeEvent : global::System.EventArgs {
             
-            private AnvändareRollerRow eventRow;
+            private AnvändareRollRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AnvändareRollerRowChangeEvent(AnvändareRollerRow row, global::System.Data.DataRowAction action) {
+            public AnvändareRollRowChangeEvent(AnvändareRollRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AnvändareRollerRow Row {
+            public AnvändareRollRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -23042,6 +23043,40 @@ namespace FactoryManager {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class StationAktivitetRowChangeEvent : global::System.EventArgs {
+            
+            private StationAktivitetRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public StationAktivitetRowChangeEvent(StationAktivitetRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public StationAktivitetRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public class StationerRowChangeEvent : global::System.EventArgs {
             
             private StationerRow eventRow;
@@ -23076,22 +23111,22 @@ namespace FactoryManager {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class _Stationer___Akt_och_E_kontrollRowChangeEvent : global::System.EventArgs {
+        public class StationerEgenkontrollRowChangeEvent : global::System.EventArgs {
             
-            private _Stationer___Akt_och_E_kontrollRow eventRow;
+            private StationerEgenkontrollRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public _Stationer___Akt_och_E_kontrollRowChangeEvent(_Stationer___Akt_och_E_kontrollRow row, global::System.Data.DataRowAction action) {
+            public StationerEgenkontrollRowChangeEvent(StationerEgenkontrollRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public _Stationer___Akt_och_E_kontrollRow Row {
+            public StationerEgenkontrollRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -23175,411 +23210,8 @@ namespace FactoryManager {
         }
     }
 }
-namespace FactoryManager.SpaceM2DatasetTableAdapters {
+namespace FactoryManager.SpaceM2DataSetTableAdapters {
     
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class AktivitetTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.OleDb.OleDbDataAdapter _adapter;
-        
-        private global::System.Data.OleDb.OleDbConnection _connection;
-        
-        private global::System.Data.OleDb.OleDbTransaction _transaction;
-        
-        private global::System.Data.OleDb.OleDbCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public AktivitetTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected internal global::System.Data.OleDb.OleDbDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::System.Data.OleDb.OleDbConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.OleDb.OleDbCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::System.Data.OleDb.OleDbTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected global::System.Data.OleDb.OleDbCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.OleDb.OleDbDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Aktivitet";
-            tableMapping.ColumnMappings.Add("ID", "ID");
-            tableMapping.ColumnMappings.Add("Aktivitetsnummer", "Aktivitetsnummer");
-            tableMapping.ColumnMappings.Add("Aktivitetsbeskrivning", "Aktivitetsbeskrivning");
-            tableMapping.ColumnMappings.Add("Egenkontroll", "Egenkontroll");
-            tableMapping.ColumnMappings.Add("Instruktion", "Instruktion");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `Aktivitet` WHERE (((? = 1 AND `ID` IS NULL) OR (`ID` = ?)) AND (`Aktivitetsnummer` = ?) AND ((? = 1 AND `Aktivitetsbeskrivning` IS NULL) OR (`Aktivitetsbeskrivning` = ?)) AND ((? = 1 AND `Egenkontroll` IS NULL) OR (`Egenkontroll` = ?)) AND ((? = 1 AND `Instruktion` IS NULL) OR (`Instruktion` = ?)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Aktivitetsnummer", global::System.Data.OleDb.OleDbType.Double, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Aktivitetsnummer", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Aktivitetsbeskrivning", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Aktivitetsbeskrivning", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Aktivitetsbeskrivning", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Aktivitetsbeskrivning", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Egenkontroll", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Egenkontroll", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Egenkontroll", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Egenkontroll", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Instruktion", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Instruktion", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Instruktion", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Instruktion", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `Aktivitet` (`Aktivitetsnummer`, `Aktivitetsbeskrivning`, `Egenkontro" +
-                "ll`, `Instruktion`) VALUES (?, ?, ?, ?)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Aktivitetsnummer", global::System.Data.OleDb.OleDbType.Double, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Aktivitetsnummer", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Aktivitetsbeskrivning", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Aktivitetsbeskrivning", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Egenkontroll", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Egenkontroll", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Instruktion", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Instruktion", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `Aktivitet` SET `Aktivitetsnummer` = ?, `Aktivitetsbeskrivning` = ?, `Egenkontroll` = ?, `Instruktion` = ? WHERE (((? = 1 AND `ID` IS NULL) OR (`ID` = ?)) AND (`Aktivitetsnummer` = ?) AND ((? = 1 AND `Aktivitetsbeskrivning` IS NULL) OR (`Aktivitetsbeskrivning` = ?)) AND ((? = 1 AND `Egenkontroll` IS NULL) OR (`Egenkontroll` = ?)) AND ((? = 1 AND `Instruktion` IS NULL) OR (`Instruktion` = ?)))";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Aktivitetsnummer", global::System.Data.OleDb.OleDbType.Double, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Aktivitetsnummer", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Aktivitetsbeskrivning", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Aktivitetsbeskrivning", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Egenkontroll", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Egenkontroll", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Instruktion", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Instruktion", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Aktivitetsnummer", global::System.Data.OleDb.OleDbType.Double, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Aktivitetsnummer", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Aktivitetsbeskrivning", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Aktivitetsbeskrivning", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Aktivitetsbeskrivning", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Aktivitetsbeskrivning", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Egenkontroll", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Egenkontroll", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Egenkontroll", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Egenkontroll", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Instruktion", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Instruktion", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Instruktion", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Instruktion", global::System.Data.DataRowVersion.Original, false, null));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::FactoryManager.Properties.Settings.Default.SpaceM2DatabaseConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
-            this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, Aktivitetsnummer, Aktivitetsbeskrivning, Egenkontroll, Instruktion FRO" +
-                "M Aktivitet";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(SpaceM2Dataset.AktivitetDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual SpaceM2Dataset.AktivitetDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            SpaceM2Dataset.AktivitetDataTable dataTable = new SpaceM2Dataset.AktivitetDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset.AktivitetDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset dataSet) {
-            return this.Adapter.Update(dataSet, "Aktivitet");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID, double Original_Aktivitetsnummer, string Original_Aktivitetsbeskrivning, string Original_Egenkontroll, string Original_Instruktion) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((object)(0));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_ID));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((double)(Original_Aktivitetsnummer));
-            if ((Original_Aktivitetsbeskrivning == null)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Aktivitetsbeskrivning));
-            }
-            if ((Original_Egenkontroll == null)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_Egenkontroll));
-            }
-            if ((Original_Instruktion == null)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Instruktion));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(double Aktivitetsnummer, string Aktivitetsbeskrivning, string Egenkontroll, string Instruktion) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((double)(Aktivitetsnummer));
-            if ((Aktivitetsbeskrivning == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Aktivitetsbeskrivning));
-            }
-            if ((Egenkontroll == null)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Egenkontroll));
-            }
-            if ((Instruktion == null)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Instruktion));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(double Aktivitetsnummer, string Aktivitetsbeskrivning, string Egenkontroll, string Instruktion, int Original_ID, double Original_Aktivitetsnummer, string Original_Aktivitetsbeskrivning, string Original_Egenkontroll, string Original_Instruktion) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((double)(Aktivitetsnummer));
-            if ((Aktivitetsbeskrivning == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Aktivitetsbeskrivning));
-            }
-            if ((Egenkontroll == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Egenkontroll));
-            }
-            if ((Instruktion == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Instruktion));
-            }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_ID));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((double)(Original_Aktivitetsnummer));
-            if ((Original_Aktivitetsbeskrivning == null)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Aktivitetsbeskrivning));
-            }
-            if ((Original_Egenkontroll == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Egenkontroll));
-            }
-            if ((Original_Instruktion == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Instruktion));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Aktivitetsbeskrivning, string Egenkontroll, string Instruktion, int Original_ID, double Original_Aktivitetsnummer, string Original_Aktivitetsbeskrivning, string Original_Egenkontroll, string Original_Instruktion) {
-            return this.Update(Original_Aktivitetsnummer, Aktivitetsbeskrivning, Egenkontroll, Instruktion, Original_ID, Original_Aktivitetsnummer, Original_Aktivitetsbeskrivning, Original_Egenkontroll, Original_Instruktion);
-        }
-    }
     
     /// <summary>
     ///Represents the connection and commands used to retrieve and save data.
@@ -23711,6 +23343,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
             tableMapping.ColumnMappings.Add("Address", "Address");
             tableMapping.ColumnMappings.Add("Funktion", "Funktion");
             tableMapping.ColumnMappings.Add("Arbetar", "Arbetar");
+            tableMapping.ColumnMappings.Add("BildLänk", "BildLänk");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -23736,7 +23369,8 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO `Anställd` (`Anställdnummer`, `Förnamn`, `Efternamn`, `Telefon`, `Mai" +
-                "l`, `Address`, `Funktion`, `Arbetar`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                "l`, `Address`, `Funktion`, `Arbetar`, `BildLänk`) VALUES (?, ?, ?, ?, ?, ?, ?, ?" +
+                ", ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Anställdnummer", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Anställdnummer", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Förnamn", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Förnamn", global::System.Data.DataRowVersion.Current, false, null));
@@ -23746,9 +23380,10 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Address", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Address", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Funktion", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Funktion", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Arbetar", global::System.Data.OleDb.OleDbType.Boolean, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Arbetar", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("BildLänk", global::System.Data.OleDb.OleDbType.LongVarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "BildLänk", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `Anställd` SET `Anställdnummer` = ?, `Förnamn` = ?, `Efternamn` = ?, `Telefon` = ?, `Mail` = ?, `Address` = ?, `Funktion` = ?, `Arbetar` = ? WHERE (((? = 1 AND `ID` IS NULL) OR (`ID` = ?)) AND (`Anställdnummer` = ?) AND ((? = 1 AND `Förnamn` IS NULL) OR (`Förnamn` = ?)) AND ((? = 1 AND `Efternamn` IS NULL) OR (`Efternamn` = ?)) AND ((? = 1 AND `Telefon` IS NULL) OR (`Telefon` = ?)) AND ((? = 1 AND `Mail` IS NULL) OR (`Mail` = ?)) AND ((? = 1 AND `Address` IS NULL) OR (`Address` = ?)) AND ((? = 1 AND `Funktion` IS NULL) OR (`Funktion` = ?)) AND ((? = 1 AND `Arbetar` IS NULL) OR (`Arbetar` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `Anställd` SET `Anställdnummer` = ?, `Förnamn` = ?, `Efternamn` = ?, `Telefon` = ?, `Mail` = ?, `Address` = ?, `Funktion` = ?, `Arbetar` = ?, `BildLänk` = ? WHERE (((? = 1 AND `ID` IS NULL) OR (`ID` = ?)) AND (`Anställdnummer` = ?) AND ((? = 1 AND `Förnamn` IS NULL) OR (`Förnamn` = ?)) AND ((? = 1 AND `Efternamn` IS NULL) OR (`Efternamn` = ?)) AND ((? = 1 AND `Telefon` IS NULL) OR (`Telefon` = ?)) AND ((? = 1 AND `Mail` IS NULL) OR (`Mail` = ?)) AND ((? = 1 AND `Address` IS NULL) OR (`Address` = ?)) AND ((? = 1 AND `Funktion` IS NULL) OR (`Funktion` = ?)) AND ((? = 1 AND `Arbetar` IS NULL) OR (`Arbetar` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Anställdnummer", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Anställdnummer", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Förnamn", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Förnamn", global::System.Data.DataRowVersion.Current, false, null));
@@ -23758,6 +23393,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Address", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Address", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Funktion", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Funktion", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Arbetar", global::System.Data.OleDb.OleDbType.Boolean, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Arbetar", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("BildLänk", global::System.Data.OleDb.OleDbType.LongVarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "BildLänk", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Anställdnummer", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Anställdnummer", global::System.Data.DataRowVersion.Original, false, null));
@@ -23791,7 +23427,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ID, Anställdnummer, Förnamn, Efternamn, Telefon, Mail, Address, Funktion, " +
-                "Arbetar FROM Anställd";
+                "Arbetar, BildLänk FROM Anställd";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -23799,7 +23435,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(SpaceM2Dataset.AnställdDataTable dataTable) {
+        public virtual int Fill(SpaceM2DataSet.AnställdDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -23812,9 +23448,9 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual SpaceM2Dataset.AnställdDataTable GetData() {
+        public virtual SpaceM2DataSet.AnställdDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SpaceM2Dataset.AnställdDataTable dataTable = new SpaceM2Dataset.AnställdDataTable();
+            SpaceM2DataSet.AnställdDataTable dataTable = new SpaceM2DataSet.AnställdDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -23822,14 +23458,14 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset.AnställdDataTable dataTable) {
+        public virtual int Update(SpaceM2DataSet.AnställdDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset dataSet) {
+        public virtual int Update(SpaceM2DataSet dataSet) {
             return this.Adapter.Update(dataSet, "Anställd");
         }
         
@@ -23931,7 +23567,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Anställdnummer, string Förnamn, string Efternamn, string Telefon, string Mail, string Address, string Funktion, bool Arbetar) {
+        public virtual int Insert(string Anställdnummer, string Förnamn, string Efternamn, string Telefon, string Mail, string Address, string Funktion, bool Arbetar, string BildLänk) {
             if ((Anställdnummer == null)) {
                 throw new global::System.ArgumentNullException("Anställdnummer");
             }
@@ -23975,6 +23611,12 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
                 this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Funktion));
             }
             this.Adapter.InsertCommand.Parameters[7].Value = ((bool)(Arbetar));
+            if ((BildLänk == null)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(BildLänk));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -24004,6 +23646,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
                     string Address, 
                     string Funktion, 
                     bool Arbetar, 
+                    string BildLänk, 
                     int Original_ID, 
                     string Original_Anställdnummer, 
                     string Original_Förnamn, 
@@ -24056,64 +23699,70 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Funktion));
             }
             this.Adapter.UpdateCommand.Parameters[7].Value = ((bool)(Arbetar));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_ID));
+            if ((BildLänk == null)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(BildLänk));
+            }
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_ID));
             if ((Original_Anställdnummer == null)) {
                 throw new global::System.ArgumentNullException("Original_Anställdnummer");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Anställdnummer));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Anställdnummer));
             }
             if ((Original_Förnamn == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Förnamn));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Förnamn));
             }
             if ((Original_Efternamn == null)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_Efternamn));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_Efternamn));
             }
             if ((Original_Telefon == null)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_Telefon));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_Telefon));
             }
             if ((Original_Mail == null)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_Mail));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_Mail));
             }
             if ((Original_Address == null)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_Address));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_Address));
             }
             if ((Original_Funktion == null)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_Funktion));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_Funktion));
             }
-            this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
-            this.Adapter.UpdateCommand.Parameters[24].Value = ((bool)(Original_Arbetar));
+            this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[25].Value = ((bool)(Original_Arbetar));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -24142,6 +23791,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
                     string Address, 
                     string Funktion, 
                     bool Arbetar, 
+                    string BildLänk, 
                     int Original_ID, 
                     string Original_Anställdnummer, 
                     string Original_Förnamn, 
@@ -24151,7 +23801,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
                     string Original_Address, 
                     string Original_Funktion, 
                     bool Original_Arbetar) {
-            return this.Update(Original_Anställdnummer, Förnamn, Efternamn, Telefon, Mail, Address, Funktion, Arbetar, Original_ID, Original_Anställdnummer, Original_Förnamn, Original_Efternamn, Original_Telefon, Original_Mail, Original_Address, Original_Funktion, Original_Arbetar);
+            return this.Update(Original_Anställdnummer, Förnamn, Efternamn, Telefon, Mail, Address, Funktion, Arbetar, BildLänk, Original_ID, Original_Anställdnummer, Original_Förnamn, Original_Efternamn, Original_Telefon, Original_Mail, Original_Address, Original_Funktion, Original_Arbetar);
         }
     }
     
@@ -24359,7 +24009,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(SpaceM2Dataset.AnvändareDataTable dataTable) {
+        public virtual int Fill(SpaceM2DataSet.AnvändareDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -24372,9 +24022,9 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual SpaceM2Dataset.AnvändareDataTable GetData() {
+        public virtual SpaceM2DataSet.AnvändareDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SpaceM2Dataset.AnvändareDataTable dataTable = new SpaceM2Dataset.AnvändareDataTable();
+            SpaceM2DataSet.AnvändareDataTable dataTable = new SpaceM2DataSet.AnvändareDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -24382,14 +24032,14 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset.AnvändareDataTable dataTable) {
+        public virtual int Update(SpaceM2DataSet.AnvändareDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset dataSet) {
+        public virtual int Update(SpaceM2DataSet dataSet) {
             return this.Adapter.Update(dataSet, "Användare");
         }
         
@@ -24625,7 +24275,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class AnvändareRollerTableAdapter : global::System.ComponentModel.Component {
+    public partial class AnvändareRollTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.OleDb.OleDbDataAdapter _adapter;
         
@@ -24639,7 +24289,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public AnvändareRollerTableAdapter() {
+        public AnvändareRollTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -24736,16 +24386,16 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
             this._adapter = new global::System.Data.OleDb.OleDbDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "AnvändareRoller";
+            tableMapping.DataSetTable = "AnvändareRoll";
             tableMapping.ColumnMappings.Add("ID", "ID");
             tableMapping.ColumnMappings.Add("Rollsnummer", "Rollsnummer");
             tableMapping.ColumnMappings.Add("RollNamn", "RollNamn");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM `AnvändareRoller` WHERE ((`ID` = ?) AND ((? = 1 AND `Rollsnummer` IS " +
-                "NULL) OR (`Rollsnummer` = ?)) AND ((? = 1 AND `RollNamn` IS NULL) OR (`RollNamn`" +
-                " = ?)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM `AnvändareRoll` WHERE ((`ID` = ?) AND ((? = 1 AND `Rollsnummer` IS NU" +
+                "LL) OR (`Rollsnummer` = ?)) AND ((? = 1 AND `RollNamn` IS NULL) OR (`RollNamn` =" +
+                " ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Rollsnummer", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Rollsnummer", global::System.Data.DataRowVersion.Original, true, null));
@@ -24754,15 +24404,15 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_RollNamn", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "RollNamn", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `AnvändareRoller` (`Rollsnummer`, `RollNamn`) VALUES (?, ?)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `AnvändareRoll` (`Rollsnummer`, `RollNamn`) VALUES (?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Rollsnummer", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Rollsnummer", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("RollNamn", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "RollNamn", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE `AnvändareRoller` SET `Rollsnummer` = ?, `RollNamn` = ? WHERE ((`ID` = ?) " +
-                "AND ((? = 1 AND `Rollsnummer` IS NULL) OR (`Rollsnummer` = ?)) AND ((? = 1 AND `" +
-                "RollNamn` IS NULL) OR (`RollNamn` = ?)))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE `AnvändareRoll` SET `Rollsnummer` = ?, `RollNamn` = ? WHERE ((`ID` = ?) AN" +
+                "D ((? = 1 AND `Rollsnummer` IS NULL) OR (`Rollsnummer` = ?)) AND ((? = 1 AND `Ro" +
+                "llNamn` IS NULL) OR (`RollNamn` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Rollsnummer", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Rollsnummer", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("RollNamn", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "RollNamn", global::System.Data.DataRowVersion.Current, false, null));
@@ -24786,7 +24436,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, Rollsnummer, RollNamn FROM AnvändareRoller";
+            this._commandCollection[0].CommandText = "SELECT ID, Rollsnummer, RollNamn FROM AnvändareRoll";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -24794,7 +24444,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(SpaceM2Dataset.AnvändareRollerDataTable dataTable) {
+        public virtual int Fill(SpaceM2DataSet.AnvändareRollDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -24807,9 +24457,9 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual SpaceM2Dataset.AnvändareRollerDataTable GetData() {
+        public virtual SpaceM2DataSet.AnvändareRollDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SpaceM2Dataset.AnvändareRollerDataTable dataTable = new SpaceM2Dataset.AnvändareRollerDataTable();
+            SpaceM2DataSet.AnvändareRollDataTable dataTable = new SpaceM2DataSet.AnvändareRollDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -24817,15 +24467,15 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset.AnvändareRollerDataTable dataTable) {
+        public virtual int Update(SpaceM2DataSet.AnvändareRollDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset dataSet) {
-            return this.Adapter.Update(dataSet, "AnvändareRoller");
+        public virtual int Update(SpaceM2DataSet dataSet) {
+            return this.Adapter.Update(dataSet, "AnvändareRoll");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -25249,7 +24899,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(SpaceM2Dataset.BeställningsradDataTable dataTable) {
+        public virtual int Fill(SpaceM2DataSet.BeställningsradDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -25262,9 +24912,9 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual SpaceM2Dataset.BeställningsradDataTable GetData() {
+        public virtual SpaceM2DataSet.BeställningsradDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SpaceM2Dataset.BeställningsradDataTable dataTable = new SpaceM2Dataset.BeställningsradDataTable();
+            SpaceM2DataSet.BeställningsradDataTable dataTable = new SpaceM2DataSet.BeställningsradDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -25272,14 +24922,14 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset.BeställningsradDataTable dataTable) {
+        public virtual int Update(SpaceM2DataSet.BeställningsradDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset dataSet) {
+        public virtual int Update(SpaceM2DataSet dataSet) {
             return this.Adapter.Update(dataSet, "Beställningsrad");
         }
         
@@ -25980,7 +25630,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(SpaceM2Dataset.ByggdelDataTable dataTable) {
+        public virtual int Fill(SpaceM2DataSet.ByggdelDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -25993,9 +25643,9 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual SpaceM2Dataset.ByggdelDataTable GetData() {
+        public virtual SpaceM2DataSet.ByggdelDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SpaceM2Dataset.ByggdelDataTable dataTable = new SpaceM2Dataset.ByggdelDataTable();
+            SpaceM2DataSet.ByggdelDataTable dataTable = new SpaceM2DataSet.ByggdelDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -26003,14 +25653,14 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset.ByggdelDataTable dataTable) {
+        public virtual int Update(SpaceM2DataSet.ByggdelDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset dataSet) {
+        public virtual int Update(SpaceM2DataSet dataSet) {
             return this.Adapter.Update(dataSet, "Byggdel");
         }
         
@@ -26445,7 +26095,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(SpaceM2Dataset.FabriksplaneringDataTable dataTable) {
+        public virtual int Fill(SpaceM2DataSet.FabriksplaneringDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -26458,9 +26108,9 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual SpaceM2Dataset.FabriksplaneringDataTable GetData() {
+        public virtual SpaceM2DataSet.FabriksplaneringDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SpaceM2Dataset.FabriksplaneringDataTable dataTable = new SpaceM2Dataset.FabriksplaneringDataTable();
+            SpaceM2DataSet.FabriksplaneringDataTable dataTable = new SpaceM2DataSet.FabriksplaneringDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -26468,14 +26118,14 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset.FabriksplaneringDataTable dataTable) {
+        public virtual int Update(SpaceM2DataSet.FabriksplaneringDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset dataSet) {
+        public virtual int Update(SpaceM2DataSet dataSet) {
             return this.Adapter.Update(dataSet, "Fabriksplanering");
         }
         
@@ -27300,7 +26950,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(SpaceM2Dataset.InköpsorderDataTable dataTable) {
+        public virtual int Fill(SpaceM2DataSet.InköpsorderDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -27313,9 +26963,9 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual SpaceM2Dataset.InköpsorderDataTable GetData() {
+        public virtual SpaceM2DataSet.InköpsorderDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SpaceM2Dataset.InköpsorderDataTable dataTable = new SpaceM2Dataset.InköpsorderDataTable();
+            SpaceM2DataSet.InköpsorderDataTable dataTable = new SpaceM2DataSet.InköpsorderDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -27323,14 +26973,14 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset.InköpsorderDataTable dataTable) {
+        public virtual int Update(SpaceM2DataSet.InköpsorderDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset dataSet) {
+        public virtual int Update(SpaceM2DataSet dataSet) {
             return this.Adapter.Update(dataSet, "Inköpsorder");
         }
         
@@ -28314,7 +27964,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(SpaceM2Dataset.Konstruktion_per_väggtypDataTable dataTable) {
+        public virtual int Fill(SpaceM2DataSet.Konstruktion_per_väggtypDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -28327,9 +27977,9 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual SpaceM2Dataset.Konstruktion_per_väggtypDataTable GetData() {
+        public virtual SpaceM2DataSet.Konstruktion_per_väggtypDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SpaceM2Dataset.Konstruktion_per_väggtypDataTable dataTable = new SpaceM2Dataset.Konstruktion_per_väggtypDataTable();
+            SpaceM2DataSet.Konstruktion_per_väggtypDataTable dataTable = new SpaceM2DataSet.Konstruktion_per_väggtypDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -28337,14 +27987,14 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset.Konstruktion_per_väggtypDataTable dataTable) {
+        public virtual int Update(SpaceM2DataSet.Konstruktion_per_väggtypDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset dataSet) {
+        public virtual int Update(SpaceM2DataSet dataSet) {
             return this.Adapter.Update(dataSet, "Konstruktion per väggtyp");
         }
         
@@ -28794,7 +28444,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(SpaceM2Dataset.KontoDataTable dataTable) {
+        public virtual int Fill(SpaceM2DataSet.KontoDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -28807,9 +28457,9 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual SpaceM2Dataset.KontoDataTable GetData() {
+        public virtual SpaceM2DataSet.KontoDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SpaceM2Dataset.KontoDataTable dataTable = new SpaceM2Dataset.KontoDataTable();
+            SpaceM2DataSet.KontoDataTable dataTable = new SpaceM2DataSet.KontoDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -28817,14 +28467,14 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset.KontoDataTable dataTable) {
+        public virtual int Update(SpaceM2DataSet.KontoDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset dataSet) {
+        public virtual int Update(SpaceM2DataSet dataSet) {
             return this.Adapter.Update(dataSet, "Konto");
         }
         
@@ -29188,7 +28838,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(SpaceM2Dataset.LeveransadresserDataTable dataTable) {
+        public virtual int Fill(SpaceM2DataSet.LeveransadresserDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -29201,9 +28851,9 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual SpaceM2Dataset.LeveransadresserDataTable GetData() {
+        public virtual SpaceM2DataSet.LeveransadresserDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SpaceM2Dataset.LeveransadresserDataTable dataTable = new SpaceM2Dataset.LeveransadresserDataTable();
+            SpaceM2DataSet.LeveransadresserDataTable dataTable = new SpaceM2DataSet.LeveransadresserDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -29211,14 +28861,14 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset.LeveransadresserDataTable dataTable) {
+        public virtual int Update(SpaceM2DataSet.LeveransadresserDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset dataSet) {
+        public virtual int Update(SpaceM2DataSet dataSet) {
             return this.Adapter.Update(dataSet, "Leveransadresser");
         }
         
@@ -29597,7 +29247,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(SpaceM2Dataset.LeverantörDataTable dataTable) {
+        public virtual int Fill(SpaceM2DataSet.LeverantörDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -29610,9 +29260,9 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual SpaceM2Dataset.LeverantörDataTable GetData() {
+        public virtual SpaceM2DataSet.LeverantörDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SpaceM2Dataset.LeverantörDataTable dataTable = new SpaceM2Dataset.LeverantörDataTable();
+            SpaceM2DataSet.LeverantörDataTable dataTable = new SpaceM2DataSet.LeverantörDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -29620,14 +29270,14 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset.LeverantörDataTable dataTable) {
+        public virtual int Update(SpaceM2DataSet.LeverantörDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset dataSet) {
+        public virtual int Update(SpaceM2DataSet dataSet) {
             return this.Adapter.Update(dataSet, "Leverantör");
         }
         
@@ -29962,7 +29612,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(SpaceM2Dataset.LägenhetstypDataTable dataTable) {
+        public virtual int Fill(SpaceM2DataSet.LägenhetstypDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -29975,9 +29625,9 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual SpaceM2Dataset.LägenhetstypDataTable GetData() {
+        public virtual SpaceM2DataSet.LägenhetstypDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SpaceM2Dataset.LägenhetstypDataTable dataTable = new SpaceM2Dataset.LägenhetstypDataTable();
+            SpaceM2DataSet.LägenhetstypDataTable dataTable = new SpaceM2DataSet.LägenhetstypDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -29985,14 +29635,14 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset.LägenhetstypDataTable dataTable) {
+        public virtual int Update(SpaceM2DataSet.LägenhetstypDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset dataSet) {
+        public virtual int Update(SpaceM2DataSet dataSet) {
             return this.Adapter.Update(dataSet, "Lägenhetstyp");
         }
         
@@ -30408,16 +30058,16 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
             tableMapping.ColumnMappings.Add("Emballering Märkning", "Emballering Märkning");
             tableMapping.ColumnMappings.Add("UTGÅR", "UTGÅR");
             tableMapping.ColumnMappings.Add("Levererad", "Levererad");
-            tableMapping.ColumnMappings.Add("F44", "F44");
-            tableMapping.ColumnMappings.Add("F45", "F45");
+            tableMapping.ColumnMappings.Add("Ordning", "Ordning");
+            tableMapping.ColumnMappings.Add("Lägenhetstyp", "Lägenhetstyp");
             tableMapping.ColumnMappings.Add("Mängdat", "Mängdat");
             tableMapping.ColumnMappings.Add("Kr", "Kr");
-            tableMapping.ColumnMappings.Add("F48", "F48");
-            tableMapping.ColumnMappings.Add("F49", "F49");
+            tableMapping.ColumnMappings.Add("Tim", "Tim");
+            tableMapping.ColumnMappings.Add("Min", "Min");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO `Modulmontering` (`Projektnummer`, `Lägenhetsnummer`, `Modulnummer`, `Modultypnummer`, `Modultyp namn`, `Plannummer`, `Plan väggstart`, `Plan resning`, `Plan utleverans`, `Prognos utlev`, `Diff`, `DAGAR FRÅN RESNING_BÖR 15`, `Sätta nummer och tidssätta moduler`, `Rita upp moduler / produktionsritningar`, `Godkänna produktionsritningar`, `Programera regelverkan`, `Mängda material`, `Avropa material`, `Mottagning inkörning av material`, `Utkörning av material till respektive station`, `Vägg`, `Lägenhetsskiljande väggar`, `Målning`, `Golv Tak`, `Golv Tak - komplettering`, `Resning`, `Station 7`, `Station 8`, `Station 9`, `Station 10`, `Station 11`, `Station 12`, `Station 13`, `Station 14`, `Station 15`, `Station 16`, `Station 17`, `Station 18`, `Emballering Märkning`, `UTGÅR`, `Levererad`, `F44`, `F45`, `Mängdat`, `Kr`, `F48`, `F49`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO `Modulmontering` (`Projektnummer`, `Lägenhetsnummer`, `Modulnummer`, `Modultypnummer`, `Modultyp namn`, `Plannummer`, `Plan väggstart`, `Plan resning`, `Plan utleverans`, `Prognos utlev`, `Diff`, `DAGAR FRÅN RESNING_BÖR 15`, `Sätta nummer och tidssätta moduler`, `Rita upp moduler / produktionsritningar`, `Godkänna produktionsritningar`, `Programera regelverkan`, `Mängda material`, `Avropa material`, `Mottagning inkörning av material`, `Utkörning av material till respektive station`, `Vägg`, `Lägenhetsskiljande väggar`, `Målning`, `Golv Tak`, `Golv Tak - komplettering`, `Resning`, `Station 7`, `Station 8`, `Station 9`, `Station 10`, `Station 11`, `Station 12`, `Station 13`, `Station 14`, `Station 15`, `Station 16`, `Station 17`, `Station 18`, `Emballering Märkning`, `UTGÅR`, `Levererad`, `Ordning`, `Lägenhetstyp`, `Mängdat`, `Kr`, `Tim`, `Min`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Projektnummer", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Projektnummer", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Lägenhetsnummer", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Lägenhetsnummer", global::System.Data.DataRowVersion.Current, false, null));
@@ -30460,12 +30110,12 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Emballering_Märkning", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Emballering Märkning", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("UTGÅR", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "UTGÅR", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Levererad", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Levererad", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("F44", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "F44", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("F45", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "F45", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Ordning", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Ordning", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Lägenhetstyp", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Lägenhetstyp", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Mängdat", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Mängdat", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Kr", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Kr", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("F48", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "F48", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("F49", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "F49", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Tim", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Tim", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Min", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Min", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -30481,7 +30131,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT ID, Projektnummer, Lägenhetsnummer, Modulnummer, Modultypnummer, [Modultyp namn], Plannummer, [Plan väggstart], [Plan resning], [Plan utleverans], [Prognos utlev], Diff, [DAGAR FRÅN RESNING_BÖR 15], [Sätta nummer och tidssätta moduler], [Rita upp moduler / produktionsritningar], [Godkänna produktionsritningar], [Programera regelverkan], [Mängda material], [Avropa material], [Mottagning inkörning av material], [Utkörning av material till respektive station], Vägg, [Lägenhetsskiljande väggar], Målning, [Golv Tak], [Golv Tak - komplettering], Resning, [Station 7], [Station 8], [Station 9], [Station 10], [Station 11], [Station 12], [Station 13], [Station 14], [Station 15], [Station 16], [Station 17], [Station 18], [Emballering Märkning], UTGÅR, Levererad, F44, F45, Mängdat, Kr, F48, F49 FROM Modulmontering";
+            this._commandCollection[0].CommandText = @"SELECT ID, Projektnummer, Lägenhetsnummer, Modulnummer, Modultypnummer, [Modultyp namn], Plannummer, [Plan väggstart], [Plan resning], [Plan utleverans], [Prognos utlev], Diff, [DAGAR FRÅN RESNING_BÖR 15], [Sätta nummer och tidssätta moduler], [Rita upp moduler / produktionsritningar], [Godkänna produktionsritningar], [Programera regelverkan], [Mängda material], [Avropa material], [Mottagning inkörning av material], [Utkörning av material till respektive station], Vägg, [Lägenhetsskiljande väggar], Målning, [Golv Tak], [Golv Tak - komplettering], Resning, [Station 7], [Station 8], [Station 9], [Station 10], [Station 11], [Station 12], [Station 13], [Station 14], [Station 15], [Station 16], [Station 17], [Station 18], [Emballering Märkning], UTGÅR, Levererad, Ordning, Lägenhetstyp, Mängdat, Kr, Tim, [Min] FROM Modulmontering";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -30489,7 +30139,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(SpaceM2Dataset.ModulmonteringDataTable dataTable) {
+        public virtual int Fill(SpaceM2DataSet.ModulmonteringDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -30502,9 +30152,9 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual SpaceM2Dataset.ModulmonteringDataTable GetData() {
+        public virtual SpaceM2DataSet.ModulmonteringDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SpaceM2Dataset.ModulmonteringDataTable dataTable = new SpaceM2Dataset.ModulmonteringDataTable();
+            SpaceM2DataSet.ModulmonteringDataTable dataTable = new SpaceM2DataSet.ModulmonteringDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -30512,14 +30162,14 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset.ModulmonteringDataTable dataTable) {
+        public virtual int Update(SpaceM2DataSet.ModulmonteringDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset dataSet) {
+        public virtual int Update(SpaceM2DataSet dataSet) {
             return this.Adapter.Update(dataSet, "Modulmontering");
         }
         
@@ -30584,12 +30234,12 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
                     string Emballering_Märkning, 
                     string UTGÅR, 
                     string Levererad, 
-                    string F44, 
-                    string F45, 
+                    string Ordning, 
+                    string Lägenhetstyp, 
                     string Mängdat, 
                     string Kr, 
-                    string F48, 
-                    string F49) {
+                    string Tim, 
+                    string Min) {
             if ((Projektnummer == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -30836,17 +30486,17 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[40].Value = ((string)(Levererad));
             }
-            if ((F44 == null)) {
+            if ((Ordning == null)) {
                 this.Adapter.InsertCommand.Parameters[41].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[41].Value = ((string)(F44));
+                this.Adapter.InsertCommand.Parameters[41].Value = ((string)(Ordning));
             }
-            if ((F45 == null)) {
+            if ((Lägenhetstyp == null)) {
                 this.Adapter.InsertCommand.Parameters[42].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[42].Value = ((string)(F45));
+                this.Adapter.InsertCommand.Parameters[42].Value = ((string)(Lägenhetstyp));
             }
             if ((Mängdat == null)) {
                 this.Adapter.InsertCommand.Parameters[43].Value = global::System.DBNull.Value;
@@ -30860,17 +30510,17 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[44].Value = ((string)(Kr));
             }
-            if ((F48 == null)) {
+            if ((Tim == null)) {
                 this.Adapter.InsertCommand.Parameters[45].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[45].Value = ((string)(F48));
+                this.Adapter.InsertCommand.Parameters[45].Value = ((string)(Tim));
             }
-            if ((F49 == null)) {
+            if ((Min == null)) {
                 this.Adapter.InsertCommand.Parameters[46].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[46].Value = ((string)(F49));
+                this.Adapter.InsertCommand.Parameters[46].Value = ((string)(Min));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -31049,7 +30699,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(SpaceM2Dataset.ModultyperDataTable dataTable) {
+        public virtual int Fill(SpaceM2DataSet.ModultyperDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -31062,9 +30712,9 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual SpaceM2Dataset.ModultyperDataTable GetData() {
+        public virtual SpaceM2DataSet.ModultyperDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SpaceM2Dataset.ModultyperDataTable dataTable = new SpaceM2Dataset.ModultyperDataTable();
+            SpaceM2DataSet.ModultyperDataTable dataTable = new SpaceM2DataSet.ModultyperDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -31072,14 +30722,14 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset.ModultyperDataTable dataTable) {
+        public virtual int Update(SpaceM2DataSet.ModultyperDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset dataSet) {
+        public virtual int Update(SpaceM2DataSet dataSet) {
             return this.Adapter.Update(dataSet, "Modultyper");
         }
         
@@ -31615,7 +31265,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(SpaceM2Dataset.MängderDataTable dataTable) {
+        public virtual int Fill(SpaceM2DataSet.MängderDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -31628,9 +31278,9 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual SpaceM2Dataset.MängderDataTable GetData() {
+        public virtual SpaceM2DataSet.MängderDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SpaceM2Dataset.MängderDataTable dataTable = new SpaceM2Dataset.MängderDataTable();
+            SpaceM2DataSet.MängderDataTable dataTable = new SpaceM2DataSet.MängderDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -31638,14 +31288,14 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset.MängderDataTable dataTable) {
+        public virtual int Update(SpaceM2DataSet.MängderDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset dataSet) {
+        public virtual int Update(SpaceM2DataSet dataSet) {
             return this.Adapter.Update(dataSet, "Mängder");
         }
         
@@ -33485,7 +33135,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(SpaceM2Dataset.PrislistaDataTable dataTable) {
+        public virtual int Fill(SpaceM2DataSet.PrislistaDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -33498,9 +33148,9 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual SpaceM2Dataset.PrislistaDataTable GetData() {
+        public virtual SpaceM2DataSet.PrislistaDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SpaceM2Dataset.PrislistaDataTable dataTable = new SpaceM2Dataset.PrislistaDataTable();
+            SpaceM2DataSet.PrislistaDataTable dataTable = new SpaceM2DataSet.PrislistaDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -33508,14 +33158,14 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset.PrislistaDataTable dataTable) {
+        public virtual int Update(SpaceM2DataSet.PrislistaDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset dataSet) {
+        public virtual int Update(SpaceM2DataSet dataSet) {
             return this.Adapter.Update(dataSet, "Prislista");
         }
         
@@ -35478,7 +35128,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(SpaceM2Dataset.ProjektDataTable dataTable) {
+        public virtual int Fill(SpaceM2DataSet.ProjektDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -35491,9 +35141,9 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual SpaceM2Dataset.ProjektDataTable GetData() {
+        public virtual SpaceM2DataSet.ProjektDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SpaceM2Dataset.ProjektDataTable dataTable = new SpaceM2Dataset.ProjektDataTable();
+            SpaceM2DataSet.ProjektDataTable dataTable = new SpaceM2DataSet.ProjektDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -35501,14 +35151,14 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset.ProjektDataTable dataTable) {
+        public virtual int Update(SpaceM2DataSet.ProjektDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset dataSet) {
+        public virtual int Update(SpaceM2DataSet dataSet) {
             return this.Adapter.Update(dataSet, "Projekt");
         }
         
@@ -35776,6 +35426,409 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class StationAktivitetTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.OleDb.OleDbDataAdapter _adapter;
+        
+        private global::System.Data.OleDb.OleDbConnection _connection;
+        
+        private global::System.Data.OleDb.OleDbTransaction _transaction;
+        
+        private global::System.Data.OleDb.OleDbCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public StationAktivitetTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected internal global::System.Data.OleDb.OleDbDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.OleDb.OleDbConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.OleDb.OleDbCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.OleDb.OleDbTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.OleDb.OleDbCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.OleDb.OleDbDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "StationAktivitet";
+            tableMapping.ColumnMappings.Add("ID", "ID");
+            tableMapping.ColumnMappings.Add("Aktivitetsnummer", "Aktivitetsnummer");
+            tableMapping.ColumnMappings.Add("Aktivitetsbeskrivning", "Aktivitetsbeskrivning");
+            tableMapping.ColumnMappings.Add("Egenkontroll", "Egenkontroll");
+            tableMapping.ColumnMappings.Add("Instruktion", "Instruktion");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `StationAktivitet` WHERE (((? = 1 AND `ID` IS NULL) OR (`ID` = ?)) AND (`Aktivitetsnummer` = ?) AND ((? = 1 AND `Aktivitetsbeskrivning` IS NULL) OR (`Aktivitetsbeskrivning` = ?)) AND ((? = 1 AND `Egenkontroll` IS NULL) OR (`Egenkontroll` = ?)) AND ((? = 1 AND `Instruktion` IS NULL) OR (`Instruktion` = ?)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Aktivitetsnummer", global::System.Data.OleDb.OleDbType.Double, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Aktivitetsnummer", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Aktivitetsbeskrivning", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Aktivitetsbeskrivning", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Aktivitetsbeskrivning", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Aktivitetsbeskrivning", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Egenkontroll", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Egenkontroll", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Egenkontroll", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Egenkontroll", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Instruktion", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Instruktion", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Instruktion", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Instruktion", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `StationAktivitet` (`Aktivitetsnummer`, `Aktivitetsbeskrivning`, `Ege" +
+                "nkontroll`, `Instruktion`) VALUES (?, ?, ?, ?)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Aktivitetsnummer", global::System.Data.OleDb.OleDbType.Double, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Aktivitetsnummer", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Aktivitetsbeskrivning", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Aktivitetsbeskrivning", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Egenkontroll", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Egenkontroll", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Instruktion", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Instruktion", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `StationAktivitet` SET `Aktivitetsnummer` = ?, `Aktivitetsbeskrivning` = ?, `Egenkontroll` = ?, `Instruktion` = ? WHERE (((? = 1 AND `ID` IS NULL) OR (`ID` = ?)) AND (`Aktivitetsnummer` = ?) AND ((? = 1 AND `Aktivitetsbeskrivning` IS NULL) OR (`Aktivitetsbeskrivning` = ?)) AND ((? = 1 AND `Egenkontroll` IS NULL) OR (`Egenkontroll` = ?)) AND ((? = 1 AND `Instruktion` IS NULL) OR (`Instruktion` = ?)))";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Aktivitetsnummer", global::System.Data.OleDb.OleDbType.Double, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Aktivitetsnummer", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Aktivitetsbeskrivning", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Aktivitetsbeskrivning", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Egenkontroll", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Egenkontroll", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Instruktion", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Instruktion", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Aktivitetsnummer", global::System.Data.OleDb.OleDbType.Double, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Aktivitetsnummer", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Aktivitetsbeskrivning", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Aktivitetsbeskrivning", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Aktivitetsbeskrivning", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Aktivitetsbeskrivning", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Egenkontroll", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Egenkontroll", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Egenkontroll", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Egenkontroll", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Instruktion", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Instruktion", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Instruktion", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Instruktion", global::System.Data.DataRowVersion.Original, false, null));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.OleDb.OleDbConnection();
+            this._connection.ConnectionString = global::FactoryManager.Properties.Settings.Default.SpaceM2DatabaseConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
+            this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT ID, Aktivitetsnummer, Aktivitetsbeskrivning, Egenkontroll, Instruktion FRO" +
+                "M StationAktivitet";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(SpaceM2DataSet.StationAktivitetDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual SpaceM2DataSet.StationAktivitetDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            SpaceM2DataSet.StationAktivitetDataTable dataTable = new SpaceM2DataSet.StationAktivitetDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(SpaceM2DataSet.StationAktivitetDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(SpaceM2DataSet dataSet) {
+            return this.Adapter.Update(dataSet, "StationAktivitet");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_ID, double Original_Aktivitetsnummer, string Original_Aktivitetsbeskrivning, string Original_Egenkontroll, string Original_Instruktion) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_ID));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((double)(Original_Aktivitetsnummer));
+            if ((Original_Aktivitetsbeskrivning == null)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Aktivitetsbeskrivning));
+            }
+            if ((Original_Egenkontroll == null)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_Egenkontroll));
+            }
+            if ((Original_Instruktion == null)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Instruktion));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(double Aktivitetsnummer, string Aktivitetsbeskrivning, string Egenkontroll, string Instruktion) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((double)(Aktivitetsnummer));
+            if ((Aktivitetsbeskrivning == null)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Aktivitetsbeskrivning));
+            }
+            if ((Egenkontroll == null)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Egenkontroll));
+            }
+            if ((Instruktion == null)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Instruktion));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(double Aktivitetsnummer, string Aktivitetsbeskrivning, string Egenkontroll, string Instruktion, int Original_ID, double Original_Aktivitetsnummer, string Original_Aktivitetsbeskrivning, string Original_Egenkontroll, string Original_Instruktion) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((double)(Aktivitetsnummer));
+            if ((Aktivitetsbeskrivning == null)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Aktivitetsbeskrivning));
+            }
+            if ((Egenkontroll == null)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Egenkontroll));
+            }
+            if ((Instruktion == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Instruktion));
+            }
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_ID));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((double)(Original_Aktivitetsnummer));
+            if ((Original_Aktivitetsbeskrivning == null)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Aktivitetsbeskrivning));
+            }
+            if ((Original_Egenkontroll == null)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Egenkontroll));
+            }
+            if ((Original_Instruktion == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Instruktion));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string Aktivitetsbeskrivning, string Egenkontroll, string Instruktion, int Original_ID, double Original_Aktivitetsnummer, string Original_Aktivitetsbeskrivning, string Original_Egenkontroll, string Original_Instruktion) {
+            return this.Update(Original_Aktivitetsnummer, Aktivitetsbeskrivning, Egenkontroll, Instruktion, Original_ID, Original_Aktivitetsnummer, Original_Aktivitetsbeskrivning, Original_Egenkontroll, Original_Instruktion);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class StationerTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.OleDb.OleDbDataAdapter _adapter;
@@ -35936,7 +35989,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(SpaceM2Dataset.StationerDataTable dataTable) {
+        public virtual int Fill(SpaceM2DataSet.StationerDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -35949,9 +36002,9 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual SpaceM2Dataset.StationerDataTable GetData() {
+        public virtual SpaceM2DataSet.StationerDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SpaceM2Dataset.StationerDataTable dataTable = new SpaceM2Dataset.StationerDataTable();
+            SpaceM2DataSet.StationerDataTable dataTable = new SpaceM2DataSet.StationerDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -35959,14 +36012,14 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset.StationerDataTable dataTable) {
+        public virtual int Update(SpaceM2DataSet.StationerDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset dataSet) {
+        public virtual int Update(SpaceM2DataSet dataSet) {
             return this.Adapter.Update(dataSet, "Stationer");
         }
         
@@ -36059,7 +36112,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class Stationer___Akt_och_E_kontrollTableAdapter : global::System.ComponentModel.Component {
+    public partial class StationerEgenkontrollTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.OleDb.OleDbDataAdapter _adapter;
         
@@ -36073,7 +36126,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public Stationer___Akt_och_E_kontrollTableAdapter() {
+        public StationerEgenkontrollTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -36170,7 +36223,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
             this._adapter = new global::System.Data.OleDb.OleDbDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Stationer - Akt och E-kontroll";
+            tableMapping.DataSetTable = "StationerEgenkontroll";
             tableMapping.ColumnMappings.Add("ID", "ID");
             tableMapping.ColumnMappings.Add("Kod", "Kod");
             tableMapping.ColumnMappings.Add("Stationsnummer", "Stationsnummer");
@@ -36191,7 +36244,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO `Stationer - Akt och E-kontroll` (`Kod`, `Stationsnummer`, `Rad`, `Aktivitetsnummer`, `Aktivitetsbeskrivning`, `Egenkontroll`, `Tid per akt`, `Bana 1_Ansvarig`, `Bana 3_Ansvarig`, `Station länk`, `Sortering`, `Koll`, `Koll 2`, `Kortnamn`, `Aktiviteter per station`, `Instruktion`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO `StationerEgenkontroll` (`Kod`, `Stationsnummer`, `Rad`, `Aktivitetsnummer`, `Aktivitetsbeskrivning`, `Egenkontroll`, `Tid per akt`, `Bana 1_Ansvarig`, `Bana 3_Ansvarig`, `Station länk`, `Sortering`, `Koll`, `Koll 2`, `Kortnamn`, `Aktiviteter per station`, `Instruktion`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Kod", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Kod", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Stationsnummer", global::System.Data.OleDb.OleDbType.Double, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Stationsnummer", global::System.Data.DataRowVersion.Current, false, null));
@@ -36224,7 +36277,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT ID, Kod, Stationsnummer, Rad, Aktivitetsnummer, Aktivitetsbeskrivning, Egenkontroll, [Tid per akt], [Bana 1_Ansvarig], [Bana 3_Ansvarig], [Station länk], Sortering, Koll, [Koll 2], Kortnamn, [Aktiviteter per station], Instruktion FROM [Stationer - Akt och E-kontroll]";
+            this._commandCollection[0].CommandText = @"SELECT ID, Kod, Stationsnummer, Rad, Aktivitetsnummer, Aktivitetsbeskrivning, Egenkontroll, [Tid per akt], [Bana 1_Ansvarig], [Bana 3_Ansvarig], [Station länk], Sortering, Koll, [Koll 2], Kortnamn, [Aktiviteter per station], Instruktion FROM StationerEgenkontroll";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -36232,7 +36285,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(SpaceM2Dataset._Stationer___Akt_och_E_kontrollDataTable dataTable) {
+        public virtual int Fill(SpaceM2DataSet.StationerEgenkontrollDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -36245,9 +36298,9 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual SpaceM2Dataset._Stationer___Akt_och_E_kontrollDataTable GetData() {
+        public virtual SpaceM2DataSet.StationerEgenkontrollDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SpaceM2Dataset._Stationer___Akt_och_E_kontrollDataTable dataTable = new SpaceM2Dataset._Stationer___Akt_och_E_kontrollDataTable();
+            SpaceM2DataSet.StationerEgenkontrollDataTable dataTable = new SpaceM2DataSet.StationerEgenkontrollDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -36255,15 +36308,15 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset._Stationer___Akt_och_E_kontrollDataTable dataTable) {
+        public virtual int Update(SpaceM2DataSet.StationerEgenkontrollDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset dataSet) {
-            return this.Adapter.Update(dataSet, "Stationer - Akt och E-kontroll");
+        public virtual int Update(SpaceM2DataSet dataSet) {
+            return this.Adapter.Update(dataSet, "StationerEgenkontroll");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -36585,7 +36638,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(SpaceM2Dataset.Väggar_per_modultypDataTable dataTable) {
+        public virtual int Fill(SpaceM2DataSet.Väggar_per_modultypDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -36598,9 +36651,9 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual SpaceM2Dataset.Väggar_per_modultypDataTable GetData() {
+        public virtual SpaceM2DataSet.Väggar_per_modultypDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SpaceM2Dataset.Väggar_per_modultypDataTable dataTable = new SpaceM2Dataset.Väggar_per_modultypDataTable();
+            SpaceM2DataSet.Väggar_per_modultypDataTable dataTable = new SpaceM2DataSet.Väggar_per_modultypDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -36608,14 +36661,14 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset.Väggar_per_modultypDataTable dataTable) {
+        public virtual int Update(SpaceM2DataSet.Väggar_per_modultypDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset dataSet) {
+        public virtual int Update(SpaceM2DataSet dataSet) {
             return this.Adapter.Update(dataSet, "Väggar per modultyp");
         }
         
@@ -36861,7 +36914,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(SpaceM2Dataset.VäggtyperDataTable dataTable) {
+        public virtual int Fill(SpaceM2DataSet.VäggtyperDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -36874,9 +36927,9 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual SpaceM2Dataset.VäggtyperDataTable GetData() {
+        public virtual SpaceM2DataSet.VäggtyperDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SpaceM2Dataset.VäggtyperDataTable dataTable = new SpaceM2Dataset.VäggtyperDataTable();
+            SpaceM2DataSet.VäggtyperDataTable dataTable = new SpaceM2DataSet.VäggtyperDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -36884,14 +36937,14 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset.VäggtyperDataTable dataTable) {
+        public virtual int Update(SpaceM2DataSet.VäggtyperDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SpaceM2Dataset dataSet) {
+        public virtual int Update(SpaceM2DataSet dataSet) {
             return this.Adapter.Update(dataSet, "Väggtyper");
         }
         
@@ -36962,13 +37015,11 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private AktivitetTableAdapter _aktivitetTableAdapter;
-        
         private AnställdTableAdapter _anställdTableAdapter;
         
         private AnvändareTableAdapter _användareTableAdapter;
         
-        private AnvändareRollerTableAdapter _användareRollerTableAdapter;
+        private AnvändareRollTableAdapter _användareRollTableAdapter;
         
         private BeställningsradTableAdapter _beställningsradTableAdapter;
         
@@ -36998,9 +37049,11 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         
         private ProjektTableAdapter _projektTableAdapter;
         
+        private StationAktivitetTableAdapter _stationAktivitetTableAdapter;
+        
         private StationerTableAdapter _stationerTableAdapter;
         
-        private Stationer___Akt_och_E_kontrollTableAdapter _stationer___Akt_och_E_kontrollTableAdapter;
+        private StationerEgenkontrollTableAdapter _stationerEgenkontrollTableAdapter;
         
         private Väggar_per_modultypTableAdapter _väggar_per_modultypTableAdapter;
         
@@ -37018,20 +37071,6 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
             }
             set {
                 this._updateOrder = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public AktivitetTableAdapter AktivitetTableAdapter {
-            get {
-                return this._aktivitetTableAdapter;
-            }
-            set {
-                this._aktivitetTableAdapter = value;
             }
         }
         
@@ -37068,12 +37107,12 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public AnvändareRollerTableAdapter AnvändareRollerTableAdapter {
+        public AnvändareRollTableAdapter AnvändareRollTableAdapter {
             get {
-                return this._användareRollerTableAdapter;
+                return this._användareRollTableAdapter;
             }
             set {
-                this._användareRollerTableAdapter = value;
+                this._användareRollTableAdapter = value;
             }
         }
         
@@ -37278,6 +37317,20 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
+        public StationAktivitetTableAdapter StationAktivitetTableAdapter {
+            get {
+                return this._stationAktivitetTableAdapter;
+            }
+            set {
+                this._stationAktivitetTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
         public StationerTableAdapter StationerTableAdapter {
             get {
                 return this._stationerTableAdapter;
@@ -37292,12 +37345,12 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public Stationer___Akt_och_E_kontrollTableAdapter Stationer___Akt_och_E_kontrollTableAdapter {
+        public StationerEgenkontrollTableAdapter StationerEgenkontrollTableAdapter {
             get {
-                return this._stationer___Akt_och_E_kontrollTableAdapter;
+                return this._stationerEgenkontrollTableAdapter;
             }
             set {
-                this._stationer___Akt_och_E_kontrollTableAdapter = value;
+                this._stationerEgenkontrollTableAdapter = value;
             }
         }
         
@@ -37348,10 +37401,6 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._aktivitetTableAdapter != null) 
-                            && (this._aktivitetTableAdapter.Connection != null))) {
-                    return this._aktivitetTableAdapter.Connection;
-                }
                 if (((this._anställdTableAdapter != null) 
                             && (this._anställdTableAdapter.Connection != null))) {
                     return this._anställdTableAdapter.Connection;
@@ -37360,9 +37409,9 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
                             && (this._användareTableAdapter.Connection != null))) {
                     return this._användareTableAdapter.Connection;
                 }
-                if (((this._användareRollerTableAdapter != null) 
-                            && (this._användareRollerTableAdapter.Connection != null))) {
-                    return this._användareRollerTableAdapter.Connection;
+                if (((this._användareRollTableAdapter != null) 
+                            && (this._användareRollTableAdapter.Connection != null))) {
+                    return this._användareRollTableAdapter.Connection;
                 }
                 if (((this._beställningsradTableAdapter != null) 
                             && (this._beställningsradTableAdapter.Connection != null))) {
@@ -37420,13 +37469,17 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
                             && (this._projektTableAdapter.Connection != null))) {
                     return this._projektTableAdapter.Connection;
                 }
+                if (((this._stationAktivitetTableAdapter != null) 
+                            && (this._stationAktivitetTableAdapter.Connection != null))) {
+                    return this._stationAktivitetTableAdapter.Connection;
+                }
                 if (((this._stationerTableAdapter != null) 
                             && (this._stationerTableAdapter.Connection != null))) {
                     return this._stationerTableAdapter.Connection;
                 }
-                if (((this._stationer___Akt_och_E_kontrollTableAdapter != null) 
-                            && (this._stationer___Akt_och_E_kontrollTableAdapter.Connection != null))) {
-                    return this._stationer___Akt_och_E_kontrollTableAdapter.Connection;
+                if (((this._stationerEgenkontrollTableAdapter != null) 
+                            && (this._stationerEgenkontrollTableAdapter.Connection != null))) {
+                    return this._stationerEgenkontrollTableAdapter.Connection;
                 }
                 if (((this._väggar_per_modultypTableAdapter != null) 
                             && (this._väggar_per_modultypTableAdapter.Connection != null))) {
@@ -37449,16 +37502,13 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._aktivitetTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 if ((this._anställdTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._användareTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._användareRollerTableAdapter != null)) {
+                if ((this._användareRollTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._beställningsradTableAdapter != null)) {
@@ -37503,10 +37553,13 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
                 if ((this._projektTableAdapter != null)) {
                     count = (count + 1);
                 }
+                if ((this._stationAktivitetTableAdapter != null)) {
+                    count = (count + 1);
+                }
                 if ((this._stationerTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._stationer___Akt_och_E_kontrollTableAdapter != null)) {
+                if ((this._stationerEgenkontrollTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._väggar_per_modultypTableAdapter != null)) {
@@ -37524,7 +37577,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(SpaceM2Dataset dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(SpaceM2DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._anställdTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Anställd.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -37562,12 +37615,12 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._användareRollerTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.AnvändareRoller.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._användareRollTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.AnvändareRoll.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._användareRollerTableAdapter.Update(updatedRows));
+                    result = (result + this._användareRollTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -37589,21 +37642,12 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._aktivitetTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Aktivitet.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._stationerEgenkontrollTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.StationerEgenkontroll.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._aktivitetTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._stationer___Akt_och_E_kontrollTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet._Stationer___Akt_och_E_kontroll.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._stationer___Akt_och_E_kontrollTableAdapter.Update(updatedRows));
+                    result = (result + this._stationerEgenkontrollTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -37613,6 +37657,15 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._stationerTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._stationAktivitetTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.StationAktivitet.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._stationAktivitetTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -37634,15 +37687,6 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._leveransadresserTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Leveransadresser.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._leveransadresserTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._leverantörTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Leverantör.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -37658,6 +37702,15 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._väggar_per_modultypTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._leveransadresserTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Leveransadresser.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._leveransadresserTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -37732,7 +37785,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(SpaceM2Dataset dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(SpaceM2DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._anställdTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Anställd.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -37766,11 +37819,11 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._användareRollerTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.AnvändareRoller.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._användareRollTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.AnvändareRoll.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._användareRollerTableAdapter.Update(addedRows));
+                    result = (result + this._användareRollTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -37790,19 +37843,11 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._aktivitetTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Aktivitet.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._stationerEgenkontrollTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.StationerEgenkontroll.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._aktivitetTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._stationer___Akt_och_E_kontrollTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet._Stationer___Akt_och_E_kontroll.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._stationer___Akt_och_E_kontrollTableAdapter.Update(addedRows));
+                    result = (result + this._stationerEgenkontrollTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -37811,6 +37856,14 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._stationerTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._stationAktivitetTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.StationAktivitet.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._stationAktivitetTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -37830,14 +37883,6 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._leveransadresserTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Leveransadresser.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._leveransadresserTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._leverantörTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Leverantör.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -37851,6 +37896,14 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._väggar_per_modultypTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._leveransadresserTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Leveransadresser.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._leveransadresserTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -37918,7 +37971,7 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(SpaceM2Dataset dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(SpaceM2DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._väggtyperTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Väggtyper.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -37976,6 +38029,14 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._leveransadresserTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Leveransadresser.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._leveransadresserTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._väggar_per_modultypTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Väggar_per_modultyp.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -37989,14 +38050,6 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._leverantörTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._leveransadresserTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Leveransadresser.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._leveransadresserTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -38016,6 +38069,14 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._stationAktivitetTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.StationAktivitet.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._stationAktivitetTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._stationerTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Stationer.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -38024,19 +38085,11 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._stationer___Akt_och_E_kontrollTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet._Stationer___Akt_och_E_kontroll.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._stationerEgenkontrollTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.StationerEgenkontroll.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._stationer___Akt_och_E_kontrollTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._aktivitetTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Aktivitet.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._aktivitetTableAdapter.Update(deletedRows));
+                    result = (result + this._stationerEgenkontrollTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -38056,11 +38109,11 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._användareRollerTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.AnvändareRoller.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._användareRollTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.AnvändareRoll.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._användareRollerTableAdapter.Update(deletedRows));
+                    result = (result + this._användareRollTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -38128,17 +38181,12 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(SpaceM2Dataset dataSet) {
+        public virtual int UpdateAll(SpaceM2DataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
-            }
-            if (((this._aktivitetTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._aktivitetTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
             }
             if (((this._anställdTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._anställdTableAdapter.Connection) == false))) {
@@ -38150,8 +38198,8 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._användareRollerTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._användareRollerTableAdapter.Connection) == false))) {
+            if (((this._användareRollTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._användareRollTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -38225,13 +38273,18 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
+            if (((this._stationAktivitetTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._stationAktivitetTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
             if (((this._stationerTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._stationerTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._stationer___Akt_och_E_kontrollTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._stationer___Akt_och_E_kontrollTableAdapter.Connection) == false))) {
+            if (((this._stationerEgenkontrollTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._stationerEgenkontrollTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -38277,15 +38330,6 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._aktivitetTableAdapter != null)) {
-                    revertConnections.Add(this._aktivitetTableAdapter, this._aktivitetTableAdapter.Connection);
-                    this._aktivitetTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(workConnection));
-                    this._aktivitetTableAdapter.Transaction = ((global::System.Data.OleDb.OleDbTransaction)(workTransaction));
-                    if (this._aktivitetTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._aktivitetTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._aktivitetTableAdapter.Adapter);
-                    }
-                }
                 if ((this._anställdTableAdapter != null)) {
                     revertConnections.Add(this._anställdTableAdapter, this._anställdTableAdapter.Connection);
                     this._anställdTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(workConnection));
@@ -38304,13 +38348,13 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
                         adaptersWithAcceptChangesDuringUpdate.Add(this._användareTableAdapter.Adapter);
                     }
                 }
-                if ((this._användareRollerTableAdapter != null)) {
-                    revertConnections.Add(this._användareRollerTableAdapter, this._användareRollerTableAdapter.Connection);
-                    this._användareRollerTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(workConnection));
-                    this._användareRollerTableAdapter.Transaction = ((global::System.Data.OleDb.OleDbTransaction)(workTransaction));
-                    if (this._användareRollerTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._användareRollerTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._användareRollerTableAdapter.Adapter);
+                if ((this._användareRollTableAdapter != null)) {
+                    revertConnections.Add(this._användareRollTableAdapter, this._användareRollTableAdapter.Connection);
+                    this._användareRollTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(workConnection));
+                    this._användareRollTableAdapter.Transaction = ((global::System.Data.OleDb.OleDbTransaction)(workTransaction));
+                    if (this._användareRollTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._användareRollTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._användareRollTableAdapter.Adapter);
                     }
                 }
                 if ((this._beställningsradTableAdapter != null)) {
@@ -38439,6 +38483,15 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
                         adaptersWithAcceptChangesDuringUpdate.Add(this._projektTableAdapter.Adapter);
                     }
                 }
+                if ((this._stationAktivitetTableAdapter != null)) {
+                    revertConnections.Add(this._stationAktivitetTableAdapter, this._stationAktivitetTableAdapter.Connection);
+                    this._stationAktivitetTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(workConnection));
+                    this._stationAktivitetTableAdapter.Transaction = ((global::System.Data.OleDb.OleDbTransaction)(workTransaction));
+                    if (this._stationAktivitetTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._stationAktivitetTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._stationAktivitetTableAdapter.Adapter);
+                    }
+                }
                 if ((this._stationerTableAdapter != null)) {
                     revertConnections.Add(this._stationerTableAdapter, this._stationerTableAdapter.Connection);
                     this._stationerTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(workConnection));
@@ -38448,13 +38501,13 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
                         adaptersWithAcceptChangesDuringUpdate.Add(this._stationerTableAdapter.Adapter);
                     }
                 }
-                if ((this._stationer___Akt_och_E_kontrollTableAdapter != null)) {
-                    revertConnections.Add(this._stationer___Akt_och_E_kontrollTableAdapter, this._stationer___Akt_och_E_kontrollTableAdapter.Connection);
-                    this._stationer___Akt_och_E_kontrollTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(workConnection));
-                    this._stationer___Akt_och_E_kontrollTableAdapter.Transaction = ((global::System.Data.OleDb.OleDbTransaction)(workTransaction));
-                    if (this._stationer___Akt_och_E_kontrollTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._stationer___Akt_och_E_kontrollTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._stationer___Akt_och_E_kontrollTableAdapter.Adapter);
+                if ((this._stationerEgenkontrollTableAdapter != null)) {
+                    revertConnections.Add(this._stationerEgenkontrollTableAdapter, this._stationerEgenkontrollTableAdapter.Connection);
+                    this._stationerEgenkontrollTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(workConnection));
+                    this._stationerEgenkontrollTableAdapter.Transaction = ((global::System.Data.OleDb.OleDbTransaction)(workTransaction));
+                    if (this._stationerEgenkontrollTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._stationerEgenkontrollTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._stationerEgenkontrollTableAdapter.Adapter);
                     }
                 }
                 if ((this._väggar_per_modultypTableAdapter != null)) {
@@ -38533,10 +38586,6 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._aktivitetTableAdapter != null)) {
-                    this._aktivitetTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._aktivitetTableAdapter]));
-                    this._aktivitetTableAdapter.Transaction = null;
-                }
                 if ((this._anställdTableAdapter != null)) {
                     this._anställdTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._anställdTableAdapter]));
                     this._anställdTableAdapter.Transaction = null;
@@ -38545,9 +38594,9 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
                     this._användareTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._användareTableAdapter]));
                     this._användareTableAdapter.Transaction = null;
                 }
-                if ((this._användareRollerTableAdapter != null)) {
-                    this._användareRollerTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._användareRollerTableAdapter]));
-                    this._användareRollerTableAdapter.Transaction = null;
+                if ((this._användareRollTableAdapter != null)) {
+                    this._användareRollTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._användareRollTableAdapter]));
+                    this._användareRollTableAdapter.Transaction = null;
                 }
                 if ((this._beställningsradTableAdapter != null)) {
                     this._beställningsradTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._beställningsradTableAdapter]));
@@ -38605,13 +38654,17 @@ namespace FactoryManager.SpaceM2DatasetTableAdapters {
                     this._projektTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._projektTableAdapter]));
                     this._projektTableAdapter.Transaction = null;
                 }
+                if ((this._stationAktivitetTableAdapter != null)) {
+                    this._stationAktivitetTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._stationAktivitetTableAdapter]));
+                    this._stationAktivitetTableAdapter.Transaction = null;
+                }
                 if ((this._stationerTableAdapter != null)) {
                     this._stationerTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._stationerTableAdapter]));
                     this._stationerTableAdapter.Transaction = null;
                 }
-                if ((this._stationer___Akt_och_E_kontrollTableAdapter != null)) {
-                    this._stationer___Akt_och_E_kontrollTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._stationer___Akt_och_E_kontrollTableAdapter]));
-                    this._stationer___Akt_och_E_kontrollTableAdapter.Transaction = null;
+                if ((this._stationerEgenkontrollTableAdapter != null)) {
+                    this._stationerEgenkontrollTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._stationerEgenkontrollTableAdapter]));
+                    this._stationerEgenkontrollTableAdapter.Transaction = null;
                 }
                 if ((this._väggar_per_modultypTableAdapter != null)) {
                     this._väggar_per_modultypTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._väggar_per_modultypTableAdapter]));

@@ -117,34 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="projektBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>153, 18</value>
-  </metadata>
-  <metadata name="spaceM2Dataset.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="projektTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>328, 17</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="bunifuSeparator1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAA9oAAAAKCAYAAABLwSb1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABQSURBVHhe7dexDQAgDASxnylTMCtLQkOfJhKNLd0QFwAA
-        AAAAAAAAAAAAAAAAAAAAAIAvaq8jSZIkSZJmersNAAAAAAAAAAAAAAAAAABAK7kC4DtHFKcYrwAAAABJ
-        RU5ErkJggg==
-</value>
-  </data>
-  <data name="bunifuVScrollBar1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABEAAAEcCAYAAAAhhF+QAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFJSURBVHhe7dyxTcNAGEBhl5SMQEkXnz2AN6BmBBpmQWIG
-        VqBNmxFSUyAkEEJBCkikgP+CA8jvFNlKh56lT0n8373cBFf9fVJK52Eenpqm+RzK78MiXPRbfp/ZbHbc
-        D1elzUOxbh2Wse+kT2xPsCgtHuGu67qjHLiMH6+D4Six9z0+rw85xc59jrwVBpNUpZdTGSEjZISMkBEy
-        QkbICBkhI2SEjJARMkJGyAgZISNkhIyQETJCRsgIGSEjZISMkBEyQkbICBkhI2SEjJARMkJGyAgZISNk
-        hIyQETJCRsgIGSEjZISMkBEyQkbICBkhI2SEjJARMkJGyAgZISNkhP5bJKW0KQ2myJFlaTBW7F/lyFVd
-        14ec5rbKV15F6KEwHOPl5+6t+FLHi8c40cdg0T7P8edn28Du6W8Buwl7b7+K+SbM27Y9/d5ZVV9reLHg
-        x58e5gAAAABJRU5ErkJggg==
-</value>
-  </data>
 </root>

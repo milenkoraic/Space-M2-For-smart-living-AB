@@ -4,10 +4,11 @@ using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using FactoryManager.View;
+using FactoryManager.View.GridView;
 
-namespace FactoryManager.AppService.FormInitialization
+namespace FactoryManager.ViewService
 {
-    public class FormInitializationHelper : IFormInitializationHelper
+    public class DockingFormHelper : IDockingFormHelper
     {
         public List<AppForm> GetAllForms()
         {
@@ -33,18 +34,6 @@ namespace FactoryManager.AppService.FormInitialization
             MainForm.FormList.DisplayMember = "Name";
         }
 
-        public void CloseAllOpenForms(string formName)
-        {
-            Form[] forms = Application.OpenForms.Cast<Form>().ToArray();
-            foreach (Form form in forms)
-            {
-                if (form.Name != "Login" && form.Name != "MainForm" && form.Name != "LoadingScreen" && form.Name != formName)
-                {
-                    form.Close();
-                }
-            }
-        }
-
         public bool CheckIfFormIsAlreadyOpened(string formName)
         {
             bool isOpened= false;
@@ -63,26 +52,19 @@ namespace FactoryManager.AppService.FormInitialization
             return isOpened;
         }
 
-        public void OpenDockingForm(Form parentForm)
+        public void CloseAllOpenForms(string formName)
         {
-            if (MainForm.FormList.SelectedItem is AppForm appForm)
+            Form[] forms = Application.OpenForms.Cast<Form>().ToArray();
+            foreach (Form form in forms)
             {
-                Type objectType = Type.GetType(appForm.Id);
-                if (objectType != null)
+                if (form.Name != "Login" && form.Name != "MainForm" && form.Name != "LoadingScreen" && form.Name != formName)
                 {
-                    if (Activator.CreateInstance(objectType) is Form form)
-                    {
-                        form.MdiParent = parentForm;
-                        form.Dock = DockStyle.Fill;
-                        MainForm.DockingPanel.Controls.Clear();
-                        MainForm.DockingPanel.Controls.Add(form);
-                        form.Show();
-                    }
+                    form.Close();
                 }
             }
         }
 
-        public void OpenIndependentForm(Form parentForm)
+        public void OpenDockingForm()
         {
             if (MainForm.FormList.SelectedItem is AppForm appForm)
             {
@@ -91,9 +73,11 @@ namespace FactoryManager.AppService.FormInitialization
                 {
                     if (Activator.CreateInstance(objectType) is Form form)
                     {
+                        form.TopLevel = false;
+                        form.Dock = DockStyle.Fill;
                         MainForm.DockingPanel.Controls.Clear();
+                        MainForm.DockingPanel.Controls.Add(form);
                         form.Show();
-                        parentForm.Hide();
                     }
                 }
             }

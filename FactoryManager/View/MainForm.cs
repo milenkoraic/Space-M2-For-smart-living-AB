@@ -2,9 +2,9 @@
 using FactoryManager.AppService.ApplicationLogger;
 using FactoryManager.AppService.ConfigurationReader;
 using FactoryManager.AppService.DateTimeCounting;
-using FactoryManager.AppService.FormInitialization;
 using FactoryManager.BLL;
 using FactoryManager.View.AppDialog;
+using FactoryManager.ViewService;
 using FactoryManager.ViewService.DialogProvider;
 using System;
 using System.Threading;
@@ -16,26 +16,24 @@ namespace FactoryManager.View
     {
         private readonly ILogHelper _logHelper;
         private static log4net.ILog _loggerLog;
-        private readonly IFormInitializationHelper _formInitializeHelper;
+
+        private readonly IDockingFormHelper _dockingFormHelper;
         private readonly IDialogMessageHelper _dialogMessageHelper;
         private readonly ICurrentDateTimeHelper _currentDateTimeHelper;
-        private static IConfigurationReader _configurationReader;
-        private readonly IMenuServiceHelper _menuServiceHelper;
 
         public static Form MainFormPublic;
         public static ComboBox FormList;
         public static Panel DockingPanel;
         public static Label SectionIndicator;
 
-        public MainForm(UserModel user)
+        public MainForm(UserViewModel user)
         {          
             _logHelper = (ILogHelper)Program.ServiceProvider.GetService(typeof(ILogHelper));
             _loggerLog = _logHelper.GetLogger();
-            _formInitializeHelper = (IFormInitializationHelper)Program.ServiceProvider.GetService(typeof(IFormInitializationHelper));
+
+            _dockingFormHelper = (IDockingFormHelper)Program.ServiceProvider.GetService(typeof(IDockingFormHelper));
             _dialogMessageHelper = (IDialogMessageHelper)Program.ServiceProvider.GetService(typeof(IDialogMessageHelper));
             _currentDateTimeHelper = (ICurrentDateTimeHelper)Program.ServiceProvider.GetService(typeof(ICurrentDateTimeHelper));
-            _configurationReader = (IConfigurationReader)Program.ServiceProvider.GetService(typeof(IConfigurationReader));
-            _menuServiceHelper = (IMenuServiceHelper)Program.ServiceProvider.GetService(typeof(IMenuServiceHelper));
 
             InitializeComponent();
 
@@ -50,18 +48,18 @@ namespace FactoryManager.View
 
         private void DisplayHomePage()
         {
-            //LabelIndicator.Text = "HEMSIDA";
-            //if (_formInitializeHelper.CheckIfFormIsAlreadyOpened("Home") == false)
-            //{
-            //    _formInitializeHelper.CloseAllOpenForms("Home");
-            //    cboAppForms.SelectedIndex = cboAppForms.FindStringExact("Home");
-            //    _formInitializeHelper.OpenDockingForm(this);
-            //}
+            LabelIndicator.Text = "HEMSIDA";
+            if (_dockingFormHelper.CheckIfFormIsAlreadyOpened("Home") == false)
+            {
+                _dockingFormHelper.CloseAllOpenForms("Home");
+                cboAppForms.SelectedIndex = cboAppForms.FindStringExact("Home");
+                _dockingFormHelper.OpenDockingForm();
+            }
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            _formInitializeHelper.RegisterAllForms();
+            _dockingFormHelper.RegisterAllForms();
             DisplayHomePage();
         }
 
@@ -114,50 +112,45 @@ namespace FactoryManager.View
         private void Home_Click(object sender, EventArgs e)
         {
             LabelIndicator.Text = (sender as Button).Text.ToUpper();
-            if (_formInitializeHelper.CheckIfFormIsAlreadyOpened((sender as Button).Name) == false)
+            if (_dockingFormHelper.CheckIfFormIsAlreadyOpened((sender as Button).Name) == false)
             {
-                _formInitializeHelper.CloseAllOpenForms((sender as Button).Name);
+                _dockingFormHelper.CloseAllOpenForms((sender as Button).Name);
                 cboAppForms.SelectedIndex = cboAppForms.FindStringExact((sender as Button).Name);
-                _formInitializeHelper.OpenDockingForm(this);
+                _dockingFormHelper.OpenDockingForm();
             }
         }
 
         private void Dashboard_Click(object sender, EventArgs e)
         {
             LabelIndicator.Text = (sender as Button).Text.ToUpper();
-            if (_formInitializeHelper.CheckIfFormIsAlreadyOpened((sender as Button).Name) == false)
+            if (_dockingFormHelper.CheckIfFormIsAlreadyOpened((sender as Button).Name) == false)
             {
-                _formInitializeHelper.CloseAllOpenForms((sender as Button).Name);
+                _dockingFormHelper.CloseAllOpenForms((sender as Button).Name);
                 cboAppForms.SelectedIndex = cboAppForms.FindStringExact((sender as Button).Name);
-                _formInitializeHelper.OpenDockingForm(this);
+                _dockingFormHelper.OpenDockingForm();
             }
-        }
-
-        private void Production_Click(object sender, EventArgs e)
-        {
-            _menuServiceHelper.ShowSubmenu(ProductionPanel);
         }
 
 
         private void Project_Click(object sender, EventArgs e)
         {
             LabelIndicator.Text = (sender as Button).Text.ToUpper();
-            if (_formInitializeHelper.CheckIfFormIsAlreadyOpened((sender as Button).Name) == false)
+            if (_dockingFormHelper.CheckIfFormIsAlreadyOpened((sender as Button).Name) == false)
             {
-                _formInitializeHelper.CloseAllOpenForms((sender as Button).Name);
+                _dockingFormHelper.CloseAllOpenForms((sender as Button).Name);
                 cboAppForms.SelectedIndex = cboAppForms.FindStringExact((sender as Button).Name);
-                _formInitializeHelper.OpenDockingForm(this);
+                _dockingFormHelper.OpenDockingForm();
             }
         }
 
         private void TabelSelection_Click(object sender, EventArgs e)
         {
             LabelIndicator.Text = (sender as Button).Text.ToUpper();
-            if (_formInitializeHelper.CheckIfFormIsAlreadyOpened((sender as Button).Name) == false)
+            if (_dockingFormHelper.CheckIfFormIsAlreadyOpened((sender as Button).Name) == false)
             {
-                _formInitializeHelper.CloseAllOpenForms((sender as Button).Name);
+                _dockingFormHelper.CloseAllOpenForms((sender as Button).Name);
                 cboAppForms.SelectedIndex = cboAppForms.FindStringExact((sender as Button).Name);
-                _formInitializeHelper.OpenDockingForm(this);
+                _dockingFormHelper.OpenDockingForm();
             }
         }
     }

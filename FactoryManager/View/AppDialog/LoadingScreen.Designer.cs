@@ -1,4 +1,6 @@
-﻿namespace FactoryManager.View.AppDialog
+﻿using System.Drawing;
+
+namespace FactoryManager.View.AppDialog
 {
     partial class LoadingScreen
     {
@@ -33,19 +35,18 @@
             this.FormDisplayTimer = new System.Windows.Forms.Timer(this.components);
             this.GridPanel = new System.Windows.Forms.Panel();
             this.CenterPanel = new System.Windows.Forms.Panel();
+            this.LogoSpinner = new System.Windows.Forms.PictureBox();
             this.lmPanel = new System.Windows.Forms.Panel();
             this.rmPanel = new System.Windows.Forms.Panel();
             this.BottomPanel = new System.Windows.Forms.Panel();
             this.progressPanel1 = new DevExpress.XtraWaitForm.ProgressPanel();
             this.TopPanel = new System.Windows.Forms.Panel();
-            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.LogoSpinner = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.GridPanel.SuspendLayout();
             this.CenterPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoSpinner)).BeginInit();
             this.BottomPanel.SuspendLayout();
             this.TopPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LogoSpinner)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,15 +57,15 @@
             // 
             // GridPanel
             // 
-            this.GridPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.GridPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(50)))), ((int)(((byte)(49)))));
             this.GridPanel.Controls.Add(this.CenterPanel);
             this.GridPanel.Controls.Add(this.BottomPanel);
             this.GridPanel.Controls.Add(this.TopPanel);
-            this.GridPanel.Location = new System.Drawing.Point(317, 99);
+            this.GridPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GridPanel.Location = new System.Drawing.Point(0, 0);
             this.GridPanel.Name = "GridPanel";
             this.GridPanel.Padding = new System.Windows.Forms.Padding(10, 25, 10, 10);
-            this.GridPanel.Size = new System.Drawing.Size(500, 450);
+            this.GridPanel.Size = new System.Drawing.Size(499, 481);
             this.GridPanel.TabIndex = 104;
             // 
             // CenterPanel
@@ -76,8 +77,18 @@
             this.CenterPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CenterPanel.Location = new System.Drawing.Point(10, 118);
             this.CenterPanel.Name = "CenterPanel";
-            this.CenterPanel.Size = new System.Drawing.Size(480, 229);
+            this.CenterPanel.Size = new System.Drawing.Size(479, 260);
             this.CenterPanel.TabIndex = 106;
+            // 
+            // LogoSpinner
+            // 
+            this.LogoSpinner.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LogoSpinner.Image = global::FactoryManager.Properties.Resources.Double_Ring_1_1s_150px;
+            this.LogoSpinner.Location = new System.Drawing.Point(164, 55);
+            this.LogoSpinner.Name = "LogoSpinner";
+            this.LogoSpinner.Size = new System.Drawing.Size(150, 150);
+            this.LogoSpinner.TabIndex = 111;
+            this.LogoSpinner.TabStop = false;
             // 
             // lmPanel
             // 
@@ -85,25 +96,25 @@
             this.lmPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.lmPanel.Location = new System.Drawing.Point(0, 0);
             this.lmPanel.Name = "lmPanel";
-            this.lmPanel.Size = new System.Drawing.Size(112, 229);
+            this.lmPanel.Size = new System.Drawing.Size(112, 260);
             this.lmPanel.TabIndex = 110;
             // 
             // rmPanel
             // 
             this.rmPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(50)))), ((int)(((byte)(49)))));
             this.rmPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.rmPanel.Location = new System.Drawing.Point(368, 0);
+            this.rmPanel.Location = new System.Drawing.Point(367, 0);
             this.rmPanel.Name = "rmPanel";
-            this.rmPanel.Size = new System.Drawing.Size(112, 229);
+            this.rmPanel.Size = new System.Drawing.Size(112, 260);
             this.rmPanel.TabIndex = 109;
             // 
             // BottomPanel
             // 
             this.BottomPanel.Controls.Add(this.progressPanel1);
             this.BottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.BottomPanel.Location = new System.Drawing.Point(10, 347);
+            this.BottomPanel.Location = new System.Drawing.Point(10, 378);
             this.BottomPanel.Name = "BottomPanel";
-            this.BottomPanel.Size = new System.Drawing.Size(480, 93);
+            this.BottomPanel.Size = new System.Drawing.Size(479, 93);
             this.BottomPanel.TabIndex = 105;
             // 
             // progressPanel1
@@ -132,7 +143,7 @@
             this.progressPanel1.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.progressPanel1.Name = "progressPanel1";
             this.progressPanel1.RingAnimationDiameter = 10;
-            this.progressPanel1.Size = new System.Drawing.Size(480, 93);
+            this.progressPanel1.Size = new System.Drawing.Size(479, 93);
             this.progressPanel1.TabIndex = 112;
             this.progressPanel1.WaitAnimationType = DevExpress.Utils.Animation.WaitingAnimatorType.Line;
             // 
@@ -142,23 +153,8 @@
             this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopPanel.Location = new System.Drawing.Point(10, 25);
             this.TopPanel.Name = "TopPanel";
-            this.TopPanel.Size = new System.Drawing.Size(480, 93);
+            this.TopPanel.Size = new System.Drawing.Size(479, 93);
             this.TopPanel.TabIndex = 103;
-            // 
-            // bunifuElipse1
-            // 
-            this.bunifuElipse1.ElipseRadius = 5;
-            this.bunifuElipse1.TargetControl = this;
-            // 
-            // LogoSpinner
-            // 
-            this.LogoSpinner.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.LogoSpinner.Image = global::FactoryManager.Properties.Resources.Double_Ring_1_1s_150px;
-            this.LogoSpinner.Location = new System.Drawing.Point(165, 39);
-            this.LogoSpinner.Name = "LogoSpinner";
-            this.LogoSpinner.Size = new System.Drawing.Size(150, 150);
-            this.LogoSpinner.TabIndex = 111;
-            this.LogoSpinner.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -168,7 +164,7 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(480, 93);
+            this.pictureBox1.Size = new System.Drawing.Size(479, 93);
             this.pictureBox1.TabIndex = 109;
             this.pictureBox1.TabStop = false;
             // 
@@ -179,22 +175,21 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(170)))), ((int)(((byte)(72)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1150, 680);
+            this.ClientSize = new System.Drawing.Size(499, 481);
             this.Controls.Add(this.GridPanel);
             this.DoubleBuffered = true;
-            this.ForeColor = System.Drawing.Color.White;
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.InactiveGlowColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(170)))), ((int)(((byte)(72)))));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "LoadingScreen";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.GridPanel.ResumeLayout(false);
             this.CenterPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.LogoSpinner)).EndInit();
             this.BottomPanel.ResumeLayout(false);
             this.TopPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.LogoSpinner)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -210,7 +205,6 @@
         private System.Windows.Forms.Panel BottomPanel;
         private System.Windows.Forms.Panel TopPanel;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private DevExpress.XtraWaitForm.ProgressPanel progressPanel1;
     }
 }
