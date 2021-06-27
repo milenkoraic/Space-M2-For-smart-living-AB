@@ -8,21 +8,21 @@ namespace FactoryManager.AppService.CommandPrompt
     public class CommandPromptHelper : ICommandPromptHelper
     {
         public static int ProcessId;
-        public static bool IsProcessAlreadyRunning;
-        
-        public void CheckIfProcessIsAlreadyRunning(string processName)
+
+        public bool CheckIfProcessIsAlreadyRunning(string processName)
         {
+            bool IsProcessRunning;
 
             if (Process.GetProcessesByName(processName).Length > 0)
             {
-                IsProcessAlreadyRunning = true;
-                KillProcess(processName);
+                IsProcessRunning = true;
             }
             else
             {
-                IsProcessAlreadyRunning = false;
+                IsProcessRunning = false;
             }
 
+            return IsProcessRunning;
         }
 
         public void KillProcess(string processName)

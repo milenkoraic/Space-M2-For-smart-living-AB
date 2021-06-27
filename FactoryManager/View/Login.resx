@@ -120,25 +120,18 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="ButtonLogIn.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAHgAAABBCAYAAAAaEWC3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAK9SURBVHhe7dzPaxNBGMZx/5yku26yqVbBSCutpHoQehAE
-        D94EDwUPggfBgyB48CAepBQVbbUU/8npPLOzP5J9Db1l5+E5fCiknT3025ndBPremP07dMJLgckpMDkF
-        JqfA5BSY3PUDX3h/vTPvl2wMfv/ogB5WpxXrA196uOip900G58T76a2J/f/AfzxcoL7Yl4Wbvttzk9f3
-        3c0Xd2VDiuN56FB+OliOjZ1tdOwHxq7FX0VcOH3/wGWPZ240GsnAjOeFm7zdbSN/99Cv07MfOMYtvy5c
-        /vyOeWEZlvzoVjhhQ2TcTjs9lwPjWI5x8ddhXUyGaTzLXPn5YRUZz029wNja8Z6rnZumbFFWgSE+eDWB
-        t1HdfwP3XGuxpKF4da8KHI/qdgfH3ZsdTM2FkoZxPg632BDZn8pVYGxn/wLOcGuRpAVvZUPg8zpwfLia
-        vNk1F0ha8H45bFh/260C/64C4/y2Fkha8qe3qx3cBI4PWChvLZC01DtYgUkpMDkFJqfA5BSYnAKTU2By
-        CkxOgckpMDkFJqfA5BSYnAKTU2ByCkxOgckpMDkFJqfA5BSYnAKTU2ByCkxOgckpMDkFJqfA5BSYXC8w
-        /o8ULxQv9e+jDPJnOys7+DwGPp6bCyQtGKKzHBizD/0L5Yd9c4GkpRnEclYHBrzgjXdyc5GkoxlzeNEN
-        /KMKrDEOaQtT7xAXU5N81zZwnLQDGqWUJpy+zUjDOJy0DQzxaTqMUyq2zIvIcGEKbYiLoaSx6XJgOH0U
-        fmj6cd9t7U3MC8mwYE5lM3UWR3Nn4mw/MI7qzgBwza0ctuzJdnssn/jNiZlnnZ79wLAyMxpHNt4j4xMS
-        3MTxVTYDv39sOnwohVO2bmTNigY7cG116rsMD3YtBtlZ/bz1gWv+2A4fZ8qw4HZq9eq4XmBJlgKTU2By
-        CkxOgakduitqKXTBA+40lwAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAAF8AAAA3CAYAAABq65bCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHFSURBVHhe7du/S8NAGMZx/5zGpGmvFX9gRaRK6iK4FRzc
+        3AQHZwdBcHAQBZEiYkVF/CfP980l1jTnYk6f5Rk+FEpu+d6116HvQu9jZAmD8YEYH4jxgRgfiPGBfo7/
+        Jp7FEzWiDV+Fp3E9vj58R3+hr5vxrXU1/qMoHjSX27Zzumnbh6vUQOdkw3YvhrNNmIha/PLEX2c22V+y
+        rVaLAoozY83Vjmush7wSv9iZeK/vXUzNLa61rbnNXGu5U118vVzlDXM+9C6icPRrKI8v3zQu/tTFT48H
+        3gUUTnKw4uLL5evi6y0sb+gF4VtA4WhjxgdhfCDGB2J8IMYHYnwgxgdifCDGB2J8IMYHYnwgxgdifCDG
+        B2J8IMYHYnwgxgdifCDGB2J8IMYHYnwgxgdifCDGB2J8IMYHqsU3Rfz0aN27gMKp/0X8xcXvnm15F1A4
+        esDz+NMy/ruLb24yGw1S7yJqLkqi2VyWHHgXXxWTiDo5F/Vi72L6PQ3/NRI02Z0biNPTf+82QCcS9eOh
+        lwM1k4yX81cdrc3bKp2Bq8QvN+BBlA9RWDqDW4Svxy/pA/oLiMLRHzVznf3x6V8wPhDjAzE+EOPDjOwn
+        uhlk0xUJ664AAAAASUVORK5CYII=
 </value>
   </data>
-  <metadata name="FormFadeTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>194, 17</value>
-  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>83</value>
   </metadata>

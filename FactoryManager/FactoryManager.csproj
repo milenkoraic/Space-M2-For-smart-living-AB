@@ -27,6 +27,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -55,6 +56,7 @@
     <StartupObject>FactoryManager.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Accessibility" />
     <Reference Include="Autofac, Version=6.2.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>packages\Autofac.6.2.0\lib\netstandard2.0\Autofac.dll</HintPath>
     </Reference>
@@ -152,11 +154,19 @@
     <Reference Include="Microsoft.Extensions.Primitives, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Extensions.Primitives.5.0.0\lib\net461\Microsoft.Extensions.Primitives.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Access, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Office.Interop.Access.15.0.4420.1017\lib\net20\Microsoft.Office.Interop.Access.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Access.Dao, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Office.Interop.Access.Dao.15.0.4420.1017\lib\net20\Microsoft.Office.Interop.Access.Dao.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Npgsql, Version=5.0.4.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
-      <HintPath>packages\Npgsql.5.0.4\lib\netstandard2.0\Npgsql.dll</HintPath>
+    <Reference Include="office, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -227,173 +237,150 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Westwind.Utilities, Version=3.0.57.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Westwind.Utilities.3.0.57\lib\net46\Westwind.Utilities.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLL\BankAccount\BankAccountModel.cs" />
-    <Compile Include="BLL\BankAccount\BankAccountPurposeModel.cs" />
-    <Compile Include="BLL\Activity\ActivityModel.cs" />
-    <Compile Include="BLL\Apartment\ApartmentModel.cs" />
-    <Compile Include="BLL\Apartment\ApartmentQuantityModel.cs" />
-    <Compile Include="BLL\Apartment\ApartmentNameModel.cs" />
-    <Compile Include="BLL\Building\BuildingModel.cs" />
-    <Compile Include="BLL\Component\ComponentModel.cs" />
-    <Compile Include="BLL\Component\ComponentTypeModel.cs" />
-    <Compile Include="BLL\Construction\ConstructionModel.cs" />
-    <Compile Include="BLL\Employee\EmployeeModel.cs" />
-    <Compile Include="BLL\Employee\EmployeeTitleModel.cs" />
-    <Compile Include="BLL\Improvemrnt\ImprovementModel.cs" />
-    <Compile Include="BLL\Improvemrnt\ImprovementStatusTypeModel.cs" />
-    <Compile Include="BLL\Module\ModuleModel.cs" />
-    <Compile Include="BLL\Module\ModuleAssembling.cs" />
-    <Compile Include="BLL\Quantity\QuantityModel.cs" />
-    <Compile Include="BLL\Quantity\QuantityService.cs" />
-    <Compile Include="BLL\Quantity\QuantityUnitModel.cs" />
-    <Compile Include="BLL\TechnicalDrawing\TechnicalDrawingModel.cs" />
-    <Compile Include="BLL\Module\ModuleTypeModel.cs" />
-    <Compile Include="BLL\Order\OrderModel.cs" />
-    <Compile Include="BLL\Order\OrderStatusType.cs" />
-    <Compile Include="BLL\Project\ProjectModel.cs" />
-    <Compile Include="BLL\Supplier\SupplierModel.cs" />
-    <Compile Include="BLL\Supplier\SupplierAddress.cs" />
-    <Compile Include="BLL\Supplier\SupplierTypeModel.cs" />
-    <Compile Include="BLL\User\UserModel.cs" />
-    <Compile Include="BLL\User\UserRoleModel.cs" />
-    <Compile Include="BLL\Autoincrement\AutoincrementService.cs" />
-    <Compile Include="BLL\Project\ProjectService.cs" />
+    <Compile Include="Controller\GridControl\GridForm\GridFormManager.cs" />
+    <Compile Include="Controller\GridControl\GridForm\IGridFormManager.cs" />
+    <Compile Include="Controller\GridControl\GridForm\IProjectForm.cs" />
+    <Compile Include="Controller\GridControl\FormValidation\FieldValidationHelper.cs" />
+    <Compile Include="Controller\GridControl\FormValidation\IFieldValidationHelper.cs" />
+    <Compile Include="Controller\GridControl\Selection\GridSelectionHelper.cs" />
+    <Compile Include="Controller\GridControl\Selection\IGridSelectionHelper.cs" />
+    <Compile Include="Controller\GridControl\View\GridViewManager.cs" />
+    <Compile Include="Controller\GridControl\View\IGridViewManager.cs" />
+    <Compile Include="Controller\Dialog\MessageBox\DialogMessageHelper.cs" />
+    <Compile Include="Controller\Dialog\MessageBox\IDialogMessageHelper.cs" />
+    <Compile Include="Controller\Report\AccessReport\AccessReportHelper.cs" />
+    <Compile Include="Controller\Report\AccessReport\IAccessReportHelper.cs" />
+    <Compile Include="Controller\Report\Selection\IReportSelectionHelper.cs" />
+    <Compile Include="Controller\Report\Selection\ReportSelectionHelper.cs" />
+    <Compile Include="AppService\ViewInitialization\AssemblyReader.cs" />
+    <Compile Include="AppService\ViewInitialization\Docking\DockingFormHelper.cs" />
+    <Compile Include="AppService\ViewInitialization\Docking\IDockingFormHelper.cs" />
+    <Compile Include="AppService\ViewInitialization\IAssemblyReader.cs" />
+    <Compile Include="View\MainView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MainView.Designer.cs">
+      <DependentUpon>MainView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="BLL\Autoincrement\AutoincrementModel.cs" />
-    <Compile Include="BLL\BankAccount\BankAccountService.cs" />
-    <Compile Include="BLL\User\UserService.cs" />
-    <Compile Include="AppData\ConnectionService.cs" />
     <Compile Include="AppForm.cs" />
     <Compile Include="AppService\ConfigurationReader\ConfigurationReader.cs" />
     <Compile Include="AppService\ConfigurationReader\IConfigurationReader.cs" />
     <Compile Include="AppService\ApplicationLogger\ILogHelper.cs" />
     <Compile Include="AppService\CommandPrompt\CommandPromptHelper.cs" />
     <Compile Include="AppService\CommandPrompt\ICommandPromptHelper.cs" />
-    <Compile Include="AppService\SystemInspection\IOperatingSystemHelper.cs" />
-    <Compile Include="SpaceM2DataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SpaceM2DataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModel\Login\UserViewModel.cs" />
-    <Compile Include="ViewModel\MainForm\MainFormViewModel.cs" />
+    <Compile Include="Model\MainForm\DateTimeViewModel.cs" />
     <Compile Include="AppService\DateTimeCounting\ICurrentDateTimeHelper.cs" />
-    <Compile Include="ViewModel\ModelState.cs" />
-    <Compile Include="ViewService\DialogProvider\IDialogMessageHelper.cs" />
-    <Compile Include="ViewService\FormInitialization\DockingFormHelper.cs" />
+    <Compile Include="Model\GridControl\GridForm\ModelState.cs" />
     <Compile Include="AppService\DateTimeCounting\CurrentDateTimeHelper.cs" />
-    <Compile Include="ViewService\FormInitialization\IDockingFormHelper.cs" />
     <Compile Include="AppService\ApplicationLogger\LogHelper.cs" />
-    <Compile Include="AppService\SystemInspection\OperatingSystemHelper.cs" />
-    <Compile Include="ViewService\DialogProvider\DialogMessageHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Dialog\ServiceStopDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Dialog\ServiceStopDialog.Designer.cs">
+      <DependentUpon>ServiceStopDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Settings\Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Settings\Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\AppDialog\MessageDialog.resx">
-      <DependentUpon>MessageDialog.cs</DependentUpon>
+    <EmbeddedResource Include="View\Dialog\ServiceStopDialog.resx">
+      <DependentUpon>ServiceStopDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\AppDialog\NotificationDialog.resx">
-      <DependentUpon>NotificationDialog.cs</DependentUpon>
+    <EmbeddedResource Include="View\GridControl\GridView.resx">
+      <DependentUpon>GridView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\AppDialog\LoadingScreen.resx">
+    <EmbeddedResource Include="View\MainView.resx">
+      <DependentUpon>MainView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Report\ReportForm\ReportForm13.resx">
+      <DependentUpon>ReportForm13.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Report\ReportForm\ReportForm1.resx">
+      <DependentUpon>ReportForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Report\ReportForm\ReportForm0.resx">
+      <DependentUpon>ReportForm0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Report\ReportForm\ReportForm12.resx">
+      <DependentUpon>ReportForm12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Report\ReportForm\ReportForm10.resx">
+      <DependentUpon>ReportForm10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Report\ReportForm\ReportForm9.resx">
+      <DependentUpon>ReportForm9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Report\ReportForm\ReportForm8.resx">
+      <DependentUpon>ReportForm8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Report\ReportForm\ReportForm7.resx">
+      <DependentUpon>ReportForm7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Report\ReportForm\ReportForm6.resx">
+      <DependentUpon>ReportForm6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Report\ReportForm\ReportForm5.resx">
+      <DependentUpon>ReportForm5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Report\ReportForm\ReportForm4.resx">
+      <DependentUpon>ReportForm4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Report\ReportForm\ReportForm3.resx">
+      <DependentUpon>ReportForm3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Report\ReportForm\ReportForm2.resx">
+      <DependentUpon>ReportForm2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Report\ReportForm\ReportForm11.resx">
+      <DependentUpon>ReportForm11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Report\ReportSelection.resx">
+      <DependentUpon>ReportSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Dialog\OptionBox.resx">
+      <DependentUpon>OptionBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Dialog\NotificationBox.resx">
+      <DependentUpon>NotificationBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Dialog\LoadingScreen.resx">
       <DependentUpon>LoadingScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\GridView\ActivityView\Activity.resx">
-      <DependentUpon>Activity.cs</DependentUpon>
+    <EmbeddedResource Include="View\GridControl\GridSelection.resx">
+      <DependentUpon>GridSelection.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\GridView\ApartmentTypeView\ApartmentType.resx">
-      <DependentUpon>ApartmentType.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\GridView\BankAccountView\BankAccount.resx">
-      <DependentUpon>BankAccount.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\GridView\ComponentView\Component.resx">
-      <DependentUpon>Component.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\GridView\ConstructionView\Construction.resx">
-      <DependentUpon>Construction.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\GridView\EmployeeView\Employee.resx">
-      <DependentUpon>Employee.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\GridView\ImprovementView\Improvement.resx">
-      <DependentUpon>Improvement.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\GridView\ModuleTypeView\ModuleType.resx">
-      <DependentUpon>ModuleType.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\GridView\ModuleTypeWallView\ModuleTypeWall.resx">
-      <DependentUpon>ModuleTypeWall.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\GridView\ModuleView\Module.resx">
-      <DependentUpon>Module.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\GridView\OrderView\Order.resx">
-      <DependentUpon>Order.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\GridView\PriceListView\PriceList.resx">
-      <DependentUpon>PriceList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\GridView\QuantityView\Quantity.resx">
-      <DependentUpon>Quantity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\GridView\SelfControlView\SelfControl.resx">
-      <DependentUpon>SelfControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\GridView\StationView\Station.resx">
-      <DependentUpon>Station.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\GridView\SupplierAddressView\SupplierAddress.resx">
-      <DependentUpon>SupplierAddress.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\GridView\SupplierView\Supplier.resx">
-      <DependentUpon>Supplier.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\GridView\UserRoleView\UserRole.resx">
-      <DependentUpon>UserRole.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\GridView\UserView\User.resx">
-      <DependentUpon>User.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\GridView\Selection.resx">
-      <DependentUpon>Selection.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Dashboard.resx">
+    <EmbeddedResource Include="View\Dashboard\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\GridView\ProjectView\ProjectForm.resx">
+    <EmbeddedResource Include="View\GridControl\GridForm\ProjectForm.resx">
       <DependentUpon>ProjectForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\GridView\ProjectView\Project.resx">
-      <DependentUpon>Project.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\GridView\WallsView\Wall.resx">
-      <DependentUpon>Wall.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Home.resx">
+    <EmbeddedResource Include="View\Home\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="AppData\Documents\Projekt, Produktion, Bemanning och Planering.xlsm" />
+    <EmbeddedResource Include="View\Settings\Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="log4net.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -407,186 +394,143 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="View\AppDialog\MessageDialog.cs">
+    <Compile Include="View\GridControl\GridView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\AppDialog\MessageDialog.Designer.cs">
-      <DependentUpon>MessageDialog.cs</DependentUpon>
+    <Compile Include="View\GridControl\GridView.Designer.cs">
+      <DependentUpon>GridView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\AppDialog\NotificationDialog.cs">
+    <Compile Include="View\Report\ReportForm\ReportForm13.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\AppDialog\NotificationDialog.Designer.cs">
-      <DependentUpon>NotificationDialog.cs</DependentUpon>
+    <Compile Include="View\Report\ReportForm\ReportForm13.Designer.cs">
+      <DependentUpon>ReportForm13.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\AppDialog\LoadingScreen.cs">
+    <Compile Include="View\Report\ReportForm\ReportForm1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\AppDialog\LoadingScreen.Designer.cs">
+    <Compile Include="View\Report\ReportForm\ReportForm1.Designer.cs">
+      <DependentUpon>ReportForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Report\ReportForm\ReportForm0.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Report\ReportForm\ReportForm0.Designer.cs">
+      <DependentUpon>ReportForm0.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Report\ReportForm\ReportForm12.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Report\ReportForm\ReportForm12.Designer.cs">
+      <DependentUpon>ReportForm12.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Report\ReportForm\ReportForm10.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Report\ReportForm\ReportForm10.Designer.cs">
+      <DependentUpon>ReportForm10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Report\ReportForm\ReportForm9.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Report\ReportForm\ReportForm9.Designer.cs">
+      <DependentUpon>ReportForm9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Report\ReportForm\ReportForm8.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Report\ReportForm\ReportForm8.Designer.cs">
+      <DependentUpon>ReportForm8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Report\ReportForm\ReportForm7.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Report\ReportForm\ReportForm7.Designer.cs">
+      <DependentUpon>ReportForm7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Report\ReportForm\ReportForm6.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Report\ReportForm\ReportForm6.Designer.cs">
+      <DependentUpon>ReportForm6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Report\ReportForm\ReportForm5.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Report\ReportForm\ReportForm5.Designer.cs">
+      <DependentUpon>ReportForm5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Report\ReportForm\ReportForm4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Report\ReportForm\ReportForm4.Designer.cs">
+      <DependentUpon>ReportForm4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Report\ReportForm\ReportForm3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Report\ReportForm\ReportForm3.Designer.cs">
+      <DependentUpon>ReportForm3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Report\ReportForm\ReportForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Report\ReportForm\ReportForm2.Designer.cs">
+      <DependentUpon>ReportForm2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Report\ReportForm\ReportForm11.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Report\ReportForm\ReportForm11.Designer.cs">
+      <DependentUpon>ReportForm11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Report\ReportSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Report\ReportSelection.Designer.cs">
+      <DependentUpon>ReportSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Dialog\OptionBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Dialog\OptionBox.Designer.cs">
+      <DependentUpon>OptionBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Dialog\NotificationBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Dialog\NotificationBox.Designer.cs">
+      <DependentUpon>NotificationBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Dialog\LoadingScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Dialog\LoadingScreen.Designer.cs">
       <DependentUpon>LoadingScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewService\FormValidation\FieldValidationHelper.cs" />
-    <Compile Include="View\GridView\ActivityView\Activity.cs">
+    <Compile Include="View\GridControl\GridSelection.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\GridView\ActivityView\Activity.Designer.cs">
-      <DependentUpon>Activity.cs</DependentUpon>
+    <Compile Include="View\GridControl\GridSelection.Designer.cs">
+      <DependentUpon>GridSelection.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\GridView\ApartmentTypeView\ApartmentType.cs">
+    <Compile Include="View\Dashboard\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\GridView\ApartmentTypeView\ApartmentType.Designer.cs">
-      <DependentUpon>ApartmentType.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\GridView\BankAccountView\BankAccount.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\GridView\BankAccountView\BankAccount.Designer.cs">
-      <DependentUpon>BankAccount.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\GridView\ComponentView\Component.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\GridView\ComponentView\Component.Designer.cs">
-      <DependentUpon>Component.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\GridView\ConstructionView\Construction.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\GridView\ConstructionView\Construction.Designer.cs">
-      <DependentUpon>Construction.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\GridView\EmployeeView\Employee.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\GridView\EmployeeView\Employee.Designer.cs">
-      <DependentUpon>Employee.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\GridView\ImprovementView\Improvement.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\GridView\ImprovementView\Improvement.Designer.cs">
-      <DependentUpon>Improvement.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\GridView\ModuleTypeView\ModuleType.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\GridView\ModuleTypeView\ModuleType.Designer.cs">
-      <DependentUpon>ModuleType.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\GridView\ModuleTypeWallView\ModuleTypeWall.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\GridView\ModuleTypeWallView\ModuleTypeWall.Designer.cs">
-      <DependentUpon>ModuleTypeWall.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\GridView\ModuleView\Module.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\GridView\ModuleView\Module.Designer.cs">
-      <DependentUpon>Module.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\GridView\OrderView\Order.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\GridView\OrderView\Order.Designer.cs">
-      <DependentUpon>Order.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\GridView\PriceListView\PriceList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\GridView\PriceListView\PriceList.Designer.cs">
-      <DependentUpon>PriceList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\GridView\QuantityView\Quantity.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\GridView\QuantityView\Quantity.Designer.cs">
-      <DependentUpon>Quantity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\GridView\QuantityView\QuantityForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\GridView\QuantityView\QuantityForm.Designer.cs">
-      <DependentUpon>QuantityForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\GridView\SelfControlView\SelfControl.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\GridView\SelfControlView\SelfControl.Designer.cs">
-      <DependentUpon>SelfControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\GridView\StationView\Station.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\GridView\StationView\Station.Designer.cs">
-      <DependentUpon>Station.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\GridView\SupplierAddressView\SupplierAddress.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\GridView\SupplierAddressView\SupplierAddress.Designer.cs">
-      <DependentUpon>SupplierAddress.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\GridView\SupplierView\Supplier.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\GridView\SupplierView\Supplier.Designer.cs">
-      <DependentUpon>Supplier.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\GridView\UserRoleView\UserRole.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\GridView\UserRoleView\UserRole.Designer.cs">
-      <DependentUpon>UserRole.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\GridView\UserView\User.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\GridView\UserView\User.Designer.cs">
-      <DependentUpon>User.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\GridView\Selection.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\GridView\Selection.Designer.cs">
-      <DependentUpon>Selection.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Dashboard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Dashboard.Designer.cs">
+    <Compile Include="View\Dashboard\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\GridView\ProjectView\ProjectForm.cs">
+    <Compile Include="View\GridControl\GridForm\ProjectForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\GridView\ProjectView\ProjectForm.Designer.cs">
+    <Compile Include="View\GridControl\GridForm\ProjectForm.Designer.cs">
       <DependentUpon>ProjectForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\GridView\ProjectView\Project.cs">
+    <Compile Include="View\Home\Home.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\GridView\ProjectView\Project.Designer.cs">
-      <DependentUpon>Project.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\GridView\WallsView\Wall.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\GridView\WallsView\Wall.Designer.cs">
-      <DependentUpon>Wall.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Home.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Home.Designer.cs">
+    <Compile Include="View\Home\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Login.cs">
       <SubType>Form</SubType>
@@ -594,17 +538,6 @@
     <Compile Include="View\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <None Include="SpaceM2DataSet.xsc">
-      <DependentUpon>SpaceM2DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="SpaceM2DataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>SpaceM2DataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="SpaceM2DataSet.xss">
-      <DependentUpon>SpaceM2DataSet.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -622,14 +555,14 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AppData\Documents\Rapportportal.accdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="AppData\SpaceM2.accdb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="AppLogo.ico" />
     <Content Include="app_icon.ico" />
+    <None Include="Resources\microsoft-excel-2019--v11.png" />
+    <None Include="Resources\Microsoft_Access-Logo.wine.png" />
+    <None Include="Resources\microsoft-excel-2019--v1.png" />
+    <None Include="Resources\Microsoft_Office_Access_%282019-present%29.svg.png" />
+    <None Include="Resources\logo1.png" />
+    <None Include="Resources\logo.png" />
     <None Include="Resources\productionline.jpg" />
     <None Include="Resources\Men-Work.png" />
     <None Include="Resources\Vaccation.png" />
@@ -657,6 +590,12 @@
     <Folder Include="Properties\DataSources\" />
     <Folder Include="Resources\img\interface\control\button\" />
     <Folder Include="Resources\img\interface\control\picturebox\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SpaceM2.Core\SpaceM2.Core.csproj">
+      <Project>{c4077d70-380c-4bca-9985-8ee5536c03ed}</Project>
+      <Name>SpaceM2.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

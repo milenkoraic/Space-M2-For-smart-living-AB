@@ -93,6 +93,16 @@ namespace FactoryManager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap app_icon {
+            get {
+                object obj = ResourceManager.GetObject("app_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BackOffice {
             get {
                 object obj = ResourceManager.GetObject("BackOffice", resourceCulture);
@@ -163,9 +173,69 @@ namespace FactoryManager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logo {
+            get {
+                object obj = ResourceManager.GetObject("logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logo1 {
+            get {
+                object obj = ResourceManager.GetObject("logo1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Men_Work {
             get {
                 object obj = ResourceManager.GetObject("Men-Work", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Microsoft_Access_Logo_wine {
+            get {
+                object obj = ResourceManager.GetObject("Microsoft_Access-Logo.wine", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap microsoft_excel_2019__v1 {
+            get {
+                object obj = ResourceManager.GetObject("microsoft-excel-2019--v1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap microsoft_excel_2019__v11 {
+            get {
+                object obj = ResourceManager.GetObject("microsoft-excel-2019--v11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Microsoft_Office_Access__2019_present__svg {
+            get {
+                object obj = ResourceManager.GetObject("Microsoft_Office_Access_(2019-present).svg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

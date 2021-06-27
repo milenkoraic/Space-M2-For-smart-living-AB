@@ -1,4 +1,4 @@
-﻿using FactoryManager.ViewModels.MainForm;
+﻿using FactoryManager.Model.MainForm;
 
 namespace FactoryManager.AppService.DateTimeCounting
 {
@@ -9,6 +9,6 @@ namespace FactoryManager.AppService.DateTimeCounting
         string GetCurrentDay();
         string GetCurrentTime();
         string GetCurrentWeek();
-        MainFormViewModel GetAllDateTimeValues();
+        DateTimeViewModel GetAllDateTimeValues();
     }
 }

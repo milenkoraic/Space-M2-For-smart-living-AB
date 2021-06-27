@@ -3,36 +3,102 @@ using System.Windows.Forms;
 using FactoryManager.AppService.DateTimeCounting;
 using FactoryManager.AppService.ApplicationLogger;
 using FactoryManager.AppService.ConfigurationReader;
-using FactoryManager.View.AppDialog;
-using FactoryManager.BLL;
 using System.Threading;
 using DevExpress.XtraSplashScreen;
-using FactoryManager.ViewService.DialogProvider;
+using FactoryManager.Controller.Dialog.MessageBox;
+using FactoryManager.AppService.CommandPrompt;
+using FactoryManager.View.Dialog;
+using FactoryManager.AppService.ViewInitialization;
+using FactoryManager.AppService.ViewInitialization.Docking;
+using SpaceM2.Core.BLL.Model;
+using SpaceM2.Core.BLL.Service;
 
 namespace FactoryManager.View
 {
     public partial class Login : DevExpress.XtraEditors.XtraForm
     {
-        private readonly ILogHelper _logHelper;
-        private static log4net.ILog _loggerLog;   
-        private static IConfigurationReader _configurationReader;
-        private readonly ICurrentDateTimeHelper _currentDateTimeHelper;
-        private readonly IDialogMessageHelper _dialogMessageHelper;
+        private readonly ILogHelper logHelper;
+        private log4net.ILog loggerLog;
 
-        public Login()
+        private readonly IAssemblyReader assemblyReader;
+        private readonly IDockingFormHelper dockingFormHelper;
+        private readonly IConfigurationReader configurationReader;
+        private readonly ICurrentDateTimeHelper currentDateTimeHelper;
+        private readonly IDialogMessageHelper dialogMessageHelper;
+        private readonly ICommandPromptHelper commandPromptHelper;
+
+        private readonly IUserRepository userRepository;
+
+        public Login(
+            ILogHelper _logHelper,
+            IAssemblyReader _assemblyReader,
+            IDockingFormHelper _dockingFormHelper,
+            IConfigurationReader _configurationReader, 
+            ICurrentDateTimeHelper _currentDateTimeHelper, 
+            IDialogMessageHelper _dialogMessageHelper, 
+            ICommandPromptHelper _commandPromptHelper,
+            IUserRepository _userRepository
+            )
         {
-            _logHelper = (ILogHelper)Program.ServiceProvider.GetService(typeof(ILogHelper));
-            _loggerLog = _logHelper.GetLogger();
-            _configurationReader = (IConfigurationReader)Program.ServiceProvider.GetService(typeof(IConfigurationReader));
-            _currentDateTimeHelper = (ICurrentDateTimeHelper)Program.ServiceProvider.GetService(typeof(ICurrentDateTimeHelper));
-            _dialogMessageHelper = (IDialogMessageHelper)Program.ServiceProvider.GetService(typeof(IDialogMessageHelper));
+            this.logHelper = _logHelper;
+
+            this.assemblyReader = _assemblyReader;
+            this.dockingFormHelper = _dockingFormHelper;
+            this.configurationReader = _configurationReader;
+            this.currentDateTimeHelper = _currentDateTimeHelper;
+            this.dialogMessageHelper = _dialogMessageHelper;
+            this.commandPromptHelper = _commandPromptHelper;
+            this.userRepository = _userRepository;
+
             InitializeComponent();
+        }
+
+        private void Minimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void Maximize_Click(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Maximized)
+            {
+                WindowState = FormWindowState.Normal;
+                Maximize.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize;
+            }
+            else
+            {
+                WindowState = FormWindowState.Maximized;
+                Maximize.IconChar = FontAwesome.Sharp.IconChar.Compress;
+            }
+        }
+
+        private void ButtoneExit_Click(object sender, EventArgs e)
+        {
+            dialogMessageHelper.AskToCloseApplication();
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            AppVersionLabel.Text = _configurationReader.GetAppName() + " v " + _configurationReader.GetAppVersion();
-            CopyrightLabel.Text = _configurationReader.GetAppCopyright() + _currentDateTimeHelper.GetCopyrightYear();
+            loggerLog = logHelper.GetLogger();
+            bool isAccessRunning = commandPromptHelper.CheckIfProcessIsAlreadyRunning("MSACCESS");
+            bool isExcelRunning = commandPromptHelper.CheckIfProcessIsAlreadyRunning("EXCEL");
+            if (isAccessRunning || isExcelRunning)
+            {
+                string result = ServiceStopDialog.ShowBox(
+                "Kära kunder, 'Factory Manager' använder Microsoft Office-automatisering för att utföra sina operationer. \n\n" +
+                "Programmet upptäckte att en förekomst av Microsoft Access eller Microsoft Excel redan kördes på datorn. " +
+                "Innan du startar Factory Manager, spara ditt arbete och stäng Microsoft Office-applikationer. " +
+                "Om du vill du kan döda den instansen genom att trycka på knappen 'Tvinga appen att avsluta' och Factory Manager kommer att starta.",
+                "MEDDELANDE OM MICROSOFT OFFICE AUTOMATION");
+                if (result == "1")
+                    Application.Exit();
+                else
+                    commandPromptHelper.Execute(1, "taskkill /F /IM msaccess.exe");
+                    commandPromptHelper.Execute(1, "taskkill /F /IM excel.exe");
+                NotificationBox.ShowBox("Grattis. Microsoft Office-applikationer har stoppats från listan över program som körs.", "MICROSOFT ACCESS STÄNGD");
+            }
+            AppVersionLabel.Text = configurationReader.GetAppName() + " v " + configurationReader.GetAppVersion();
+            CopyrightLabel.Text = configurationReader.GetAppCopyright() + currentDateTimeHelper.GetCopyrightYear();
         }
 
         private void PerformLoginAction()
@@ -49,37 +115,38 @@ namespace FactoryManager.View
                 }
                 SplashScreenManager.CloseForm(false);
 
-                var isUserValid = UserService.ValidateUser(LoginTextBox.Text);
+                var isUserValid = userRepository.ValidateUser(LoginTextBox.Text);
+
                 if (isUserValid == true)
                 {
-                    UserViewModel user = UserService.GetLogedInUser(LoginTextBox.Text);
-                    MainForm mainForm = new MainForm(user)
+                    UserModel user = userRepository.GetLogedInUser(LoginTextBox.Text);
+                    MainView app = new MainView(logHelper, assemblyReader, dockingFormHelper, dialogMessageHelper, currentDateTimeHelper, user)
                     {
                         TopLevel = true,
                         Owner = this
                     };
                     LoginTextBox.ResetText();
-                    mainForm.Show();
+                    app.Show();
                     Hide();
-                    _loggerLog.Info("User validation succesfull!");
+                    loggerLog.Info("User validation succesfull!");
                 }
                 else
                 {
-                    NotificationDialog.ShowBox(
+                    NotificationBox.ShowBox(
                         "Ditt lösenord var felaktigt!" +
                         "\n" +
                         "Kontrollera att du har angett allt korrekt ta hand om versaler och gemener. " +
                         "\n" +
                         "Om problemet kvarstår kontaktar du systemadministratören. ",
                         "LOGIN ERROR");
-                    _loggerLog.Info("User login refused! No users with provided password!");
+                    loggerLog.Info("User login refused! No users with provided password!");
                 }
             }
 
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString());
-                _loggerLog.Error(ex.Message.ToString());
+                loggerLog.Error(ex.Message.ToString());
             }
         }
 
@@ -92,16 +159,6 @@ namespace FactoryManager.View
         {
             LoginTextBox.Text = "";
             LoginTextBox.isPassword = true;
-        }
-
-        private void Maximize_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Maximized;
-        }
-
-        private void ButtoneExit_Click(object sender, EventArgs e)
-        {
-            _dialogMessageHelper.AskToCloseApplication();
         }
 
         private void LoginTextBox_KeyPress(object sender, KeyPressEventArgs e)

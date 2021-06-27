@@ -1,12 +1,18 @@
 ﻿using System;
 using System.Globalization;
 using FactoryManager.AppService.ConfigurationReader;
-using FactoryManager.ViewModels.MainForm;
+using FactoryManager.Model.MainForm;
 
 namespace FactoryManager.AppService.DateTimeCounting
 {
     public class CurrentDateTimeHelper : ICurrentDateTimeHelper
     {
+        private readonly IConfigurationReader configurationReader;
+        public CurrentDateTimeHelper(IConfigurationReader _configurationReader)
+        {
+            this.configurationReader = _configurationReader;
+        }
+
         public string GetCurrentDate()
         {
             string currentDate = DateTime.Now.ToString("yyyy-MM-dd");
@@ -39,9 +45,9 @@ namespace FactoryManager.AppService.DateTimeCounting
             return CultureInfo.InvariantCulture.Calendar.GetWeekOfYear(time, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday).ToString();
         }
 
-        public MainFormViewModel GetAllDateTimeValues()
+        public DateTimeViewModel GetAllDateTimeValues()
         {
-            MainFormViewModel mainFormVM = new MainFormViewModel
+            DateTimeViewModel mainFormVM = new DateTimeViewModel
             {
                 CurrentDate = GetCurrentDate(),
                 CurrentTime = GetCurrentTime(),
@@ -52,12 +58,10 @@ namespace FactoryManager.AppService.DateTimeCounting
             return mainFormVM;
         }
 
-        private static IConfigurationReader _configurationReader;
+
         public string GetCopyrightYear()
         {
-            _configurationReader = (IConfigurationReader)Program.ServiceProvider.GetService(typeof(IConfigurationReader));
-
-            var copyright = _configurationReader.GetAppCopyright();
+            var copyright = configurationReader.GetAppCopyright();
             string copyrightYear = copyright.Substring(copyright.Length - 4);
 
             string currentYear = DateTime.Now.ToString("yyyy");
